@@ -5,7 +5,7 @@ resource "proxmox_lxc" "pterodactyl_panel" {
 	hostname	 		= "pterodactyl-panel"
 	vmid         		= 241
 	target_node  		= var.pve_host_node
-	ostemplate   		= "${var.image_template_prefix}${var.image_debian_13_file}"
+	ostemplate   		= "${var.image_template_prefix}${var.image_lxc_debian_13_file}"
 	tags	   			= "lxc;pterodactyl;game"
 	password            = var.user_password
 
@@ -43,7 +43,7 @@ resource "proxmox_lxc" "pterodactyl_wings" {
 	hostname	 		= "pterodactyl-wings"
 	vmid         		= 242
 	target_node  		= var.pve_host_node
-	ostemplate   		= "${var.image_template_prefix}${var.image_debian_13_file}"
+	ostemplate   		= "${var.image_template_prefix}${var.image_lxc_debian_13_file}"
 	tags	   			= "lxc;pterodactyl;docker;game"
 	password            = var.user_password
 

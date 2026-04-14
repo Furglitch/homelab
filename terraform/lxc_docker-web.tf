@@ -5,7 +5,7 @@ resource "proxmox_lxc" "docker_web" {
 	hostname	 		= "docker-web"
 	vmid         		= 222
 	target_node  		= var.pve_host_node
-	ostemplate   		= "${var.image_template_prefix}${var.image_debian_13_file}"
+	ostemplate   		= "${var.image_template_prefix}${var.image_lxc_debian_13_file}"
 	tags	   			= "lxc;docker;web"
 	password            = var.user_password
 

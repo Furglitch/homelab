@@ -1,6 +1,6 @@
 resource "proxmox_virtual_environment_vm" "truenas" {
     provider   = proxmox-bpg.bpg
-    depends_on = [proxmox_virtual_environment_download_file.iso_truenas]
+    depends_on = [proxmox_virtual_environment_download_file.image_truenas]
     
     name        = "truenas"
     vm_id       = 201
@@ -39,7 +39,7 @@ resource "proxmox_virtual_environment_vm" "truenas" {
     }
     
     cdrom {
-        file_id   = proxmox_virtual_environment_download_file.iso_truenas.id
+        file_id   = proxmox_virtual_environment_download_file.image_truenas.id
         interface = "ide2"
     }
     

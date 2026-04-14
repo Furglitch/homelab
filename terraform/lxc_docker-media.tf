@@ -8,7 +8,7 @@ resource "proxmox_lxc" "docker_media" {
 	hostname	 		= "docker-media"
 	vmid         		= 221
 	target_node  		= var.pve_host_node
-	ostemplate   		= "${var.image_template_prefix}${var.image_debian_13_file}"
+	ostemplate   		= "${var.image_template_prefix}${var.image_lxc_debian_13_file}"
 	tags	   			= "lxc;docker;media"
 	password            = var.user_password
 

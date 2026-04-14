@@ -5,7 +5,7 @@ resource "proxmox_lxc" "nginx" {
 	hostname	 		= "nginx"
 	vmid         		= 231
 	target_node  		= var.pve_host_node
-	ostemplate   		= "${var.image_template_prefix}${var.image_debian_13_file}"
+	ostemplate   		= "${var.image_template_prefix}${var.image_lxc_debian_13_file}"
 	tags	   			= "lxc;nginx;web;network;reverse-proxy"
 	password            = var.user_password
 

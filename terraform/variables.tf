@@ -169,22 +169,32 @@ variable "image_iso_prefix" {
     type        = string
     default     = "local:iso/"
 }
-variable "image_debian_13_file" {
+variable "image_vm_debian_13_file" {
+    description = "Filename of the Debian 13 ISO in Proxmox storage"
+    type        = string
+    default     = "debian-13.4.0-amd64-DVD-1.iso"
+}
+variable "image_vm_debian_13_sha256" {
+    description = "SHA256 checksum for the Debian 13 ISO file"
+    type        = string
+    default     = "e41eeaffa4fdd64fbf07fc8b0d18a1b5f15ba9743a72c222008f8fd0b6463355"
+}
+variable "image_lxc_debian_13_file" {
     description = "Filename of the Debian 13 template in Proxmox storage"
     type        = string
     default     = "debian-13-standard_13.1-2_amd64.tar.zst"
 }
-variable "image_debian_13_md5" {
+variable "image_lxc_debian_13_md5" {
     description = "MD5 checksum for the Debian 13 template file"
     type        = string
     default     = "5ee736fbc37d2068ca6695d7686b7d62"
 }
-variable "image_truenas_version" {
+variable "image_lxc_truenas_version" {
     description = "Version of the TrueNAS ISO to download (e.g., ['Goldeye', '25.10.1'])"
     type        = list(string)
     default     = ["Fangtooth", "25.04.2.6"]
 }
-variable "image_truenas_sha256" {
+variable "image_lxc_truenas_sha256" {
     description = "Expected SHA256 checksum for the TrueNAS ISO"
     type        = string
     default     = "c766aed47ec6cd872a7c9159929280245c4f5a26a0358f5522e3245f04be54cc"
