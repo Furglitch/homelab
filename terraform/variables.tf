@@ -169,16 +169,6 @@ variable "image_iso_prefix" {
     type        = string
     default     = "local:iso/"
 }
-variable "image_debian_12_file" {
-    description = "Filename of the Debian 12 template in Proxmox storage"
-    type        = string
-    default     = "debian-12-standard_12.12-1_amd64.tar.zst"
-}
-variable "image_debian_12_md5" {
-    description = "Expected MD5 checksum for the Debian 12 template"
-    type        = string
-    default     = "4e5a0a7183b6c8ca6867489820961e88"
-}
 variable "image_debian_13_file" {
     description = "Filename of the Debian 13 template in Proxmox storage"
     type        = string

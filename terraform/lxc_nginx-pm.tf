@@ -1,11 +1,11 @@
 resource "proxmox_lxc" "nginx" {
-	depends_on = [ proxmox_virtual_environment_download_file.template_debian_12 ]
+	depends_on = [ proxmox_virtual_environment_download_file.template_debian_13 ]
 	ssh_public_keys     = file(var.ssh_key_public)
 
 	hostname	 		= "nginx"
 	vmid         		= 231
 	target_node  		= var.pve_host_node
-	ostemplate   		= "${var.image_template_prefix}${var.image_debian_12_file}"
+	ostemplate   		= "${var.image_template_prefix}${var.image_debian_13_file}"
 	tags	   			= "lxc;nginx;web;network;reverse-proxy"
 	password            = var.user_password
 

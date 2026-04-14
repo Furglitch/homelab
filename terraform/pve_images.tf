@@ -1,15 +1,3 @@
-resource "proxmox_virtual_environment_download_file" "template_debian_12" {
-    provider            = proxmox-bpg.bpg
-    content_type        = "vztmpl"
-    datastore_id        = "local"
-    node_name           = var.pve_host_node
-    url                 = "http://download.proxmox.com/images/system/${var.image_debian_12_file}"
-    file_name           = var.image_debian_12_file
-    checksum            = var.image_debian_12_md5
-    checksum_algorithm  = "md5"
-    overwrite_unmanaged = true
-}
-
 resource "proxmox_virtual_environment_download_file" "template_debian_13" {
     provider            = proxmox-bpg.bpg
     content_type        = "vztmpl"
