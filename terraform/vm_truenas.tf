@@ -7,8 +7,8 @@ resource "proxmox_virtual_environment_vm" "truenas" {
     node_name   = var.pve_host_node
     tags        = ["vm", "storage", "truenas"]
     
-    started     = false
-    on_boot     = true
+    started     = var.vm_boot_start
+    on_boot     = var.vm_boot_start_onboot
     
     # bios        = "ovmf"
     machine     = "q35"

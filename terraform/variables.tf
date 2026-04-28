@@ -214,7 +214,7 @@ variable "image_homeassistant_sha256" {
 variable "vm_boot_start" {
     description = "Whether to start VMs immediately after creation"
     type        = bool
-    default     = true
+    default     = false
 }
 variable "vm_boot_start_onboot" {
     description = "Whether to set VMs to start on Proxmox host boot"
