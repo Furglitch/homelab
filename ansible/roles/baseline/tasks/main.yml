@@ -1,0 +1,28 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Install baseline packages
+  ansible.builtin.apt:
+    name: "{{ baseline_packages }}"
+    state: present
+
+- name: Set timezone
+  community.general.timezone:
+    name: "{{ baseline_timezone }}"
+  when: baseline_set_timezone | bool
+
+- name: Ensure SSH daemon is configured (LXC-safe)
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?{{ item.key }}"
+    line: "{{ item.key }} {{ item.value }}"
+    validate: /usr/sbin/sshd -T -f %s
+  loop:
+    - { key: PermitRootLogin,          value: "{{ baseline_ssh_permit_root_login }}" }
+    - { key: PasswordAuthentication,   value: "{{ baseline_ssh_password_auth }}" }
+    - { key: PubkeyAuthentication,     value: "yes" }
+  when: baseline_harden_ssh | bool
+  notify: Restart sshd

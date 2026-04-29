@@ -1,0 +1,20 @@
+---
+# Common connection and baseline package defaults for all hosts.
+# Secrets (passwords, vault passphrases) must NOT be stored here — use ansible-vault.
+
+ansible_user: root
+ansible_python_interpreter: auto_silent
+
+baseline_packages:
+  - curl
+  - wget
+  - ca-certificates
+  - gnupg
+  - lsb-release
+  - apt-transport-https
+  - unzip
+  - htop
+  - net-tools
+  - dnsutils
+
+baseline_timezone: "America/Chicago"

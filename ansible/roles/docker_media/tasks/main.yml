@@ -1,0 +1,61 @@
+---
+# Docker Engine — Debian 13 (Trixie) LXC
+# Requires nesting + keyctl + fuse enabled on the LXC (already set in Terraform).
+
+- name: Remove conflicting legacy Docker packages
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - docker-doc
+      - docker-compose
+      - podman-docker
+      - containerd
+      - runc
+    state: absent
+
+- name: Create Docker apt keyring directory
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+
+- name: Download Docker GPG key
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/debian/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: "0644"
+
+- name: Add Docker apt repository
+  ansible.builtin.apt_repository:
+    repo: >-
+      deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc]
+      https://download.docker.com/linux/debian
+      {{ ansible_distribution_release }} stable
+    filename: docker
+    state: present
+
+- name: Install Docker Engine packages
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    update_cache: true
+    state: present
+
+- name: Enable and start Docker service
+  ansible.builtin.service:
+    name: docker
+    enabled: true
+    state: started
+  # LXC nesting required; fail clearly if service cannot start.
+
+- name: Create media mount-point directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop: "{{ docker_media_mount_dirs }}"
+  when: docker_media_create_mount_dirs | bool
