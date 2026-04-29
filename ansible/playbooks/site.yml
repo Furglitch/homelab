@@ -1,0 +1,4 @@
+---
+# Umbrella orchestration — add nodes here after individual playbooks are validated.
+
+- import_playbook: docker-media.yml
