@@ -1,7 +1,7 @@
 ---
 # Set to true once TrueNAS NFS share is mounted and available.
-docker_media_create_mount_dirs: true
+docker_host_create_media_mount_dirs: true
 
 # Mirror the commented-out Terraform mount point path.
-docker_media_mount_dirs:
+docker_host_media_mount_dirs:
   - /mnt/share/truenas-media

@@ -1,7 +1,7 @@
 ---
-- name: Apply docker-media configuration
-  hosts: docker_media
+- name: Apply docker host configuration
+  hosts: docker_hosts
   become: false  # running as root already; set to true if a sudo user is configured later
   roles:
     - baseline
-    - docker_media
+    - docker

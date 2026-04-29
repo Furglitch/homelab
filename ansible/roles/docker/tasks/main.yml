@@ -57,5 +57,7 @@
     path: "{{ item }}"
     state: directory
     mode: "0755"
-  loop: "{{ docker_media_mount_dirs }}"
-  when: docker_media_create_mount_dirs | bool
+  loop: "{{ docker_host_media_mount_dirs }}"
+  when:
+    - docker_host_create_media_mount_dirs | bool
+    - inventory_hostname in groups['docker_media']
