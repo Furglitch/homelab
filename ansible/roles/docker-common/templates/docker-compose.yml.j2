@@ -1,0 +1,26 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment:
+        - PUID={{ puid }}
+        - PGID={{ pgid }}
+        - UMASK={{ umask }}
+        - TZ={{ time }}
+    restart: always
+
+services:
+    plex:
+        <<: *default-service
+        image: "qmcgaw/deunhealth:latest"
+        container_name: deunhealth
+        build: .
+        environment:
+            - HEALTH_SERVER_ADDRESS=127.0.0.1:9999
+            - LOG_LEVEL=info
+
+    watchtower:
+        <<: *default-service
+        image: nickfedor/watchtower:latest
+        container_name: watchtower
+        command: --cleanup=true --include-restarting=true --include-stopped=true --interval=86400

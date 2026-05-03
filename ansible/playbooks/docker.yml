@@ -5,6 +5,7 @@
   roles:
     - baseline
     - docker
+    - docker-common
     - role: docker-media
       when: "'docker_media' in group_names"
     - role: docker-web
