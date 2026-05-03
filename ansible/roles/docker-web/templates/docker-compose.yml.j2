@@ -1,0 +1,70 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment:
+        - PUID={{ puid }}
+        - PGID={{ pgid }}
+        - UMASK={{ umask }}
+        - TZ={{ time }}
+        - TP_THEME={{ theme }}
+        - TP_COMMUNITY_THEME={{ themecomm }}
+    restart: unless-stopped
+
+services:
+    homarr:
+        <<: *default-service
+        image: "ghcr.io/homarr-labs/homarr:latest"
+        container_name: homarr
+        environment:
+            - SECRET_ENCRYPTION_KEY={{ homarr.secret_encryption_key }}
+            - REDIS_IS_EXTERNAL=false
+        volumes:
+            - {{ files.docker_sock }}:/var/run/docker.sock
+            - {{ files.config_path }}/homarr:/appdata
+        ports:
+            - {{ ports.homarr }}:7575
+        restart: always
+
+    vaultwarden:
+        <<: *default-service
+        image: "vaultwarden/server:latest"
+        container_name: vaultwarden
+        volumes:
+            - {{ files.config_path }}/vaultwarden:/config
+            - {{ files.data_path }}/vaultwarden:/data
+        ports:
+            - {{ ports.vaultwarden }}:80
+        restart: always
+
+    nextcloud:
+        <<: *default-service
+        image: "lscr.io/linuxserver/nextcloud:latest"
+        container_name: nextcloud
+        environment:
+            - VIRTUAL_HOST=https://{{ ip_public }}
+            - LETSENCRYPT_HOST=https://{{ ip_public }}
+        ports:
+            - {{ ports.nextcloud }}:443
+        volumes:
+            - {{ files.config_path }}/nextcloud:/config
+            - {{ files.data_path }}/nextcloud:/data
+            - {{ files.cloud_path }}/nextcloud:/share
+        restart: always
+
+    sillytavern:
+        <<: *default-service
+        image: "ghcr.io/sillytavern/sillytavern:latest"
+        container_name: sillytavern
+        environment:
+            - NODE_ENV=production
+            - FORCE_COLOR=1
+            - PUBLIC_PORT={{ ports.sillytavern }}
+        ports:
+            - {{ ports.sillytavern }}:{{ ports.sillytavern }}
+        volumes:
+            - {{ files.config_path }}/sillytavern/config:/home/node/app/config
+            - {{ files.config_path }}/sillytavern/data:/home/node/app/data
+            - {{ files.config_path }}/sillytavern/plugins:/home/node/app/plugins
+            - {{ files.config_path }}/sillytavern/extensions:/home/node/app/extensions
+        restart: always

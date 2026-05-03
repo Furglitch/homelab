@@ -1,0 +1,161 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment:
+        - PUID={{ puid }}
+        - PGID={{ pgid }}
+        - UMASK={{ umask }}
+        - TZ={{ time }}
+        - TP_THEME={{ theme }}
+        - TP_COMMUNITY_THEME={{ themecomm }}
+    restart: unless-stopped
+
+services:
+    plex:
+        <<: *default-service
+        image: "lscr.io/linuxserver/plex:latest"
+        container_name: plex
+        network_mode: host
+        environment:
+            - VERSION=docker
+            - DOCKER_MODS={{ themerepo }}:plex
+        volumes:
+            - {{ files.config_path }}/plex:/config/Library/Application Support/Plex Media Server
+            - {{ files.media_path }}:/share:ro
+            - /tmp/plex_cache:/transcode
+        devices:
+            - /dev/dri:/dev/dri # Required for hardware transcoding
+
+    tautulli:
+        <<: *default-service
+        image: "lscr.io/linuxserver/tautulli:latest"
+        container_name: tautulli
+        depends_on: [plex]
+        environment:
+            - VERSION=docker
+            - DOCKER_MODS={{ themerepo }}:tautulli
+        volumes:
+            - {{ files.config_path }}/tautulli:/config
+        ports:
+            - {{ ports.tautulli }}:8181
+
+    kometa:
+        <<: *default-service
+        image: "kometateam/kometa:latest"
+        container_name: kometa
+        depends_on: [plex, sonarr, radarr]
+        environment:
+            - KOMETA_TIME=00:00,06:00,12:00,18:00
+            - KOMETA_CONFIG=/config/config.yml
+        volumes:
+            - {{ files.config_path }}/kometa:/config
+
+    ## Metadata Agents ##
+
+    radarr:
+        <<: *default-service
+        image: "lscr.io/linuxserver/radarr:latest"
+        container_name: radarr
+        depends_on: [prowlarr]
+        environment:
+            - DOCKER_MODS={{ themerepo }}:radarr
+        volumes:
+            - {{ files.config_path }}/radarr:/config
+            - {{ files.media_path }}:/share
+        ports:
+            - {{ ports.radarr }}:7878
+
+    sonarr:
+        <<: *default-service
+        image: "lscr.io/linuxserver/sonarr:latest"
+        container_name: sonarr
+        depends_on: [prowlarr]
+        environment:
+            - DOCKER_MODS={{ themerepo }}:sonarr
+        volumes:
+            - {{ files.config_path }}/sonarr:/config
+            - {{ files.media_path }}:/share
+        ports:
+            - {{ ports.sonarr }}:8989
+
+    prowlarr:
+        <<: *default-service
+        image: "lscr.io/linuxserver/prowlarr:latest"
+        container_name: prowlarr
+        environment:
+            - DOCKER_MODS={{ themerepo }}:prowlarr
+        volumes:
+            - {{ files.config_path }}/prowlarr:/config
+        ports:
+            - {{ ports.prowlarr }}:9696
+
+    flaresolverr:
+        <<: *default-service
+        image: "flaresolverr/flaresolverr:latest"
+        container_name: flaresolverr
+        environment:
+            - LOG_LEVEL=info
+            - LOG_HTML=false
+            - CAPTCHA_SOLVER=none
+        volumes:
+            - {{ files.config_path }}/flaresolverr:/config
+        ports:
+            - {{ ports.flaresolverr }}:8191
+
+    recyclarr:
+        <<: *default-service
+        image: "ghcr.io/recyclarr/recyclarr:latest"
+        container_name: recyclarr
+        user: "{{ puid }}:{{ pgid }}"
+        volumes:
+            - {{ files.config_path }}/recyclarr:/config
+
+    ## Download Clients ##
+
+    qbittorrent:
+        <<: *default-service
+        image: "lscr.io/linuxserver/qbittorrent:latest"
+        container_name: qbittorrent
+        network_mode: "service:gluetun"
+        environment:
+            - WEBUI_PORT=8090
+            - TORRENTING_PORT=8091
+        volumes:
+            - {{ files.config_path }}/qbittorrent:/config
+            - {{ files.media_path }}/downloads/torrent:/share/downloads/torrent
+            - {{ files.media_path }}/downloads/torrent/incomplete:/share/downloads/torrent/incomplete
+    
+    sabnzbd:
+        <<: *default-service
+        image: "lscr.io/linuxserver/sabnzbd:latest"
+        container_name: sabnzbd
+        network_mode: "service:gluetun"
+        environment:
+            - DOCKER_MODS={{ themerepo }}:sabnzbd
+        volumes:
+            - {{ files.config_path }}/sabnzbd:/config
+            - {{ files.media_path }}/downloads/usenet:/share/downloads/usenet
+            - {{ files.media_path }}/downloads/usenet/incomplete:/share/downloads/usenet/incomplete
+    
+    gluetun:
+        <<: *default-service
+        image: "qmcgaw/gluetun:latest"
+        container_name: gluetun
+        cap_add: [NET_ADMIN]
+        devices:
+            - /dev/net/tun:/dev/net/tun
+        environment:
+            - VPN_SERVICE_PROVIDER={{ gluetun.provider }}
+            - VPN_TYPE={{ gluetun.type }}
+            - WIREGUARD_PRIVATE_KEY={{ gluetun.key }}
+            - SERVER_COUNTRIES=United States
+            - BLOCK_MALICIOUS=off
+            - DNS_ADDRESS=1.1.1.1
+        volumes:
+            - {{ files.config_path }}/gluetun:/config
+        ports:
+            - {{ ports.qbittor_ui }}:8090
+            - {{ ports.qbittor_io }}:8091
+            - {{ ports.sabnzbd }}:8085
+        restart: always

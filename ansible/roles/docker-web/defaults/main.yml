@@ -1,0 +1,7 @@
+ip_local: "192.168.1.222"
+
+ports:
+  homarr: 32301
+  vaultwarden: 32302
+  nextcloud: 32303
+  sillytavern: 32304

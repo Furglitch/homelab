@@ -55,3 +55,31 @@ resource "proxmox_lxc" "docker_media" {
 		]
 	}
 }
+
+resource "null_resource" "docker_media_tun" {
+	depends_on = [proxmox_lxc.docker_media]
+
+	provisioner "local-exec" {
+		command = <<-EOT
+			echo "[[[PASSWORD ENTRY NEEDED]]]"
+
+			ssh -o StrictHostKeyChecking=no \
+				root@${var.pve_host_ip} bash << 'ENDSSH'
+
+			grep -qxF 'lxc.cgroup2.devices.allow: c 10:200 rwm' /etc/pve/lxc/221.conf || \
+				echo 'lxc.cgroup2.devices.allow: c 10:200 rwm' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file' /etc/pve/lxc/221.conf || \
+				echo 'lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.cgroup2.devices.allow: c 226:* rwm' /etc/pve/lxc/221.conf || \
+				echo 'lxc.cgroup2.devices.allow: c 226:* rwm' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' /etc/pve/lxc/221.conf || \
+				echo 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' >> /etc/pve/lxc/221.conf
+
+			pct reboot 221 || pct start 221
+ENDSSH
+		EOT
+	}
+}
