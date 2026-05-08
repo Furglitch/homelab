@@ -178,10 +178,22 @@ EOF
 	prompt_continue "Continue after TrueNAS OS installation is complete?"
 }
 
+manual_truenas_ip_steps() {
+	section "Manual Step: Configure TrueNAS IP"
+	cat <<'EOF'
+In the TrueNAS console:
+1) Select "1) Configure Network Interfaces".
+2) Click 'Enter' to edit the default interface.
+3) Add the static IP address: 192.168.1.201/24 and gateway 192.168.1.1
+4) Save, press 'a' to apply, 'p' to persist, then 'q' to quit back to the main menu.
+EOF
+	prompt_continue "Continue after TrueNAS pool setup is complete?"
+}
+
 manual_truenas_pool_steps() {
 	section "Manual Step: Configure TrueNAS Pool"
 	cat <<'EOF'
-In the TrueNAS web interface:
+In the TrueNAS web interface (New IP):
 1) Verify the SATA-passthrough disks are visible.
 2) Create your storage pool with RAID layout.
 3) Create two datasets: media and cloud.
@@ -224,6 +236,7 @@ main() {
 
 	terraform_apply_targets "Provision Home Assistant + TrueNAS VMs" "${VM_TARGETS[@]}"
 	manual_truenas_install_steps
+	manual_truenas_ip_steps
 	manual_truenas_pool_steps
 	manual_homeassistant_install_steps
 
