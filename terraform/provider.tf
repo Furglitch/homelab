@@ -23,4 +23,10 @@ provider "proxmox-bpg" {
     endpoint                   = var.pve_api_url
     api_token                  = "${var.pve_api_token_id}=${var.pve_api_token_secret}"
     insecure                   = var.pve_api_tls_insecure
+
+    ssh {
+        agent       = true
+        username    = "root"
+        private_key = file(var.ssh_key_private)
+    }
 }
