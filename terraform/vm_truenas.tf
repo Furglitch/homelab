@@ -70,6 +70,10 @@ resource "proxmox_virtual_environment_vm" "truenas" {
 
 resource "null_resource" "truenas_attach_sata" {
     depends_on = [proxmox_virtual_environment_vm.truenas]
+
+    lifecycle {
+        replace_triggered_by = [proxmox_virtual_environment_vm.truenas]
+    }
     
     triggers = {
         pci_id = var.hw_disk_sata_controller
