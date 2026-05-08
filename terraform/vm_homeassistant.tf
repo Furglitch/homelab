@@ -1,6 +1,6 @@
 resource "proxmox_virtual_environment_vm" "homeassistant" {
     provider   = proxmox-bpg.bpg
-    depends_on = [proxmox_virtual_environment_download_file.image_debian_13]
+    depends_on = [proxmox_virtual_environment_download_file.image_homeassistant]
     
     name        = "homeassistant"
     vm_id       = 211
@@ -10,7 +10,7 @@ resource "proxmox_virtual_environment_vm" "homeassistant" {
     started     = var.vm_boot_start
     on_boot     = var.vm_boot_start_onboot
     
-    # bios        = "ovmf"
+    bios        = "ovmf"
     machine     = "q35"
     
     cpu {
@@ -31,16 +31,17 @@ resource "proxmox_virtual_environment_vm" "homeassistant" {
     
     disk {
         datastore_id = var.storage_container
-        file_format  = "raw"
+        file_id      = proxmox_virtual_environment_download_file.image_homeassistant.id
         interface    = "scsi0"
         size         = 32
         iothread     = true
         discard      = "on"
     }
-    
-    cdrom {
-        file_id   = proxmox_virtual_environment_download_file.image_debian_13.id
-        interface = "ide2"
+
+    scsi_hardware = "virtio-scsi-pci"
+
+    serial_device {
+        device = "socket"
     }
     
     network_device {
@@ -48,27 +49,15 @@ resource "proxmox_virtual_environment_vm" "homeassistant" {
         model  = "virtio"
     }
     
-    initialization {
-        user_account {
-            username = var.user
-            password = var.user_password
-            keys     = [trimspace(file(var.ssh_key_public))]
-        }
-        
-        ip_config {
-            ipv4 {
-                address = "${var.network_ip_prefix}234/${var.network_cidr}"
-                gateway = var.network_gateway
-            }
-        }
+    operating_system {
+        type = "l26"
     }
     
-    boot_order = ["scsi0", "ide2"]
+    boot_order = ["scsi0"]
     
     lifecycle {
         ignore_changes = [
             started,
-            cdrom,
             hostpci,
         ]
     }

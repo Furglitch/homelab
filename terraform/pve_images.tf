@@ -22,6 +22,19 @@ resource "proxmox_virtual_environment_download_file" "image_truenas" {
     overwrite_unmanaged = true
 }
 
+resource "proxmox_virtual_environment_download_file" "image_homeassistant" {
+    provider                  = proxmox-bpg.bpg
+    content_type              = "iso"
+    datastore_id              = var.storage_iso
+    node_name                 = var.pve_host_node
+    url                       = "https://github.com/home-assistant/operating-system/releases/download/${var.image_homeassistant_version}/haos_ova-${var.image_homeassistant_version}.qcow2.xz"
+    decompression_algorithm   = "zst"
+    file_name                 = "haos_ova-${var.image_homeassistant_version}.img"
+    checksum                  = var.image_homeassistant_sha256
+    checksum_algorithm        = "sha256"
+    overwrite_unmanaged       = true
+}
+
 resource "proxmox_virtual_environment_download_file" "template_debian_13" {
     provider            = proxmox-bpg.bpg
     content_type        = "vztmpl"

@@ -205,7 +205,7 @@ variable "image_homeassistant_version" {
     default     = "17.2"
 }
 variable "image_homeassistant_sha256" {
-    description = "Expected SHA256 checksum for the Home Assistant ISO"
+    description = "Expected SHA256 checksum for the Home Assistant VM image"
     type        = string
     default     = "474b8f2e657f697c7a226acd5b6d0b8f74b2dfd19f71487a18238d8b36a3604f"
 }

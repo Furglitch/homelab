@@ -27,6 +27,7 @@ provider "proxmox-bpg" {
     ssh {
         agent       = true
         username    = "root"
-        private_key = file(var.ssh_key_private)
+        private_key = file(pathexpand(var.ssh_key_private))
+        password    = var.user_root_password
     }
 }
