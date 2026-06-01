@@ -68,3 +68,13 @@ services:
             - {{ files.config_path }}/sillytavern/plugins:/home/node/app/plugins
             - {{ files.config_path }}/sillytavern/extensions:/home/node/app/extensions
         restart: always
+
+    protonmail-bridge:
+        <<: *default-service
+        image: "shenxn/protonmail-bridge:latest"
+        container_name: protonmail
+        ports:
+            - {{ ports.proton_imap }}:25
+            - {{ ports.proton_smtp }}:143
+        volumes:
+            - {{ files.config_path }}/protonmail:/root

@@ -5,3 +5,5 @@ ports:
   vaultwarden: 32302
   nextcloud: 32303
   sillytavern: 32304
+  proton_imap: 32305
+  proton_smtp: 32306
