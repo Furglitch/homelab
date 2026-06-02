@@ -59,6 +59,7 @@ resource "proxmox_virtual_environment_vm" "homeassistant" {
         ignore_changes = [
             started,
             hostpci,
+            usb,
         ]
     }
 }
