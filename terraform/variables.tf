@@ -172,12 +172,12 @@ variable "image_iso_prefix" {
 variable "image_vm_debian_13_file" {
     description = "Filename of the Debian 13 ISO in Proxmox storage"
     type        = string
-    default     = "debian-13.4.0-amd64-DVD-1.iso"
+    default     = "debian-13.5.0-amd64-DVD-1.iso"
 }
 variable "image_vm_debian_13_sha256" {
     description = "SHA256 checksum for the Debian 13 ISO file"
     type        = string
-    default     = "e41eeaffa4fdd64fbf07fc8b0d18a1b5f15ba9743a72c222008f8fd0b6463355"
+    default     = "343b6e02a8bdf6429eb3722ee0056b5c7d9ad17d88328e499909da7205e55f50"
 }
 variable "image_lxc_debian_13_file" {
     description = "Filename of the Debian 13 template in Proxmox storage"

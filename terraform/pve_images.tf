@@ -19,6 +19,7 @@ resource "proxmox_virtual_environment_download_file" "image_truenas" {
     file_name           = "TrueNAS-SCALE-${var.image_lxc_truenas_version[1]}.iso"
     checksum            = var.image_lxc_truenas_sha256
     checksum_algorithm  = "sha256"
+    overwrite           = false
     overwrite_unmanaged = true
 }
 
@@ -32,6 +33,7 @@ resource "proxmox_virtual_environment_download_file" "image_homeassistant" {
     file_name                 = "haos_ova-${var.image_homeassistant_version}.img"
     checksum                  = var.image_homeassistant_sha256
     checksum_algorithm        = "sha256"
+    overwrite                 = false
     overwrite_unmanaged       = true
 }
 
