@@ -29,4 +29,4 @@
    terraform init
    terraform apply -var-file=credentials.tfvars
    ```
-   - TrueNAS: [REQUIRES MANUAL INTERACTION] ISO is automatically downloaded, but installer needs manual intervention for initial setup.
+   - VMs: [REQUIRES MANUAL INTERACTION] ISO is automatically downloaded, but installer needs manual intervention for initial setup.
