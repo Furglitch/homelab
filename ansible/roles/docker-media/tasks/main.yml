@@ -1,4 +1,17 @@
 ---
+- name: Verify /dev/net/tun exists (configure via Terraform if missing)
+  ansible.builtin.stat:
+    path: /dev/net/tun
+  register: tun_device
+
+- name: Assert TUN device is available
+  ansible.builtin.assert:
+    that: tun_device.stat.exists
+    fail_msg: >
+      /dev/net/tun does not exist on docker-media. Run:
+      terraform taint null_resource.docker_media_tun && terraform apply -var-file=credentials.tfvars
+      Then re-run this playbook.
+
 - name: Create media Docker directory structure
   ansible.builtin.file:
     path: "{{ item }}"

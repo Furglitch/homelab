@@ -59,6 +59,10 @@ resource "proxmox_lxc" "docker_media" {
 resource "null_resource" "docker_media_tun" {
 	depends_on = [proxmox_lxc.docker_media]
 
+	triggers = {
+		lxc_id = proxmox_lxc.docker_media.id
+	}
+
 	provisioner "local-exec" {
 		command = <<-EOT
 			echo "[[[PASSWORD ENTRY NEEDED]]]"
