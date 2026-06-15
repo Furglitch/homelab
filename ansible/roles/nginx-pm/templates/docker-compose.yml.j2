@@ -1,0 +1,34 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    restart: unless-stopped
+
+services:
+    nginx-proxy-manager:
+        <<: *default-service
+        image: "jc21/nginx-proxy-manager:latest"
+        container_name: nginx-proxy-manager
+        ports:
+            - {{ ports.npm_http }}:80
+            - {{ ports.npm_https }}:443
+            - {{ ports.npm_admin }}:81
+        volumes:
+            - {{ files.data_path }}/nginx-pm:/data
+            - {{ files.data_path }}/letsencrypt:/etc/letsencrypt
+        environment:
+            - TZ={{ time }}
+        healthcheck:
+            test: ["CMD", "/usr/bin/check-health"]
+            interval: 10s
+            timeout: 3s
+
+    watchtower:
+        <<: *default-service
+        image: "nickfedor/watchtower:latest"
+        container_name: watchtower
+        environment:
+            - TZ={{ time }}
+        volumes:
+            - {{ files.docker_sock }}:/var/run/docker.sock
+        command: --cleanup=true --include-restarting=true --include-stopped=true --interval=86400
