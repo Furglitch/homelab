@@ -68,3 +68,9 @@
     src: kometa.yml.j2
     dest: "{{ files.config_path }}/kometa/config.yml"
     mode: "0644"
+
+- name: Render Recyclarr config template
+  ansible.builtin.template:
+    src: recyclarr.yml
+    dest: "{{ files.config_path }}/recyclarr/recyclarr.yml"
+    mode: "0644"
