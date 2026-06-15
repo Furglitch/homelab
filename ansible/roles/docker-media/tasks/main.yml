@@ -49,14 +49,6 @@
     - compose.yaml
     - docker-compose.yaml
 
-- name: Deploy media stack
-  community.docker.docker_compose_v2:
-    project_src: "{{ files.docker_path }}"
-    files:
-      - docker-compose.yml
-    state: present
-    pull: always
-
 - name: Copy Kometa config files
   ansible.builtin.copy:
     src: kometa/
@@ -74,3 +66,11 @@
     src: recyclarr.yml
     dest: "{{ files.config_path }}/recyclarr/recyclarr.yml"
     mode: "0644"
+
+- name: Deploy media stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ files.docker_path }}"
+    files:
+      - docker-compose.yml
+    state: present
+    pull: always

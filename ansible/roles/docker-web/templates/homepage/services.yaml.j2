@@ -1,0 +1,76 @@
+- Media:
+    - Plex:
+        icon: "sh-plex"
+        url: http://{{ ip_media }}/
+        href: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['plex'] }}/web/
+        key: {{ homepage.plex_token }}
+        server: localhost
+        container: plex
+        widgets:
+        - type: tautulli
+          url: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['tautulli'] }}/
+          key: {{ homepage.tautulli_key }}
+
+- Servarr:
+    - Radarr:
+        icon: "sh-radarr"
+        href: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['radarr'] }}/
+        widgets:
+        - type: radarr
+        url: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['radarr'] }}/
+        key: {{ homepage.radarr_key }}
+    - Sonarr:
+        icon: "sh-sonarr"
+        href: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['sonarr'] }}/
+        widgets:
+        - type: sonarr
+        url: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['sonarr'] }}/
+        key: {{ homepage.sonarr_key }}
+    - Prowlarr:
+        icon: "sh-prowlarr"
+        href: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['prowlarr'] }}/
+        widgets:
+        - type: prowlarr
+        url: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['prowlarr'] }}/
+        key: {{ homepage.prowlarr_key }}
+
+
+- Download:
+    - "SABnzbd":
+        icon: "sh-sabnzbd"
+        href: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['sabnzbd'] }}/
+        widgets:
+        - type: sabnzbd
+        url: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['sabnzbd'] }}/
+        key: {{ homepage.sabnzbd_key }}
+    - "qBittorrent":
+        icon: "sh-qbittorrent"
+        href: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['qbittor_ui'] }}/
+        widgets:
+        - type: qbittorrent
+        url: http://{{ ip_media }}:{{ hostvars['docker-media']['ports']['qbittor_io'] }}/
+        username: {{ homepage.qbittorrent_user }}
+        password: {{ homepage.qbittorrent_password }}
+
+
+- Web:
+    - "Nginx":
+        icon: "sh-nginx"
+        href: http://{{ ip_nginx }}:{{ ports.nginx_admin }}/
+        siteMonitor: http://{{ ip_nginx }}:{{ ports.nginx_admin }}/
+    - "Pterodactyl":
+        icon: "sh-pterodactyl"
+        url: http://{{ ip_pterodactyl }}/
+        siteMonitor: http://{{ ip_pterodactyl }}/
+    - "VaultWarden":
+        icon: "si-vaultwarden"
+        url: http://{{ ip_local }}/
+        siteMonitor: http://{{ ip_local }}:{{ ports.vaultwarden }}/
+    - "Nextcloud":
+        icon: "sh-nextcloud"
+        url: http://{{ ip_local }}/
+        siteMonitor: https://{{ ip_local }}:{{ ports.nextcloud }}/
+    - "SillyTavern":
+        icon: "https://sillytavern.app/img/logo.png"
+        url: http://{{ ip_local }}/
+        siteMonitor: http://{{ ip_local }}:{{ ports.sillytavern }}/

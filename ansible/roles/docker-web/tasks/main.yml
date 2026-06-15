@@ -18,6 +18,7 @@
     - "{{ files.config_path }}/sillytavern/extensions"
     - "{{ files.data_path }}/vaultwarden"
     - "{{ files.data_path }}/nextcloud"
+    - "{{ files.config_path }}/homepage"
 
 - name: Render web Docker Compose file
   ansible.builtin.template:
@@ -50,3 +51,15 @@
       - docker-compose.yml
     state: present
     pull: always
+
+- name: Copy Homepage static config files
+  ansible.builtin.copy:
+    src: homepage/
+    dest: "{{ files.config_path }}/homepage/"
+    mode: "0644"
+
+- name: Render Homepage services template
+  ansible.builtin.template:
+    src: homepage/services.yaml.j2
+    dest: "{{ files.config_path }}/homepage/services.yaml"
+    mode: "0644"

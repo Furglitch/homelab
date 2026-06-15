@@ -1,0 +1,25 @@
+- Bookmarks:
+  - YouTube:
+    - abbr: "Y"
+      icon: "si-youtube"
+      href: "https://www.youtube.com/feed/subscriptions"
+  - YouTube Music:
+    - abbr: "YM"
+      icon: "si-youtubemusic"
+      href: "https://music.youtube.com/library/playlists"
+  - Furglitch Wiki:
+    - abbr: "FW"
+      icon: "si-wikibooks"
+      href: "https://wiki.furglitch.com/"
+  - Furglitch Cookbook:
+    - abbr: "FC"
+      icon: "si-bookstack"
+      href: "https://chef.furglitch.com/"
+  - Proton Mail:
+    - abbr: "PM"
+      icon: "si-protonmail"
+      href: "https://mail.proton.me/u/0/inbox"
+  - Reddit:
+    - abbr: "R"
+      icon: "si-reddit"
+      href: "https://www.reddit.com/?feed=home"

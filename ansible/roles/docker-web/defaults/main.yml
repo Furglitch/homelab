@@ -1,4 +1,7 @@
 ip_local: "192.168.1.222"
+ip_media: "{{ hostvars['docker-media']['ansible_host'] }}"
+ip_nginx: "192.168.1.231"
+ip_pterodactyl: "192.168.1.240"
 
 ports:
   homarr: 32301
@@ -7,3 +10,14 @@ ports:
   sillytavern: 32304
   proton_imap: 32305
   proton_smtp: 32306
+  nginx_admin: 81
+
+homepage:
+  plex_token: ""
+  tautulli_key: ""
+  radarr_key: ""
+  sonarr_key: ""
+  prowlarr_key: ""
+  sabnzbd_key: ""
+  qbittorrent_user: admin
+  qbittorrent_password: ""

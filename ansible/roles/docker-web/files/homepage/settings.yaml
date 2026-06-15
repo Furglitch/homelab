@@ -1,0 +1,33 @@
+title: Furglitch's Dashboard
+
+background: "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/pixel-galaxy.png"
+cardBlur: md
+favicon: https://raw.githubusercontent.com/Furglitch/furglitch.github.io/refs/heads/main/assets/images/custom/icons/furglitch_logo_square.ico
+
+# Catppuccin
+theme: dark
+color: gray
+iconStyle: light
+headerStyle: boxed
+
+disableCollapse: true
+useEqualHeights: true
+maxGroupColumns: 2
+layout:
+  Media:
+    style: row
+  Servarr:
+    columns: 1
+  Download:
+    columns: 1
+  Web:
+    style: row
+statusStyle: "dot"
+
+hideVersion: true
+disableUpdateCheck: true
+
+quicklaunch:
+  searchDescriptions: false
+  provider: custom
+  url: https://startpage.com/sp/search?query=
