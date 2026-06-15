@@ -1,0 +1,73 @@
+external_templates:
+  - file: config/templates/tv-meta.yml
+
+metadata:
+
+  # https://theposterdb.com/set/9025
+
+  # Sonarr's Season Index
+  "Pokemon (1997)":
+    template:
+      name: match
+      title: "Pokemon"
+      year: 1997
+      poster_id: 16289
+      special_poster_id: 16290 # Specials
+      s1_poster_id: 16291 # Indigo League
+      s2_poster_id: 16292 # Adventures in the Orange Islands
+      s3_poster_id: 16293 # Johto Journeys
+      s4_poster_id: 16294 # Johto League Champions
+      s5_poster_id: 16295 # Master Quest
+      s6_poster_id: 16296 # Advanced
+      s7_poster_id: 16297 # Advanced Challenge
+      s8_poster_id: 16298 # Advanced Battle
+      s9_poster_id: 16299 # Battle Frontier
+      s10_poster_id: 16300 # Diamond and Pearl
+      s11_poster_id: 16301 # DP Battle Dimension
+      s12_poster_id: 16302 # DP Galactic Battles
+      s13_poster_id: 16303 # DP Sinnoh League Victors
+      s14_poster_id: 16304 # Black & White
+      s15_poster_id: 16306 # BW Adventures in Unova and Beyond
+      s16_poster_id: 16307 # X Y
+      s17_poster_id: 16309 # X Y Z
+      s18_poster_id: 16310 # Sun and Moon
+      s19_poster_id: 32710 # Journeys
+      s20_poster_id: 373157 # Horizons
+
+  # Set Original
+  # "Pokemon (1997)":
+  #   template:
+  #     name: match
+  #     title: "Pokemon"
+  #     year: 1997
+  #   template:
+  #     name: theposterdb
+  #     poster_id: 16289
+  #   template:
+  #     name: seasons-theposterdb
+  #     special_poster_id: 16290 # Specials
+  #     s1_poster_id: 16291 # Indigo League
+  #     s2_poster_id: 16292 # Adventures in the Orange Islands
+  #     s3_poster_id: 16293 # Johto Journeys
+  #     s4_poster_id: 16294 # Johto League Champions
+  #     s5_poster_id: 16295 # Master Quest
+  #     s6_poster_id: 16296 # Advanced
+  #     s7_poster_id: 16297 # Advanced Challenge
+  #     s8_poster_id: 16298 # Advanced Battle
+  #     s9_poster_id: 16299 # Battle Frontier
+  #     s10_poster_id: 16300 # Diamond and Pearl
+  #     s11_poster_id: 16301 # DP Battle Dimension
+  #     s12_poster_id: 16302 # DP Galactic Battles
+  #     s13_poster_id: 16303 # DP Sinnoh League Victors
+  #     s14_poster_id: 16304 # Black & White
+  #     s15_poster_id: 16305 # BW Rival Destinies
+  #     s16_poster_id: 16306 # BW Adventures in Unova and Beyond
+  #     s17_poster_id: 16307 # X Y
+  #     s18_poster_id: 16308 # X Y Kalos Quest
+  #     s19_poster_id: 16309 # X Y Z
+  #     s20_poster_id: 16310 # Sun and Moon
+  #     s21_poster_id: 16311 # Sun and Moon Ultra Adventures
+  #     s22_poster_id: 16312 # Sun and Moon Ultra Legends
+  #     s23_poster_id: 32710 # Journeys
+  #     s24_poster_id: 179533 # Master Journeys
+  #     s25_poster_id: 364368 # Ultimate Journeys

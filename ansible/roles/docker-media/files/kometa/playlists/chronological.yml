@@ -1,0 +1,195 @@
+external_templates:
+  - file: config/templates/playlist.yml
+
+playlists:
+
+  "Blade Runner":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: blade-runner-chronological
+      url_poster: "https://seeklogo.com/images/B/blade-runner-unicorn-logo-18FA59EA1D-seeklogo.com.png"
+
+  "Breaking Bad":
+    template:
+      name: trakt-list
+      list_author: vargajoe
+      list_name: breaking-bad-chronology
+      url_poster: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/763e4a4f-0453-48cd-96ef-d2aba6b7d98d/dcc5qrb-37937095-c6f2-424e-9f3b-05a55001242d.png/v1/fill/w_894,h_894,q_70,strp/breaking_bad_logo_wallpaper_by_robinle_dcc5qrb-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTAwMCIsInBhdGgiOiJcL2ZcLzc2M2U0YTRmLTA0NTMtNDhjZC05NmVmLWQyYWJhNmI3ZDk4ZFwvZGNjNXFyYi0zNzkzNzA5NS1jNmYyLTQyNGUtOWYzYi0wNWE1NTAwMTI0MmQucG5nIiwid2lkdGgiOiI8PTUwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.A0FxwVrWYWKnS7qH6odPDnUdq4mT71DPfFUlSfNmYBk"
+      ignore:
+        - 402050    # [Series] Slippin' Jimmy
+
+  "Fast and Furious":
+    template:
+      name: trakt-list
+      list_author: vargajoe
+      list_name: fast-and-furious-chronology
+      url_poster: "https://pbs.twimg.com/profile_images/1788359324307537920/pgT8qjpl_400x400.jpg"
+      ignore:
+        - 77959  # [Short] Turbo Charged Prelude (2003)
+        - 253835 # [Short] Los Bandoleros (2009)
+
+  "James Bond":
+    template:
+      name: trakt-list
+      list_author: amarantha
+      list_name: james-bond
+      url_poster: "https://img.asmedia.epimg.net/resizer/v2/MJMN3TW65BIZRG7XLNQIZR6Q5E.jpg?auth=018552aee32083489b7784d62dd87c9604470f31efce06b353e36b963353e49f&width=1200&height=1200&smart=true"
+
+  "James Gunn's DC Universe (DCU)":
+    template:
+      name: trakt-list
+      list_author: fistytristy
+      list_name: dc-universe-james-gunn-s-dcu
+      url_poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwA7JRi2MYLFgMTpH7hEAVty4Q-64NSjExuA&s"
+
+  "John Wick":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: john-wick
+      url_poster: "https://ih1.redbubble.net/image.1116497742.2781/ur,pin_large_front,square,600x600.webp"
+
+  "Kingsman":
+    template:
+      name: trakt-list-official
+      list_name: kingsman-collection
+      url_poster: "https://pbs.twimg.com/profile_images/1463221870644248578/xZXxHVZO_400x400.jpg"
+
+  "Marvel Cinematic Universe":
+    template:
+      name: trakt-list
+      list_author: viperdu-vark
+      list_name: modified-chronological-mcu
+      url_poster: "https://prologue.com/wp-content/uploads/2022/02/Marvel.jpg"
+      ignore:
+        - 299405    # [Series] WHIH Newsfront (2015)
+        - 412427    # [Series] Your Friendly Neighborhood Spider-Man (2025)
+        - 364038    # [Series] Helstrom (2020)
+        - 361608    # [Series] Stark Expo Shorts (2010)
+        - 372497    # [Series] The Daily Bugle (2019)
+        - 758025   # [Short] Peter's To-Do List (2019)
+
+  "Middle Earth":
+    template:
+      name: trakt-list
+      list_author: oya-kesh
+      list_name: middle-earth
+      url_poster: "https://static.wikia.nocookie.net/lotrminecraftmod/images/0/0e/Lord_of_the_Rings.jpg/revision/latest?cb=20190126091156"
+
+  "MonsterVerse":
+    template:
+      name: trakt-list
+      list_author: folion
+      list_name: monsterverse
+      url_poster: "https://pbs.twimg.com/profile_images/1030142018284081152/3b0yX1Lf_400x400.jpg"
+      ignore:
+        - 421104    # [Series] Skull Island (2023)
+
+  "My Little Pony":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: my-little-pony-chronological
+      url_poster: "https://i.ibb.co/HxJw7S2/Untitled.png"
+      ignore:
+        - 359878    # [Short] My Little Pony (1984)
+        - 25400     # [Movie] My Little Pony: The Movie (1986)
+        - 25396     # [Short] My Little Pony: A Very Minty Christmas (2005)
+        - 256439    # [Short] My Little Pony: The Runaway Rainbow (2006)
+        - 19789     # [Short] My Little Pony: The Princess Promenade (2006)
+        - 290996    # [Short] My Little Pony: A Very Pony Place (2007)
+        - 57505     # [Short] My Little Pony: Twinkle Wish Adventure (2009)
+        - 564638    # [Short] My Little Pony: Best Gift Ever (2018)
+        - 612087    # [Movie] My Little Pony: Rainbow Roadtrip (2019)
+        - 597316    # [Movie] My Little Pony: A New Generation (2021)
+        - 72001     # [Series] My Little Pony 'n Friends (1986)
+        - 76790     # [Series] My Little Pony Tales (1992)
+        - 372750    # [Series] My Little Pony: Pony Life (2020)
+        - 416741    # [Series] My Little Pony: Make Your Mark (2022)
+        - 416742    # [Series] My Little Pony: Tell Your Tale (2022)      
+
+  "Pokemon":
+    template:
+      name: trakt-list
+      list_author: seriouspain
+      list_name: pokemon
+      url_poster: "https://www.webwise.ie/wp-content/uploads/2020/11/Pokemon-Go.jpg"
+      ignore:
+        - 33376  # [Short] Pikachu's Vacation (1998)
+        - 36756  # [Short] Pikachu's Rescue Adventure (1999)
+        - 268998 # [Short] Pokémon: Pikachu's Winter Vacation 2 (1999)
+        - 36753  # [Short] Pikachu and Pichu (2000)
+        - 293245 # [Short] Pikachu's PikaBoo (2001)
+        - 295613 # [Movie] Pokémon Chronicles: The Legend of Thunder! (2001)
+        - 211814 # [Short] Camp Pikachu (2002)
+        - 216651 # [Short] Pikachu's Island Adventure (2006)
+        - 272087 # [Short] Meloetta's Moonlight Serenade (2012)
+        - 249424 # [Short] Pokémon: Mewtwo - Prologue to Awakening (2013)
+        - 377909 # [Short] Pokémon: Eevee & Friends (2013) 
+        - 332485 # [Short] Pikachu, What's This Key? (2014)
+        - 389621 # [Short] Pikachu and the Pokémon Music Squad (2015)
+        - 72975  # [Series] Pokémon Chronicles (1998)
+
+  "Star Trek":
+    template:
+      name: trakt-list
+      list_author: acfmovies
+      list_name: star-trek-chronological-order
+      url_poster: "https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA05761_00/4/i_f32effd1248cce45a393b93630cb707b0d2b5af8607bc3a2e15f5b8efb4f07ee/i/icon0.png"
+      ignore:
+        - 73566  # [Series] Star Trek: The Animated Series (1973)
+
+  "Star Wars":
+    template:
+      name: trakt-list
+      list_author: gratiskeder
+      list_name: star-wars
+      url_poster: "https://4vector.com/i/free-vector-star-wars-1_063193_star-wars-1.png"
+      ignore:
+        - 420658  # [Series] Young Jedi Adventures (2023)
+        - 351575   # [Series] Star Wars Resistance (2018)
+
+  "Stargate":
+    template:
+      name: trakt-list
+      list_author: stziza
+      list_name: stargate-watching-order
+      url_poster: "https://www.sexyhackers.com/cdn/shop/products/Stargate_Logo_Square_0af4215a-77dc-4fb9-bbc2-f9ff7ebaff00_1200x1200.jpg?v=1560278637"
+
+  "Transformers":
+    template:
+      name: trakt-list
+      list_author: strangerer
+      list_name: transformers
+      url_poster: "https://live.staticflickr.com/4069/5130097648_b14bee9a4f_z.jpg"
+
+  "Wizarding World":
+    template:
+      name: trakt-list
+      list_author: malvado
+      list_name: wizarding-world
+      url_poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxWTTm5pI50JQTcbs-N75Uww0tdb9yPa15Eg&s"
+
+  "The Witcher":
+    template:
+      name: trakt-list
+      list_author: martials
+      list_name: the-witcher-chronological-order
+      url_poster: "https://sw6.elbenwald.de/media/d7/f4/0b/1629840244/E1065084_2.jpg"
+
+  "X-Men":
+    template:
+      name: trakt-list
+      list_author: donxy
+      list_name: x-men-universe
+      url_poster: "https://i.pinimg.com/originals/6f/2c/57/6f2c57ced05757e1a24cd6cd0705160a.jpg"
+      ignore:
+        - 340102  # [Movie] The New Mutants (2020)
+
+  "Zach Snyder's DC Extended Universe (DCEU)":
+    template:
+      name: trakt-list
+      list_author: koekoeracha
+      list_name: dc-extended-universe-dceu
+      url_poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIpjTHrNDcRAcrYaQwLwTGUbIZLQIONRFndw&s"

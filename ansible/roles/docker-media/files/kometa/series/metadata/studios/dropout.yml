@@ -1,0 +1,55 @@
+external_templates:
+  - file: config/templates/tv-meta.yml
+
+metadata:
+
+  # https://theposterdb.com/set/336033
+
+  "Dimension 20 (2018)":
+    template:
+      name: match
+      title: "Dimension 20"
+      year: 2018
+      poster_id: 603069
+      s0_poster_id: 603070
+      s1_poster_id: 603071
+      s2_poster_id: 603072
+      s3_poster_id: 603073
+      s4_poster_id: 603074
+      s5_poster_id: 603075
+      s6_poster_id: 603076
+      s7_poster_id: 603077
+      s8_poster_id: 603078
+      s9_poster_id: 603079
+      s10_poster_id: 603080
+      s11_poster_id: 603081
+      s12_poster_id: 603082
+      s13_poster_id: 603083
+      s14_poster_id: 603084
+      s15_poster_id: 603085
+      s16_poster_id: 603086
+      s17_poster_id: 603087
+      s18_poster_id: 603088
+      s19_poster_id: 603091
+      s20_poster_id: 603092
+      s21_poster_id: 603093
+      s22_poster_id: 603094
+      s23_poster_id: 603095
+      s24_poster_id: 603096
+      s25_poster_id: 603097
+      s26_poster_id: 617741
+
+  "Game Changer (2019)":
+    template:
+      name: match
+      title: "Game Changer"
+      year: 2019
+      poster_id: 595435
+      special_poster_id: 595436
+      s1_poster_id: 595437
+      s2_poster_id: 595438
+      s3_poster_id: 595439
+      s4_poster_id: 595440
+      s5_poster_id: 595441
+      s6_poster_id: 595442
+      s7_poster_id: 595443

@@ -1,0 +1,38 @@
+external_templates:
+  - file: config/templates/tv-meta.yml
+
+metadata:
+
+  # https://theposterdb.com/set/170697
+
+  "Yellowstone (2018)":
+    template:
+      name: match
+      title: "Yellowstone"
+      year: 2018
+      poster_id: 156053
+      special_poster_id: 293984
+      s1_poster_id: 156054
+      s2_poster_id: 156055
+      s3_poster_id: 156056
+      s4_poster_id: 156057
+      s5_poster_id: 284095
+  
+  "1883 (2021)":
+    template:
+      name: match
+      title: "1883"
+      year: 2021
+      poster_id: 287902
+      special_poster_id: 287903
+      s1_poster_id: 287904
+  
+  "1923 (2022)":
+    template:
+      name: match
+      title: "1923"
+      year: 2022
+      poster_id: 287905
+      special_poster_id: 293982
+      s1_poster_id: 293983
+      s2_poster_id: 574657

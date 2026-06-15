@@ -56,3 +56,15 @@
       - docker-compose.yml
     state: present
     pull: always
+
+- name: Copy Kometa config files
+  ansible.builtin.copy:
+    src: kometa/
+    dest: "{{ files.config_path }}/kometa/"
+    mode: "0644"
+
+- name: Render Kometa config template
+  ansible.builtin.template:
+    src: kometa.yml.j2
+    dest: "{{ files.config_path }}/kometa/config.yml"
+    mode: "0644"

@@ -1,0 +1,71 @@
+templates:
+  match:
+    match:
+      title: "<<title>>"
+      year: "<<year>>"
+    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
+    seasons:
+      0: {url_poster: "https://theposterdb.com/api/assets/<<special_poster_id>>"}
+      1: {url_poster: "https://theposterdb.com/api/assets/<<s1_poster_id>>"}
+      2: {url_poster: "https://theposterdb.com/api/assets/<<s2_poster_id>>"}
+      3: {url_poster: "https://theposterdb.com/api/assets/<<s3_poster_id>>"}
+      4: {url_poster: "https://theposterdb.com/api/assets/<<s4_poster_id>>"}
+      5: {url_poster: "https://theposterdb.com/api/assets/<<s5_poster_id>>"}
+      6: {url_poster: "https://theposterdb.com/api/assets/<<s6_poster_id>>"}
+      7: {url_poster: "https://theposterdb.com/api/assets/<<s7_poster_id>>"}
+      8: {url_poster: "https://theposterdb.com/api/assets/<<s8_poster_id>>"}
+      9: {url_poster: "https://theposterdb.com/api/assets/<<s9_poster_id>>"}
+      10: {url_poster: "https://theposterdb.com/api/assets/<<s10_poster_id>>"}
+      11: {url_poster: "https://theposterdb.com/api/assets/<<s11_poster_id>>"}
+      12: {url_poster: "https://theposterdb.com/api/assets/<<s12_poster_id>>"}
+      13: {url_poster: "https://theposterdb.com/api/assets/<<s13_poster_id>>"}
+      14: {url_poster: "https://theposterdb.com/api/assets/<<s14_poster_id>>"}
+      15: {url_poster: "https://theposterdb.com/api/assets/<<s15_poster_id>>"}
+      16: {url_poster: "https://theposterdb.com/api/assets/<<s16_poster_id>>"}
+      17: {url_poster: "https://theposterdb.com/api/assets/<<s17_poster_id>>"}
+      18: {url_poster: "https://theposterdb.com/api/assets/<<s18_poster_id>>"}
+      19: {url_poster: "https://theposterdb.com/api/assets/<<s19_poster_id>>"}
+      20: {url_poster: "https://theposterdb.com/api/assets/<<s20_poster_id>>"}
+      21: {url_poster: "https://theposterdb.com/api/assets/<<s21_poster_id>>"}
+      22: {url_poster: "https://theposterdb.com/api/assets/<<s22_poster_id>>"}
+      23: {url_poster: "https://theposterdb.com/api/assets/<<s23_poster_id>>"}
+      24: {url_poster: "https://theposterdb.com/api/assets/<<s24_poster_id>>"}
+      25: {url_poster: "https://theposterdb.com/api/assets/<<s25_poster_id>>"}
+      26: {url_poster: "https://theposterdb.com/api/assets/<<s26_poster_id>>"}
+      27: {url_poster: "https://theposterdb.com/api/assets/<<s27_poster_id>>"}
+      28: {url_poster: "https://theposterdb.com/api/assets/<<s28_poster_id>>"}
+      29: {url_poster: "https://theposterdb.com/api/assets/<<s29_poster_id>>"}
+      30: {url_poster: "https://theposterdb.com/api/assets/<<s30_poster_id>>"}
+    optional:
+      - "<<poster_id>>"
+      - "<<special_poster_id>>"
+      - "<<s1_poster_id>>"
+      - "<<s2_poster_id>>"
+      - "<<s3_poster_id>>"
+      - "<<s4_poster_id>>"
+      - "<<s5_poster_id>>"
+      - "<<s6_poster_id>>"
+      - "<<s7_poster_id>>"
+      - "<<s8_poster_id>>"
+      - "<<s9_poster_id>>"
+      - "<<s10_poster_id>>"
+      - "<<s11_poster_id>>"
+      - "<<s12_poster_id>>"
+      - "<<s13_poster_id>>"
+      - "<<s14_poster_id>>"
+      - "<<s15_poster_id>>"
+      - "<<s16_poster_id>>"
+      - "<<s17_poster_id>>"
+      - "<<s18_poster_id>>"
+      - "<<s19_poster_id>>"
+      - "<<s20_poster_id>>"
+      - "<<s21_poster_id>>"
+      - "<<s22_poster_id>>"
+      - "<<s23_poster_id>>"
+      - "<<s24_poster_id>>"
+      - "<<s25_poster_id>>"
+      - "<<s26_poster_id>>"
+      - "<<s27_poster_id>>"
+      - "<<s28_poster_id>>"
+      - "<<s29_poster_id>>"
+      - "<<s30_poster_id>>"

@@ -1,0 +1,388 @@
+external_templates:
+  - file: config/templates/movie-meta.yml
+
+metadata:
+  "1917 (2019)":
+    template:
+      name: match
+      title: "1917"
+      year: 2019
+      poster_id: 42993
+
+  "A Minecraft Movie (2025)":
+    template:
+      name: match
+      title: "A Minecraft Movie"
+      year: 2025
+      poster_id: 579582
+
+  "Archive (2020)":
+    template:
+      name: match
+      title: "Archive"
+      year: 2020
+      poster_id: 110755
+
+  "Baby Driver (2017)":
+    template:
+      name: match
+      title: "Baby Driver"
+      year: 2017
+      poster_id: 90870
+
+  "The Bad Guys (2022)":
+    template:
+      name: match
+      title: "The Bad Guys"
+      year: 2022
+      poster_id: 232763
+
+  "The Bad Guys 2 (2024)":
+    template:
+      name: match
+      title: "The Bad Guys 2"
+      year: 2024
+      poster_id: 648831
+
+  "The Batman (2022)":
+    template:
+      name: match
+      title: "The Batman"
+      year: 2022
+      poster_id: 228589
+
+  "Bullet Train (2022)":
+    template:
+      name: match
+      title: "Bullet Train"
+      year: 2022
+      poster_id: 269443
+
+  "Dungeons & Dragons: Honor Among Thieves (2023)":
+    template:
+      name: match
+      title: "Dungeons & Dragons: Honor Among Thieves"
+      year: 2023
+      poster_id: 337160
+
+  "Five Nights at Freddy's (2023)":
+    template:
+      name: match
+      title: "Five Nights at Freddy's"
+      year: 2023
+      poster_id: 674000
+
+  "Five Nights at Freddy's 2 (2025)":
+    template:
+      name: match
+      title: "Five Nights at Freddy's 2"
+      year: 2025
+      poster_id: 673999
+
+  "Free Guy (2021)":
+    template:
+      name: match
+      title: "Free Guy"
+      year: 2021
+      poster_id: 104472
+
+  "The Greatest Beer Run Ever (2022)":
+    template:
+      name: match
+      title: "The Greatest Beer Run Ever"
+      year: 2022
+      poster_id: 273329
+
+  "Gran Turismo (2023)":
+    template:
+      name: match
+      title: "Gran Turismo"
+      year: 2023
+      poster_id: 411893
+
+  "Guns Akimbo (2019)":
+    template:
+      name: match
+      title: "Guns Akimbo"
+      year: 2019
+      poster_id: 431364
+
+  "The Hitman's Bodyguard (2017)":
+    template:
+      name: match
+      title: "The Hitman's Bodyguard"
+      year: 2017
+      poster_id: 165937
+
+  "The Hitman's Wife's Bodyguard (2021)":
+    template:
+      name: match
+      title: "The Hitman's Wife's Bodyguard"
+      year: 2021
+      poster_id: 165938
+
+  "Interstellar (2014)":
+    template:
+      name: match
+      title: "Interstellar"
+      year: 2014
+      poster_id: 20544
+
+  "Iron Lung (2026)":
+    template:
+      name: match
+      title: "Iron Lung"
+      year: 2026
+      poster_id: 670325
+
+  "Joker (2019)":
+    template:
+      name: match
+      title: "Joker"
+      year: 2019
+      poster_id: 79254
+
+  "Justice League: The Flashpoint Paradox (2013)":
+    template:
+      name: match
+      title: "Justice League: The Flashpoint Paradox"
+      year: 2013
+      poster_id: 171413
+
+  "Kraven the Hunter (2023)":
+    template:
+      name: match
+      title: "Kraven the Hunter"
+      year: 2023
+      poster_id: 442746
+
+  "The Martian (2015)":
+    template:
+      name: match
+      title: "The Martian"
+      year: 2015
+      poster_id: 10377
+
+  "The Menu (2022)":
+    template:
+      name: match
+      title: "The Menu"
+      year: 2022
+      poster_id: 305216
+
+  "Monty Python and the Holy Grail (1975)":
+    template:
+      name: match
+      title: "Monty Python and the Holy Grail"
+      year: 1975
+      poster_id: 70555
+
+  "Mortal Kombat (2021)":
+    template:
+      name: match
+      title: "Mortal Kombat"
+      year: 2021
+      poster_id: 131553
+
+  "Nobody (2021)":
+    template:
+      name: match
+      title: "Nobody"
+      year: 2021
+      poster_id: 593466
+
+  "Nobody 2 (2024)":
+    template:
+      name: match
+      title: "Nobody 2"
+      year: 2024
+      poster_id: 638402
+
+  "Novocaine (2001)":
+    template:
+      name: match
+      title: "Novocaine"
+      year: 2001
+      poster_id: 583792
+
+  "Now You See Me (2013)":
+    template:
+      name: match
+      title: "Now You See Me"
+      year: 2013
+      poster_id: 84212
+
+  "Now You See Me 2 (2016)":
+    template:
+      name: match
+      title: "Now You See Me 2"
+      year: 2016
+      poster_id: 84213
+
+  "Once Upon a Time... in Hollywood (2019)":
+    template:
+      name: match
+      title: "Once Upon a Time... in Hollywood"
+      year: 2019
+      poster_id: 43622
+
+  "Oppenheimer (2023)":
+    template:
+      name: match
+      title: "Oppenheimer"
+      year: 2023
+      poster_id: 252160
+
+  "Ready Player One (2018)":
+    template:
+      name: match
+      title: "Ready Player One"
+      year: 2018
+      poster_id: 35152
+
+  "Real Steel (2011)":
+    template:
+      name: match
+      title: "Real Steel"
+      year: 2011
+      poster_id: 47251
+
+  "Road House (2024)":
+    template:
+      name: match
+      title: "Road House"
+      year: 2024
+      poster_id: 466507
+
+  "RoboCop (2014)":
+    template:
+      name: match
+      title: "RoboCop"
+      year: 2014
+      poster_id: 78309
+
+  "Saving Private Ryan (1998)":
+    template:
+      name: match
+      title: "Saving Private Ryan"
+      year: 1998
+      poster_id: 53341
+
+  "Sherlock Holmes (2009)":
+    template:
+      name: match
+      title: "Sherlock Holmes"
+      year: 2009
+      poster_id: 83696
+
+  "Snake Eyes (2021)":
+    template:
+      name: match
+      title: "Snake Eyes"
+      year: 2021
+      poster_id: 182370
+
+  "Spaceballs (1987)":
+    template:
+      name: match
+      title: "Spaceballs"
+      year: 1987
+      poster_id: 73168
+
+  "Starship Troopers (1997)":
+    template:
+      name: match
+      title: "Starship Troopers"
+      year: 1997
+      poster_id: 5526
+
+  "Superhero Movie (2008)":
+    template:
+      name: match
+      title: "Superhero Movie"
+      year: 2008
+      poster_id: 146175
+
+  "The Super Mario Bros. Movie (2023)":
+    template:
+      - name: match
+        title: "The Super Mario Bros. Movie"
+        year: 2023
+    url_poster: https://image.tmdb.org/t/p/original/oN4CiXLx2kjWPvWMUTCVD3lKOTu.jpg
+
+  "The Super Mario Galaxy Movie (2023)":
+    template:
+      - name: match
+        title: "The Super Mario Galaxy Movie"
+        year: 2023
+    url_poster: https://image.tmdb.org/t/p/original/ujhEXh53ruKH4CcC5qo5wYljbmy.jpg
+
+  "Tag (2018)":
+    template:
+      name: match
+      title: "Tag"
+      year: 2018
+      poster_id: 166995
+
+  "Tetris (2023)":
+    template:
+      name: match
+      title: "Tetris"
+      year: 2023
+      poster_id: 343386
+
+  "Uncut Gems (2019)":
+    template:
+      name: match
+      title: "Uncut Gems"
+      year: 2019
+      poster_id: 35207
+
+  "Upgrade (2018)":
+    template:
+      name: match
+      title: "Upgrade"
+      year: 2018
+      poster_id: 93323
+
+  "V for Vendetta (2005)":
+    template:
+      name: match
+      title: "V for Vendetta"
+      year: 2005
+      poster_id: 15112
+
+  "The Wolf of Wall Street (2013)":
+    template:
+      name: match
+      title: "The Wolf of Wall Street"
+      year: 2013
+      poster_id: 109564
+
+  "The Wild Robot (2024)":
+    template:
+      name: match
+      title: "The Wild Robot"
+      year: 2024
+      poster_id: 531783
+
+  "Wrath of Man (2021)":
+    template:
+      name: match
+      title: "Wrath of Man"
+      year: 2021
+      poster_id: 170702
+
+  "Zootopia (2016)":
+    template:
+      name: match
+      title: "Zootopia"
+      year: 2016
+      poster_id: 33372
+
+  "Zootopia 2 (2025)":
+    template:
+      name: match
+      title: "Zootopia 2"
+      year: 2025
+      poster_id: 631254

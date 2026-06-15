@@ -1,0 +1,25 @@
+templates:
+  trakt-list:
+    optional:
+      - url_poster
+      - ignore
+    trakt_list: "https://trakt.tv/users/<<list_author>>/lists/<<list_name>>"
+    libraries: Movies, TV Shows
+    sync_to_users: all
+    url_poster: "<<url_poster>>"
+    minimum_items: 2
+    ignore_ids: <<ignore>>
+    sonarr_add_missing: false
+    radarr_add_missing: false
+  trakt-list-official:
+    optional:
+      - url_poster
+      - ignore
+    libraries: Movies, TV Shows
+    sync_to_users: all
+    url_poster: "<<url_poster>>"
+    trakt_list: "https://trakt.tv/lists/official/<<list_name>>"
+    minimum_items: 2
+    ignore_ids: <<ignore>>
+    sonarr_add_missing: false
+    radarr_add_missing: false

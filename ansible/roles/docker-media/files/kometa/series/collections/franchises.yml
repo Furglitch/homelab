@@ -1,0 +1,131 @@
+external_templates:
+  - file: config/templates/collections.yml
+
+collections:
+
+  "Blade Runner":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: blade-runner-chronological
+      poster_id: 33975
+
+  "Breaking Bad":
+    template:
+      name: trakt-list
+      list_author: vargajoe
+      list_name: breaking-bad-chronology
+      ignore:
+        - 402050    # [Series] Slippin' Jimmy
+      poster_id: 503550
+
+  "John Wick":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: john-wick
+      poster_id: 20710
+
+  "Middle Earth":
+    template:
+      name: trakt-list
+      list_author: oya-kesh
+      list_name: middle-earth
+      poster_id: 61357
+
+  "MonsterVerse":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: monsterverse
+      ignore:
+        - 421104    # [Series] Skull Island (2023)
+      poster_id: 116534
+
+  "My Little Pony":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: my-little-pony-chronological
+      ignore:
+        - 72001     # [Series] My Little Pony 'n Friends (1986)
+        - 76790     # [Series] My Little Pony Tales (1992)
+        - 372750    # [Series] My Little Pony: Pony Life (2020)
+        - 416741    # [Series] My Little Pony: Make Your Mark (2022)
+        - 416742    # [Series] My Little Pony: Tell Your Tale (2022)
+      poster_id: 524767
+  
+  "Pokemon":
+    template:
+      name: trakt-list
+      list_author: seriouspain
+      list_name: pokemon
+      poster_id: 438334
+      ignore:
+        - 72975 # [Series] Pokémon Chronicles (1998)
+
+  "Sonic the Hedgehog":
+    template:
+      name: trakt-list
+      list_author: folion
+      list_name: sonic-timeline
+      poster_id: 467191
+
+  "Star Trek":
+    template:
+      name: trakt-list
+      list_author: acfmovies
+      list_name: star-trek-chronological-order
+      ignore:
+        - 73566  # [Series] Star Trek: The Animated Series (1973)
+      poster_id: 62523
+
+  "Star Wars":
+    template:
+      name: trakt-list
+      list_author: gratiskeder
+      list_name: star-wars
+      ignore:
+        - 420658  # [Series] Young Jedi Adventures (2023)
+        - 351575   # [Series] Star Wars Resistance (2018)
+      poster_id: 27586
+
+  "Stargate":
+    template:
+      name: trakt-list
+      list_author: stziza
+      list_name: stargate-watching-order
+      poster_id: 87163
+
+  "Supernatural":
+    template:
+      name: trakt-list
+      list_author: icecreamsoup
+      list_name: supernatural
+      ignore:
+        - 261264  # [Miniseries] Ghostfacers (2010)
+        - 197001   # [Series] Supernatural: The Animation (2011)
+      poster_id: 143038
+
+  "Vought Cinematic Universe":
+    template:
+      name: trakt-list
+      list_author: tdjorgensen
+      list_name: the-boys-collection
+      ignore:
+        - 413188  # [Series] The Boys: Diabolical (2022)
+      poster_id: 486938
+
+  "The Witcher":
+    template:
+      name: trakt-list
+      list_author: martials
+      list_name: the-witcher-chronological-order
+      poster_id: 379612
+
+  "Yellowstone":
+    template:
+      name: trakt-list
+      list_author: defqonforce
+      list_name: yellowstone
+      poster_id: 287923

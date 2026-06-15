@@ -1,0 +1,37 @@
+templates:
+  trakt-list:
+    optional:
+      - ignore
+      - poster_id
+    trakt_list: "https://trakt.tv/users/<<list_author>>/lists/<<list_name>>?display=show,season,episode"
+    collection_order: release
+    ignore_ids: <<ignore>>
+    minimum_items: 2
+    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
+  trakt-list-official:
+    optional:
+      - ignore
+      - poster_id
+    trakt_list: "https://trakt.tv/lists/official/<<list_name>>?display=show,season,episode"
+    collection_order: release
+    ignore_ids: <<ignore>>
+    minimum_items: 2
+    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
+  letterboxd-list:
+    optional:
+      - ignore
+      - poster_id
+    letterboxd_list: "https://letterboxd.com/<<list_author>>/list/<<list_name>>/"
+    collection_order: release
+    ignore_ids: <<ignore>>
+    minimum_items: 2
+    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
+  mdblist-list:
+    optional:
+      - ignore
+      - poster_id
+    mdblist_list: "https://mdblist.com/lists/<<list_author>>/<<list_name>>/"
+    collection_order: release
+    ignore_ids: <<ignore>>
+    minimum_items: 2
+    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"

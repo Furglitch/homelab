@@ -1,0 +1,37 @@
+external_templates:
+  - file: config/templates/collections.yml
+
+collections:
+
+  "James Gunn's DC Universe (DCU)":
+    template:
+      name: trakt-list
+      list_author: fistytristy
+      list_name: dc-universe-james-gunn-s-dcu
+      poster_id: 113155
+
+  "Marvel Cinematic Universe (MCU)":
+    template:
+      name: trakt-list
+      list_author: viperdu-vark
+      list_name: modified-chronological-mcu
+      ignore:
+        - 758025   # [Short] Peter's To-Do List (2019)
+      poster_id: 145336
+
+  "Studio Ghibli":
+    template:
+      name: trakt-list
+      list_author: asterlea
+      list_name: studio-ghibli
+      ignore:
+        - 514710  # [Shorts] Modest Heroes (2018)
+        - 683127  # [Movie] Earwig and the Witch (2020)
+      poster_id: 325047
+
+  "Zach Snyder's DC Extended Universe (DCEU)":
+    template:
+      name: trakt-list
+      list_author: koekoeracha
+      list_name: dc-extended-universe-dceu
+      poster_id: 48242

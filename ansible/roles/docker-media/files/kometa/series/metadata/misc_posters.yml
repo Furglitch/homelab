@@ -1,0 +1,209 @@
+external_templates:
+  - file: config/templates/tv-meta.yml
+
+metadata:
+
+  "Altered Carbon (2018)":
+    template:
+      name: match
+      title: "Altered Carbon"
+      year: 2018
+      poster_id: 43406
+      s1_poster_id: 43407
+      s2_poster_id: 43408
+
+  "Arcane (2021)":
+    template:
+      name: match
+      title: "Arcane"
+      year: 2021
+      poster_id: 541084
+      s1_poster_id: 541082
+      s2_poster_id: 541083
+
+  "Beastars (2019)":
+    template:
+      name: match
+      title: "Beastars"
+      year: 2019
+      poster_id: 400118
+      s1_poster_id: 400119
+      s2_poster_id: 400120
+      s3_poster_id: 548584
+
+  "The Blacklist (2013)":
+    template:
+      name: match
+      title: "The Blacklist"
+      year: 2013
+      poster_id: 328200
+      special_poster_id: 328201
+      s1_poster_id: 328202
+      s2_poster_id: 328203
+      s3_poster_id: 328204
+      s4_poster_id: 328205
+      s5_poster_id: 328206
+      s6_poster_id: 328207
+      s7_poster_id: 328208
+      s8_poster_id: 328209
+      s9_poster_id: 328210
+      s10_poster_id: 328211
+
+  "The Edge of Sleep (2024)":
+    template:
+      name: match
+      title: "The Edge of Sleep"
+      year: 2024
+      poster_id: 534462
+      s1_poster_id: 534463
+
+  "Fallout (2024)":
+    template:
+      name: match
+      title: "Fallout"
+      year: 2024
+      poster_id: 542399
+      special_poster_id: 542400
+      s1_poster_id: 542401
+      s2_poster_id: 669666
+
+  "Hazbin Hotel (2019)":
+    template:
+      name: match
+      title: "Hazbin Hotel"
+      year: 2019
+      poster_id: 656627
+      s1_poster_id: 656628
+      s2_poster_id: 656629
+
+  "Helluva Boss (2020)":
+    template:
+      name: match
+      title: "Helluva Boss"
+      year: 2020
+      poster_id: 447120
+      special_poster_id: 447121
+      s1_poster_id: 447122
+      s2_poster_id: 447123
+
+  "House (2004)":
+    template:
+      name: match
+      title: "House"
+      year: 2004
+      poster_id: 40167
+      special_poster_id: 41718
+      s1_poster_id: 40168
+      s2_poster_id: 40169
+      s3_poster_id: 40170
+      s4_poster_id: 40171
+      s5_poster_id: 40172
+      s6_poster_id: 40173
+      s7_poster_id: 40174
+      s8_poster_id: 40175
+
+  "The Last of Us (2023)":
+    template:
+      name: match
+      title: "The Last of Us"
+      year: 2023
+      poster_id: 596378
+      s1_poster_id: 596379
+      s2_poster_id: 596380
+
+  "The Legend of Vox Machina (2022)":
+    template:
+      name: match
+      title: "The Legend of Vox Machina"
+      year: 2022
+      poster_id: 313886
+      s1_poster_id: 313887
+      s2_poster_id: 313888
+      s3_poster_id: 537885
+
+  "The Mighty Nein (2025)":
+    template:
+      name: match
+      title: "The Mighty Nein"
+      year: 2025
+      poster_id: 663276
+      s1_poster_id: 663277
+
+  "The Orville (2017)":
+    template:
+      name: match
+      title: "The Orville"
+      year: 2017
+      poster_id: 268136
+      s1_poster_id: 268137
+      s2_poster_id: 268138
+      s3_poster_id: 268139
+
+  "The Penguin (2024)":
+    template:
+      name: match
+      title: "The Penguin"
+      year: 2024
+      poster_id: 526094
+      s1_poster_id: 526095
+
+  "The Rookie (2018)":
+    template:
+      name: match
+      title: "The Rookie"
+      year: 2018
+      poster_id: 560567
+      special_poster_id: 560568
+      s1_poster_id: 560569
+      s2_poster_id: 560570
+      s3_poster_id: 560571
+      s4_poster_id: 560572
+      s5_poster_id: 560573
+      s6_poster_id: 560574
+      s7_poster_id: 560575
+
+  "Secret Level (2024)":
+    template:
+      name: match
+      title: "Secret Level"
+      year: 2024
+      poster_id: 551126
+      s1_poster_id: 551127
+
+  "Space Force (2020)":
+    template:
+      name: match
+      title: "Space Force"
+      year: 2020
+      poster_id: 78470
+      s1_poster_id: 78471
+      s2_poster_id: 214036
+
+  "Tell Me Lies (2022)":
+    template:
+      name: match
+      title: "Tell Me Lies"
+      year: 2022
+      poster_id: 264310
+      s1_poster_id: 264311
+      s2_poster_id: 517433
+      s3_poster_id: 679478
+
+  "Tulsa King (2022)":
+    template:
+      name: match
+      title: "Tulsa King"
+      year: 2022
+      poster_id: 283598
+      s1_poster_id: 283599
+      s2_poster_id: 523414
+      s3_poster_id: 636302
+
+  "Twisted Metal (2023)":
+    template:
+      name: match
+      title: "Twisted Metal"
+      year: 2023
+      poster_id: 389473
+      s1_poster_id: 389474
+      s2_poster_id: 622068

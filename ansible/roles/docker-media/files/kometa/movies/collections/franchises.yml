@@ -1,0 +1,347 @@
+external_templates:
+  - file: config/templates/collections.yml
+
+collections:
+
+  "Avatar":
+    template:
+      name: trakt-list-official
+      list_name: avatar-collection
+      poster_id: 672053
+
+  "Beetlejuice":
+    template:
+      name: trakt-list-official
+      list_name: beetlejuice-collection
+      poster_id: 534111
+
+  "Blade Runner":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: blade-runner-chronological
+      poster_id: 33975
+
+  "Breaking Bad":
+    template:
+      name: trakt-list
+      list_author: vargajoe
+      list_name: breaking-bad-chronology
+      poster_id: 503550
+
+  "Code 8":
+    template:
+      name: trakt-list-official
+      list_name: code-8-collection
+      ignore:
+        - 389165  # [Short/Pilot] Code 8 (2016)
+      poster_id: 595681
+
+  "The Dark Knight":
+    template:
+      name: trakt-list-official
+      list_name: the-dark-knight-collection
+      poster_id: 22275
+
+  "Deadpool":
+    template:
+      name: trakt-list-official
+      list_name: deadpool-collection
+      poster_id: 16115
+
+  "DragonHeart":
+    template:
+      name: trakt-list-official
+      list_name: dragonheart-collection
+      poster_id: 23589
+  
+  "Dune":
+    template:
+      name: trakt-list-official
+      list_name: dune-collection
+      poster_id: 393189
+
+  "Eastrail 177":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: the-eastrail-177-trilogy
+      poster_id: 10346
+
+  "The Equalizer":
+    template:
+      name: trakt-list-official
+      list_name: the-equalizer-collection
+      poster_id: 37023
+
+  "Fast and Furious":
+    template:
+      name: trakt-list
+      list_author: vargajoe
+      list_name: fast-and-furious-chronology
+      ignore:
+        - 77959  # [Short] Turbo Charged Prelude (2003)
+        - 253835 # [Short] Los Bandoleros (2009)
+      poster_id: 395688
+
+  "Five Nights at Freddy's":
+    template:
+      name: trakt-list-official
+      list_name: five-nights-at-freddy-s-collection-27000779
+      poster_id: 673998
+
+  "Has Fallen":
+    template:
+      name: trakt-list-official
+      list_name: has-fallen-collection
+      poster_id: 76958
+
+  "How to Train Your Dragon":
+    template:
+      name: trakt-list
+      list_author: aeril
+      list_name: how-to-train-your-dragon
+      ignore:
+        - 47626  # [Short] Legend of the BoneKnapper Dragon (2019)
+        - 79379  # [Short] Book of Dragons (2011)
+        - 91417  # [Short] Dragons: Gift of the Night Fury (2011)
+        - 298115 # [Short] Dragons: Dawn of the Dragon Racers (2014)
+      poster_id: 28
+
+  "The Hunger Games":
+    template:
+      name: trakt-list
+      list_author: totes30
+      list_name: hunger-games
+      poster_id: 31012
+
+  "Indiana Jones":
+    template:
+      name: trakt-list-official
+      list_name: indiana-jones-collection
+      poster_id: 53303
+
+  "James Bond":
+    template:
+      name: trakt-list
+      list_author: jarvis-5553408
+      list_name: james-bond
+      poster_id: 115662
+
+  "John Wick":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: john-wick
+      poster_id: 20710
+
+  "Jurassic Park":
+    template:
+      name: trakt-list-official
+      list_name: jurassic-park-collection
+      poster_id: 158968
+
+  "Kingsman":
+    template:
+      name: trakt-list-official
+      list_name: kingsman-collection
+      poster_id: 211641
+
+  "The Lego Movie":
+    template:
+      name: trakt-list
+      list_author: conanrocks
+      list_name: movies-lego-movie
+      ignore:
+        - 274862 # [Movie] The Lego Ninjago Movie (2017)
+      poster_id: 50422
+
+  "The Matrix":
+    template:
+      name: trakt-list-official
+      list_name: the-matrix-collection
+      poster_id: 195195
+
+  "The Maze Runner":
+    template:
+      name: trakt-list-official
+      list_name: the-maze-runner-collection
+      poster_id: 1026
+
+  "Men in Black":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: men-in-black
+      ignore:
+        - 479455  # [Movie] Men in Black: International
+      poster_id: 1035
+
+  "Middle Earth":
+    template:
+      name: trakt-list
+      list_author: oya-kesh
+      list_name: middle-earth
+      poster_id: 61357
+
+  "Mission Impossible":
+    template:
+      name: trakt-list-official
+      list_name: mission-impossible-collection
+      poster_id: 65202
+
+  "MonsterVerse":
+    template:
+      name: trakt-list
+      list_author: drjenkins
+      list_name: monsterverse
+      poster_id: 116534
+
+  "My Little Pony":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: my-little-pony-chronological
+      ignore:
+        - 359878  # [Short] My Little Pony (1984)
+        - 25400   # [Movie] My Little Pony: The Movie (1986)
+        - 25396   # [Short] My Little Pony: A Very Minty Christmas (2005)
+        - 256439  # [Short] My Little Pony: The Runaway Rainbow (2006)
+        - 19789   # [Short] My Little Pony: The Princess Promenade (2006)
+        - 290996  # [Short] My Little Pony: A Very Pony Place (2007)
+        - 57505   # [Short] My Little Pony: Twinkle Wish Adventure (2009)
+        - 564638  # [Short] My Little Pony: Best Gift Ever (2018)
+        - 612087  # [Movie] My Little Pony: Rainbow Roadtrip (2019)
+        - 597316  # [Movie] My Little Pony: A New Generation (2021)
+      poster_id: 524767
+
+  "Now You See Me":
+    template:
+      name: trakt-list
+      list_author: dudeimtired
+      list_name: now-you-see-me-collection
+      poster_id: 673554
+
+  "Pacific Rim":
+    template:
+      name: trakt-list-official
+      list_name: pacific-rim-collection
+      poster_id: 63694
+  
+  "Pirates of the Caribbean":
+    template:
+      name: trakt-list-official
+      list_name: pirates-of-the-caribbean
+      poster_id: 49956
+
+  "Planet of the Apes":
+    template:
+      name: trakt-list-official
+      list_name: planet-of-the-apes-reboot-collection
+      poster_id: 97354
+  
+  "Pokemon":
+    template:
+      name: trakt-list
+      list_author: seriouspain
+      list_name: pokemon
+      ignore:
+        - 33376  # [Short] Pikachu's Vacation (1998)
+        - 36756  # [Short] Pikachu's Rescue Adventure (1999)
+        - 268998 # [Short] Pokémon: Pikachu's Winter Vacation 2 (1999)
+        - 36753  # [Short] Pikachu and Pichu (2000)
+        - 293245 # [Short] Pikachu's PikaBoo (2001)
+        - 295613 # [Movie] Pokémon Chronicles: The Legend of Thunder! (2001)
+        - 211814 # [Short] Camp Pikachu (2002)
+        - 216651 # [Short] Pikachu's Island Adventure (2006)
+        - 272087 # [Short] Meloetta's Moonlight Serenade (2012)
+        - 249424 # [Short] Pokémon: Mewtwo - Prologue to Awakening (2013)
+        - 377909 # [Short] Pokémon: Eevee & Friends (2013) 
+        - 332485 # [Short] Pikachu, What's This Key? (2014)
+        - 389621 # [Short] Pikachu and the Pokémon Music Squad (2015)
+      poster_id: 438334
+
+  "Shrek":
+    template:
+      name: trakt-list
+      list_author: paladin_g
+      list_name: shrek-and-puss-in-boots
+      ignore:
+        - 634064 # [Unofficial] Shrek Retold (2018)
+      poster_id: 27739
+
+  "Sonic the Hedgehog":
+    template:
+      name: trakt-list
+      list_author: folion
+      list_name: sonic-timeline
+      ignore:
+        - 979296  # [Short] Sonic Drone Home (2020)
+      poster_id: 467191
+
+  "Spider-Verse":
+    template:
+      name: trakt-list
+      list_author: cinhd
+      list_name: sony-s-spider-man-franchise
+      ignore:
+        - 526896  # [Movie] Morbius (2022)
+        - 634492  # [Movie] Madame Web (2024)
+        - 539972  # [Movie] Kraven the Hunter (2024)
+      poster_id: 311233
+
+  "Star Trek":
+    template:
+      name: trakt-list
+      list_author: acfmovies
+      list_name: star-trek-chronological-order
+      poster_id: 62523
+
+  "Star Wars":
+    template:
+      name: trakt-list
+      list_author: gratiskeder
+      list_name: star-wars
+      poster_id: 27586
+
+  "Top Gun":
+    template:
+      name: trakt-list-official
+      list_name: top-gun-collection
+      poster_id: 251518
+
+  "Transformers":
+    template:
+      name: trakt-list
+      list_author: strangerer
+      list_name: transformers
+      poster_id: 13251
+
+  "Tron":
+    template:
+      name: trakt-list-official
+      list_name: tron-collection
+      poster_id: 648839
+
+  "The Witcher":
+    template:
+      name: trakt-list
+      list_author: martials
+      list_name: the-witcher-chronological-order
+      poster_id: 379612
+
+  "Wizarding World":
+    template:
+      name: trakt-list
+      list_author: malvado
+      list_name: wizarding-world
+      poster_id: 20343
+
+  "X-Men":
+    template:
+      name: trakt-list
+      list_author: donxy
+      list_name: x-men-universe
+      ignore:
+        - 340102  # [Movie] The New Mutants (2020)
+      poster_id: 10
