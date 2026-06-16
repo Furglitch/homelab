@@ -1,0 +1,8 @@
+---
+- name: Apply PiHole configuration
+  hosts: pihole
+  become: false
+  roles:
+    - baseline
+    - docker
+    - pihole

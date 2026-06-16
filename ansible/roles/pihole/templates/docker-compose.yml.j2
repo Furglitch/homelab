@@ -1,0 +1,36 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    restart: unless-stopped
+
+services:
+    pihole:
+        <<: *default-service
+        image: "pihole/pihole:latest"
+        container_name: pihole
+        ports:
+            - "{{ pihole.dns_port }}:53/tcp"
+            - "{{ pihole.dns_port }}:53/udp"
+            - "{{ pihole.web_port }}:80/tcp"
+        environment:
+            TZ: "{{ time }}"
+            FTLCONF_WEBSERVER_API_PASSWORD: "{{ pihole_pass }}"
+            FTLCONF_LOCAL_IPV4: "{{ ip_local }}"
+            PIHOLE_DNS_1: "{{ pihole.upstream_dns_1 }}"
+            PIHOLE_DNS_2: "{{ pihole.upstream_dns_2 }}"
+        volumes:
+            - "{{ files.config_path }}/pihole:/etc/pihole"
+            - "{{ files.config_path }}/pihole/dnsmasq.d:/etc/dnsmasq.d"
+        cap_add:
+            - NET_ADMIN
+
+    watchtower:
+        <<: *default-service
+        image: "nickfedor/watchtower:latest"
+        container_name: watchtower
+        environment:
+            - TZ={{ time }}
+        volumes:
+            - {{ files.docker_sock }}:/var/run/docker.sock
+        command: --cleanup=true --include-restarting=true --include-stopped=true --interval=86400

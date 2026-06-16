@@ -13,6 +13,11 @@ resource "proxmox_lxc" "pihole" {
 	onboot	   			= var.vm_boot_start_onboot
 	unprivileged 		= var.lxc_unprivileged
 
+	features {
+		fuse            = true
+		nesting         = true
+	}
+
 	cores       		= 1
 	memory      		= var.hw_memory
 	swap				= var.hw_memory_swap
