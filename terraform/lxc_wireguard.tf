@@ -17,6 +17,12 @@ resource "proxmox_lxc" "wireguard" {
 	memory      		= var.hw_memory
 	swap				= var.hw_memory_swap
 
+	features {
+		fuse            = true
+		nesting         = true
+		keyctl          = true
+	}
+
 	rootfs {
 		storage 		= var.storage_container
 		size 			= "4G"

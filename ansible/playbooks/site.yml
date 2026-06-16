@@ -1,5 +1,4 @@
 ---
-# Umbrella orchestration — add nodes here after individual playbooks are validated.
-
 - import_playbook: docker.yml
 - import_playbook: nginx.yml
+- import_playbook: wireguard.yml

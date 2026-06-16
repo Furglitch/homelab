@@ -1,0 +1,10 @@
+---
+ip_local: "192.168.1.232"
+
+wireguard:
+  interface: wg0
+  listen_port: 51820
+  network_cidr: "10.13.0.0/24"
+
+wgdashboard:
+  port: 10086

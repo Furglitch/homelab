@@ -1,0 +1,72 @@
+---
+- name: Enable IP forwarding
+  ansible.posix.sysctl:
+    name: "{{ item }}"
+    value: "1"
+    state: present
+    sysctl_set: true
+    reload: true
+  loop:
+    - net.ipv4.ip_forward
+    - net.ipv6.conf.all.forwarding
+
+- name: Install WireGuard tools and fuse-overlayfs
+  ansible.builtin.apt:
+    name:
+      - wireguard-tools
+      - fuse-overlayfs
+    state: present
+
+- name: Configure Docker daemon to use fuse-overlayfs storage driver
+  ansible.builtin.copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "storage-driver": "fuse-overlayfs"
+      }
+    mode: "0644"
+  notify: Restart Docker
+
+- name: Flush handlers to restart Docker before deploying
+  ansible.builtin.meta: flush_handlers
+
+- name: Create WireGuard config directory
+  ansible.builtin.file:
+    path: /etc/wireguard
+    state: directory
+    mode: "0700"
+
+- name: Create WGDashboard Docker directory structure
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ files.docker_path }}"
+    - "{{ files.config_path }}"
+    - "{{ files.data_path }}"
+    - "{{ files.data_path }}/wg-dashboard"
+
+- name: Render WGDashboard Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ files.docker_path }}/docker-compose.yml"
+    mode: "0644"
+    force: true
+
+- name: Remove stale default compose filenames
+  ansible.builtin.file:
+    path: "{{ files.docker_path }}/{{ item }}"
+    state: absent
+  loop:
+    - compose.yml
+    - compose.yaml
+    - docker-compose.yaml
+
+- name: Deploy WGDashboard stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ files.docker_path }}"
+    files:
+      - docker-compose.yml
+    state: present
+    pull: always
