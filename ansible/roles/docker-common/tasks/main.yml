@@ -23,7 +23,7 @@
     - compose.yaml
     - docker-compose.yaml
 
-- name: Deploy media stack
+- name: Deploy base stack
   community.docker.docker_compose_v2:
     project_src: "{{ files.docker_path }}"
     files:

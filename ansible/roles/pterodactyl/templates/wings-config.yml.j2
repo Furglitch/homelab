@@ -1,0 +1,23 @@
+debug: false
+uuid: "{{ pterodactyl.wings_node_uuid }}"
+token_id: "{{ pterodactyl.wings_token_id }}"
+token: "{{ pterodactyl.wings_token }}"
+
+api:
+  host: 0.0.0.0
+  port: {{ ports.wings_api }}
+  ssl:
+    enabled: false
+    cert: /etc/letsencrypt/live/{{ ip_local }}/fullchain.pem
+    key: /etc/letsencrypt/live/{{ ip_local }}/privkey.pem
+  upload_limit: 100
+
+system:
+  data: /var/lib/pterodactyl
+  sftp:
+    bind_address: 0.0.0.0
+    bind_port: {{ ports.wings_sftp }}
+    read_only: false
+
+remote: "{{ pterodactyl.app_url }}"
+allowed_mounts: []

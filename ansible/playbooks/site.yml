@@ -3,3 +3,4 @@
 - import_playbook: nginx.yml
 - import_playbook: wireguard.yml
 - import_playbook: pihole.yml
+- import_playbook: pterodactyl.yml
