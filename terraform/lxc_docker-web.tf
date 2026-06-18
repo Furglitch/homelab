@@ -1,5 +1,7 @@
 resource "proxmox_lxc" "docker_web" {
-	depends_on = [ proxmox_virtual_environment_download_file.template_debian_13 ]
+	depends_on = [ 
+		proxmox_virtual_environment_download_file.template_debian_13
+	]
 	ssh_public_keys     = file(var.ssh_key_public)
 
 	hostname	 		= "docker-web"
@@ -41,5 +43,31 @@ resource "proxmox_lxc" "docker_web" {
 		ignore_changes = [
 			ostemplate,
 		]
+	}
+}
+
+resource "null_resource" "docker_web_tun" {
+	depends_on = [
+		proxmox_lxc.docker_web,
+		null_resource.truenas_share_mounts,
+	]
+
+	triggers = {
+		lxc_id = proxmox_lxc.docker_web.id
+	}
+
+	provisioner "local-exec" {
+		command = <<-EOT
+			echo "[[[PASSWORD ENTRY NEEDED]]]"
+
+			ssh -o StrictHostKeyChecking=no \
+				root@${var.pve_host_ip} bash << 'ENDSSH'
+
+			grep -qxF 'lxc.mount.entry: /mnt/share/truenas-cloud nfs/cloud none bind,optional,create=dir' /etc/pve/lxc/222.conf || \
+				echo 'lxc.mount.entry: /mnt/share/truenas-cloud nfs/cloud none bind,optional,create=dir' >> /etc/pve/lxc/222.conf
+
+			pct reboot 222 || pct start 222
+ENDSSH
+		EOT
 	}
 }

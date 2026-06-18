@@ -33,8 +33,8 @@ files:
   docker_sock: /var/run/docker.sock
   config_path: /docker/config
   data_path: /docker/data
-  media_path: /mnt/share/truenas-media
-  cloud_path: /mnt/share/truenas-cloud
+  media_path: /nfs/media
+  cloud_path: /nfs/cloud
 
 homarr:
   secret_encryption_key: !vault |

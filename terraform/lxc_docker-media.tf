@@ -1,7 +1,6 @@
 resource "proxmox_lxc" "docker_media" {
     depends_on = [
         proxmox_virtual_environment_download_file.template_debian_13,
-        proxmox_virtual_environment_vm.truenas,
     ]
 	ssh_public_keys     = file(var.ssh_key_public)
 
@@ -57,7 +56,10 @@ resource "proxmox_lxc" "docker_media" {
 }
 
 resource "null_resource" "docker_media_tun" {
-	depends_on = [proxmox_lxc.docker_media]
+	depends_on = [
+		proxmox_lxc.docker_media,
+		null_resource.truenas_share_mounts,
+	]
 
 	triggers = {
 		lxc_id = proxmox_lxc.docker_media.id
@@ -81,6 +83,9 @@ resource "null_resource" "docker_media_tun" {
 
 			grep -qxF 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' /etc/pve/lxc/221.conf || \
 				echo 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.mount.entry: /mnt/share/truenas-media nfs/media none bind,optional,create=dir' /etc/pve/lxc/221.conf || \
+				echo 'lxc.mount.entry: /mnt/share/truenas-media nfs/media none bind,optional,create=dir' >> /etc/pve/lxc/221.conf
 
 			pct reboot 221 || pct start 221
 ENDSSH
