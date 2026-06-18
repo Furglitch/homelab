@@ -64,6 +64,7 @@ resource "proxmox_virtual_environment_vm" "truenas" {
             started,
             cdrom,
             hostpci,
+            initialization,
         ]
     }
 }
@@ -90,7 +91,7 @@ resource "null_resource" "truenas_attach_sata" {
             echo "Attaching SATA controller $PCI_ID to VM $VMID..."
             
             qm set $VMID -delete hostpci0 || true
-            qm set $VMID -hostpci0 $PCI_ID,pcie=1
+            qm set $VMID -hostpci0 $PCI_ID,pcie=1,rombar=0
             
             echo "SATA controller attached successfully"
 ENDSSH
