@@ -11,13 +11,3 @@ ports:
   proton_imap: 32305
   proton_smtp: 32306
   nginx_admin: 81
-
-homepage:
-  plex_token: ""
-  tautulli_key: ""
-  radarr_key: ""
-  sonarr_key: ""
-  prowlarr_key: ""
-  sabnzbd_key: ""
-  qbittorrent_user: admin
-  qbittorrent_password: ""

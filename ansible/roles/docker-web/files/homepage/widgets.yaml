@@ -1,8 +1,0 @@
-- search:
-    provider: custom
-    url: https://www.startpage.com/sp/search?q=
-    target: _blank
-
-- resources:
-    cpu: true
-    memory: true
