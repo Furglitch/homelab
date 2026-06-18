@@ -49,7 +49,7 @@ services:
         volumes:
             - {{ files.config_path }}/nextcloud:/config
             - {{ files.data_path }}/nextcloud:/data
-            - {{ files.cloud_path }}/nextcloud:/share
+            - {{ files.cloud_path }}:/share
         restart: always
 
     sillytavern:
