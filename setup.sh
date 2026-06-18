@@ -167,7 +167,7 @@ In Proxmox, complete the TrueNAS installer for VMID 201 (truenas):
 2) Open Console and boot from attached TrueNAS ISO.
 3) Select the following options:
     - 1. Install/Upgrade
-    - Select 'sda QEMU HARDDISK 32 GiB' as the destination media.
+    - Select the destination media.
     - Select 'Yes' to proceed with installation.
     - 1. Administrative User (truenas_admin)
     - Set a strong password for the admin user.
@@ -182,10 +182,7 @@ manual_truenas_ip_steps() {
 	section "Manual Step: Configure TrueNAS IP"
 	cat <<'EOF'
 In the TrueNAS console:
-1) Select "1) Configure Network Interfaces".
-2) Click 'Enter' to edit the default interface.
-3) Add the static IP address: 192.168.1.201/24 and gateway 192.168.1.1
-4) Save, press 'a' to apply, 'p' to persist, then 'q' to quit back to the main menu.
+1) Set the static IP as a reserved address on your router.
 EOF
 	prompt_continue "Continue after TrueNAS pool setup is complete?"
 }
@@ -216,6 +213,21 @@ In Proxmox, complete the Home Assistant installer for VMID 211 (homeassistant):
 5) Detach installer media if required.
 EOF
 	prompt_continue "Continue after Home Assistant installation is complete?"
+}
+
+manual_homeassistant_ip_steps() {
+	section "Manual Step: Configure Home Assistant IP"
+	cat <<'EOF'
+In the Home Assistant Web UI, after logging in:
+1) Navigate to Supervisor > System.
+2) Under 'Configure network interfaces', change IPv4 to 'Static' and set the following:
+	- IP address: 192.168.1.211
+	- Netmask: 255.255.255.0
+	- Gateway address: 192.168.1.1
+3) Save and apply the network configuration.
+4) Restart Home Assistant to ensure the new IP is active.
+EOF
+	prompt_continue "Continue after Home Assistant IP configuration is complete?"
 }
 
 main() {
