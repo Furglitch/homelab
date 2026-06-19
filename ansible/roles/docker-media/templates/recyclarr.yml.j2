@@ -1,7 +1,7 @@
 radarr:
   radarr_main:
     base_url: http://{{ ip_local }}:{{ ports.radarr }}
-    api_key: {{ kometa.radarr_token }}
+    api_key: {{ tokens.radarr }}
     quality_definition:
       type: movie
     media_naming:
@@ -94,7 +94,7 @@ radarr:
 sonarr:
   sonarr_main:
     base_url: http://{{ ip_local }}:{{ ports.sonarr }}
-    api_key: {{ kometa.sonarr_token }}
+    api_key: {{ tokens.sonarr }}
     quality_definition:
       type: series
     media_naming:

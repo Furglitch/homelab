@@ -149,7 +149,7 @@ settings:
 
 plex:
   url: http://{{ ip_local }}:{{ ports.plex }}
-  token: {{ kometa.plex_token }}
+  token: {{ tokens.plex }}
   timeout: 60
   verify_ssl:
   db_cache:
@@ -160,7 +160,7 @@ plex:
 
 radarr:
   url: http://{{ ip_local }}:{{ ports.radarr }}
-  token: {{ kometa.radarr_token }}
+  token: {{ tokens.radarr }}
   root_folder_path: /share/movies
   plex_path: /share/movies
   add_missing: true
@@ -178,7 +178,7 @@ radarr:
 
 sonarr:
   url: http://{{ ip_local }}:{{ ports.sonarr }}
-  token: {{ kometa.sonarr_token }}
+  token: {{ tokens.sonarr }}
   root_folder_path: /share/series
   plex_path: /share/series
   add_missing: true
@@ -199,20 +199,20 @@ sonarr:
 
 
 tmdb:
-  apikey: {{ kometa.tmdb_apikey }}
+  apikey: {{ tokens.tmdb }}
   language: en
   region: US
   cache_expiration: 60
 
 
 trakt: # https://metamanager.wiki/en/latest/config/trakt/#online-authorization
-  client_id: {{ kometa.trakt_client_id }}
-  client_secret: {{ kometa.trakt_client_secret }}
+  client_id: {{ tokens.trakt.client_id }}
+  client_secret: {{ tokens.trakt.client_secret }}
   authorization:
-    access_token: {{ kometa.trakt_access_token }}
+    access_token: {{ tokens.trakt.access_token }}
     token_type: Bearer
-    expires_in: {{ kometa.trakt_expires_in }}
-    refresh_token: {{ kometa.trakt_refresh_token }}
+    expires_in: {{ tokens.trakt.expires_in }}
+    refresh_token: {{ tokens.trakt.refresh_token }}
     scope: public
-    created_at: {{ kometa.trakt_created_at }}
-  pin: {{ kometa.trakt_pin }}
+    created_at: {{ tokens.trakt.created_at }}
+  pin: {{ tokens.trakt.pin }}

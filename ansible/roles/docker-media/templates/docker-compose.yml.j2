@@ -144,9 +144,9 @@ services:
         devices:
             - /dev/net/tun:/dev/net/tun
         environment:
-            - VPN_SERVICE_PROVIDER={{ gluetun.provider }}
-            - VPN_TYPE={{ gluetun.type }}
-            - WIREGUARD_PRIVATE_KEY={{ gluetun.key }}
+            - VPN_SERVICE_PROVIDER={{ tokens.gluetun.provider }}
+            - VPN_TYPE={{ tokens.gluetun.type }}
+            - WIREGUARD_PRIVATE_KEY={{ tokens.gluetun.key }}
             - SERVER_COUNTRIES=United States
             - BLOCK_MALICIOUS=off
             - DNS_ADDRESS=1.1.1.1
