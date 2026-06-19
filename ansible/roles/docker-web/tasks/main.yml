@@ -19,6 +19,24 @@
     - "{{ files.data_path }}/vaultwarden"
     - "{{ files.data_path }}/nextcloud"
 
+- name: Ensure web config paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.config_path }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Ensure web data paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.data_path }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
 - name: Render web Docker Compose file
   ansible.builtin.template:
     src: docker-compose.yml.j2

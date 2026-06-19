@@ -33,6 +33,24 @@
     - "{{ files.config_path }}/sabnzbd"
     - "{{ files.config_path }}/gluetun"
 
+- name: Ensure media config paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.config_path }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Ensure media data paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.data_path }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
 - name: Render media Docker Compose file
   ansible.builtin.template:
     src: docker-compose.yml.j2
