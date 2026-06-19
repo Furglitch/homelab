@@ -71,7 +71,7 @@ services:
 
     protonmail-bridge:
         <<: *default-service
-        image: "shenxn/protonmail-bridge:latest"
+        image: "ghcr.io/dancwilliams/protonmail-bridge-docker:latest"
         container_name: protonmail
         ports:
             - {{ ports.proton_imap }}:25
