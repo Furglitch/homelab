@@ -123,8 +123,7 @@ services:
             - TORRENTING_PORT=8091
         volumes:
             - {{ files.config_path }}/qbittorrent:/config
-            - {{ files.media_path }}/downloads/torrent:/share/downloads/torrent
-            - {{ files.media_path }}/downloads/torrent/incomplete:/share/downloads/torrent/incomplete
+            - {{ files.media_path }}:/share
     
     sabnzbd:
         <<: *default-service
@@ -135,8 +134,7 @@ services:
             - DOCKER_MODS={{ themerepo }}:sabnzbd
         volumes:
             - {{ files.config_path }}/sabnzbd:/config
-            - {{ files.media_path }}/downloads/usenet:/share/downloads/usenet
-            - {{ files.media_path }}/downloads/usenet/incomplete:/share/downloads/usenet/incomplete
+            - {{ files.media_path }}:/share
     
     gluetun:
         <<: *default-service
