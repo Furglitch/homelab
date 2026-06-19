@@ -5,10 +5,10 @@ ports:
   plex: 32400
   tautulli: 32410
   radarr: 32501
-  sonarr: 32402
-  bazarr: 32403
-  prowlarr: 32502
-  flaresolverr: 32503
+  sonarr: 32502
+  bazarr: 32503
+  prowlarr: 32504
+  flaresolverr: 32505
   sabnzbd: 32601
   qbittor_ui: 32701
   qbittor_io: 32702
