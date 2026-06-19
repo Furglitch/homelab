@@ -28,7 +28,7 @@ resource "proxmox_lxc" "docker_media" {
 
 	rootfs {
 		storage 		= var.storage_container
-		size 			= var.storage_size
+		size 			= "128G"
 	}
 
 	# mountpoint {
