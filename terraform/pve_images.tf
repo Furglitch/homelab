@@ -23,6 +23,17 @@ resource "proxmox_virtual_environment_download_file" "image_truenas" {
     overwrite_unmanaged = true
 }
 
+resource "proxmox_virtual_environment_download_file" "image_proxmox_backup" {
+    provider            = proxmox-bpg.bpg
+    content_type        = "iso"
+    datastore_id        = var.storage_iso
+    node_name           = var.pve_host_node
+    url                 = "http://download.proxmox.com/iso/proxmox-backup-server_${var.image_proxmox_backup_version}.iso"
+    file_name           = "proxmox-backup-server_${var.image_proxmox_backup_version}.iso"
+    overwrite           = false
+    overwrite_unmanaged = true
+}
+
 resource "proxmox_virtual_environment_download_file" "image_homeassistant" {
     provider                  = proxmox-bpg.bpg
     content_type              = "iso"

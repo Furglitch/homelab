@@ -209,6 +209,11 @@ variable "image_homeassistant_sha256" {
     type        = string
     default     = "474b8f2e657f697c7a226acd5b6d0b8f74b2dfd19f71487a18238d8b36a3604f"
 }
+variable "image_proxmox_backup_version" {
+    description = "Version of the Proxmox Backup Server ISO to download (e.g., '3.4-1')"
+    type        = string
+    default     = "3.4-1"
+}
 
 # VM Options
 variable "vm_boot_start" {

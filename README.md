@@ -13,6 +13,7 @@
 | 233 | Pi-Hole DNS         | pihole            |
 | 240 | Pterodactyl Panel   | pterodactyl       |
 | 241 | Pterodactyl Wings   | pterodactyl-wings |
+| 250 | Proxmox Backup      | proxmox-backup    |
 
 ## Repo Structure
 
