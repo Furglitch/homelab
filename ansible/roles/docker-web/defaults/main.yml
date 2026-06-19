@@ -8,6 +8,6 @@ ports:
   vaultwarden: 8082
   nextcloud: 8083
   sillytavern: 8084
-  proton_imap: 8085
-  proton_smtp: 8086
+  proton_imap: 1143
+  proton_smtp: 1025
   nginx_admin: 81

@@ -74,7 +74,7 @@ services:
         image: "ghcr.io/dancwilliams/protonmail-bridge-docker:latest"
         container_name: protonmail
         ports:
-            - {{ ports.proton_imap }}:25
-            - {{ ports.proton_smtp }}:143
+            - {{ ports.proton_imap }}:143
+            - {{ ports.proton_smtp }}:25
         volumes:
             - {{ files.config_path }}/protonmail:/root
