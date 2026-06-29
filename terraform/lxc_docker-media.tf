@@ -49,20 +49,27 @@ resource "proxmox_lxc" "docker_media" {
 	}
 
 	lifecycle {
+		prevent_destroy = true
+
 		ignore_changes = [
 			ostemplate,
+			password,
+			ssh_public_keys,
+			rootfs,
+			swap,
+			tags,
 		]
 	}
 }
 
 resource "null_resource" "docker_media_tun" {
 	depends_on = [
-		proxmox_lxc.docker_media,
 		null_resource.truenas_share_mounts,
 	]
 
 	triggers = {
-		lxc_id = proxmox_lxc.docker_media.id
+		lxc_id = "221"
+		config_version = "2"
 	}
 
 	provisioner "local-exec" {
@@ -71,6 +78,12 @@ resource "null_resource" "docker_media_tun" {
 
 			ssh -o StrictHostKeyChecking=no \
 				root@${var.pve_host_ip} bash << 'ENDSSH'
+
+			grep -qxF 'root:1000:1' /etc/subuid || \
+				echo 'root:1000:1' >> /etc/subuid
+
+			grep -qxF 'root:1000:1' /etc/subgid || \
+				echo 'root:1000:1' >> /etc/subgid
 
 			grep -qxF 'lxc.cgroup2.devices.allow: c 10:200 rwm' /etc/pve/lxc/221.conf || \
 				echo 'lxc.cgroup2.devices.allow: c 10:200 rwm' >> /etc/pve/lxc/221.conf
@@ -86,6 +99,24 @@ resource "null_resource" "docker_media_tun" {
 
 			grep -qxF 'lxc.mount.entry: /mnt/share/truenas-media nfs/media none bind,optional,create=dir' /etc/pve/lxc/221.conf || \
 				echo 'lxc.mount.entry: /mnt/share/truenas-media nfs/media none bind,optional,create=dir' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.idmap: u 0 100000 1000' /etc/pve/lxc/221.conf || \
+				echo 'lxc.idmap: u 0 100000 1000' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.idmap: g 0 100000 1000' /etc/pve/lxc/221.conf || \
+				echo 'lxc.idmap: g 0 100000 1000' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.idmap: u 1000 1000 1' /etc/pve/lxc/221.conf || \
+				echo 'lxc.idmap: u 1000 1000 1' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.idmap: g 1000 1000 1' /etc/pve/lxc/221.conf || \
+				echo 'lxc.idmap: g 1000 1000 1' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.idmap: u 1001 101001 64535' /etc/pve/lxc/221.conf || \
+				echo 'lxc.idmap: u 1001 101001 64535' >> /etc/pve/lxc/221.conf
+
+			grep -qxF 'lxc.idmap: g 1001 101001 64535' /etc/pve/lxc/221.conf || \
+				echo 'lxc.idmap: g 1001 101001 64535' >> /etc/pve/lxc/221.conf
 
 			pct reboot 221 || pct start 221
 ENDSSH
