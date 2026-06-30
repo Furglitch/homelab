@@ -1,5 +1,5 @@
 ---
-ip_local: "192.168.1.232"
+ip_local: "10.0.10.232"
 
 wireguard:
   interface: wg0

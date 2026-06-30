@@ -1,7 +1,7 @@
-ip_local: "192.168.1.222"
+ip_local: "10.0.10.222"
 ip_media: "{{ hostvars['docker-media']['ansible_host'] }}"
-ip_nginx: "192.168.1.231"
-ip_pterodactyl: "192.168.1.241"
+ip_nginx: "10.0.10.231"
+ip_pterodactyl: "10.0.10.241"
 
 ports:
   homarr: 8081

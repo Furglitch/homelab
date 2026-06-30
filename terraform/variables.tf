@@ -2,7 +2,7 @@
 variable "pve_host_ip" {
     description = "IP address of the Proxmox host"
     type        = string
-    default     = "192.168.1.XXX"
+    default     = "10.0.10.XXX"
 }
 variable "pve_host_node" {
     description = "Name of the Proxmox node to manage"
@@ -12,7 +12,7 @@ variable "pve_host_node" {
 variable "pve_api_url" {
     description = "URL of the Proxmox API endpoint"
     type = string
-    default = "https://192.168.1.XXX:8006/api2/json"
+    default = "https://10.0.10.XXX:8006/api2/json"
 }
 variable "pve_api_token_id" {
     description = "Proxmox API token ID for authentication"
@@ -137,9 +137,9 @@ variable "network_model" {
     default     = "virtio"
 }
 variable "network_ip_prefix" {
-    description = "IP address prefix for VMs (e.g., 192.168.1.)"
+    description = "IP address prefix for VMs (e.g., 10.0.10.)"
     type        = string
-    default     = "192.168.1."
+    default     = "10.0.10."
 }
 variable "network_cidr" {
     description = "CIDR notation for the network (e.g., 24 for 255.255.255.0)"
@@ -149,7 +149,7 @@ variable "network_cidr" {
 variable "network_gateway" {
     description = "Gateway IP address for the network"
     type        = string
-    default     = "192.168.1.1"
+    default     = "10.0.10.1"
 }
 variable "network_ipv6_type" {
     description = "IPv6 configuration type (e.g., 'auto', 'dhcp', or 'static')"

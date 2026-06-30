@@ -57,8 +57,8 @@ Download of the Home Assistant installer and initial creation of the VM is autom
 
 1) Navigate to Supervisor > System.
 2) Under 'Configure network interfaces', change IPv4 to 'Static' and set the following:
-	- IP address: 192.168.1.211
+    - IP address: 10.0.10.211
 	- Netmask: 255.255.255.0
-	- Gateway address: 192.168.1.1
+    - Gateway address: 10.0.10.1
 3) Save and apply the network configuration.
 4) Restart Home Assistant to ensure the new IP is active.

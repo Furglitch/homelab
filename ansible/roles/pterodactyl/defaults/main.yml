@@ -1,5 +1,5 @@
 ---
-ip_local: "192.168.1.241"
+ip_local: "10.0.10.241"
 
 ports:
   panel_http: 80
@@ -8,7 +8,7 @@ ports:
   wings_api: 8080
 
 pterodactyl:
-  app_url: "http://192.168.1.241"
+  app_url: "http://10.0.10.241"
   app_service_author: "admin@example.com"
   db_name: panel
   db_user: pterodactyl
