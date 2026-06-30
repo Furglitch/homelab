@@ -1,8 +1,0 @@
----
-ip_local: "10.0.10.233"
-
-pihole:
-  web_port: 80
-  dns_port: 53
-  upstream_dns_1: "1.1.1.1"
-  upstream_dns_2: "8.8.8.8"

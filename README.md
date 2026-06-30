@@ -10,7 +10,6 @@
 | 222 | Docker Web Server   | docker-web        |
 | 231 | NGINX Proxy Manager | nginx             |
 | 232 | WireGuard VPN       | wireguard         |
-| 233 | Pi-Hole DNS         | pihole            |
 | 240 | Pterodactyl Panel   | pterodactyl       |
 | 241 | Pterodactyl Wings   | pterodactyl-wings |
 | 250 | Proxmox Backup      | proxmox-backup    |
