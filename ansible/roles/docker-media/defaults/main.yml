@@ -12,6 +12,8 @@ ports:
   qbittor_ui: 32701
   qbittor_io: 32702
 
+recyclarr_cron_schedule: "@daily"
+
 tokens:
   plex: !vault |
             $ANSIBLE_VAULT;1.1;AES256
