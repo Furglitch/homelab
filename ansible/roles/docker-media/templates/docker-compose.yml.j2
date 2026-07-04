@@ -25,8 +25,6 @@ x-common-config: &default-service
         PGID: "{{ pgid }}"
         UMASK: "{{ umask }}"
         TZ: "{{ time }}"
-        TP_THEME: "{{ theme }}"
-        TP_COMMUNITY_THEME: "{{ themecomm }}"
     restart: unless-stopped
 
 services:
@@ -38,7 +36,6 @@ services:
         environment:
             <<: *default-environment
             VERSION: docker
-            DOCKER_MODS: "{{ themerepo }}:plex"
         volumes:
             - {{ files.config_path }}/plex:/config/Library/Application Support/Plex Media Server
             - {{ files.media_path }}:/share:ro
@@ -54,7 +51,6 @@ services:
         environment:
             <<: *default-environment
             VERSION: docker
-            DOCKER_MODS: "{{ themerepo }}:tautulli"
         volumes:
             - {{ files.config_path }}/tautulli:/config
         ports:
@@ -79,9 +75,6 @@ services:
         image: "lscr.io/linuxserver/radarr:latest"
         container_name: radarr
         depends_on: [prowlarr]
-        environment:
-            <<: *default-environment
-            DOCKER_MODS: "{{ themerepo }}:radarr"
         volumes:
             - {{ files.config_path }}/radarr:/config
             - {{ files.media_path }}:/share
@@ -93,9 +86,6 @@ services:
         image: "lscr.io/linuxserver/sonarr:latest"
         container_name: sonarr
         depends_on: [prowlarr]
-        environment:
-            <<: *default-environment
-            DOCKER_MODS: "{{ themerepo }}:sonarr"
         volumes:
             - {{ files.config_path }}/sonarr:/config
             - {{ files.media_path }}:/share
@@ -106,9 +96,6 @@ services:
         <<: [*default-service, *limits-medium]
         image: "lscr.io/linuxserver/prowlarr:latest"
         container_name: prowlarr
-        environment:
-            <<: *default-environment
-            DOCKER_MODS: "{{ themerepo }}:prowlarr"
         volumes:
             - {{ files.config_path }}/prowlarr:/config
         ports:
@@ -159,9 +146,6 @@ services:
         image: "lscr.io/linuxserver/sabnzbd:latest"
         container_name: sabnzbd
         network_mode: "service:gluetun"
-        environment:
-            <<: *default-environment
-            DOCKER_MODS: "{{ themerepo }}:sabnzbd"
         volumes:
             - {{ files.config_path }}/sabnzbd:/config
             - {{ files.media_path }}:/share

@@ -7,8 +7,6 @@ x-common-config: &default-service
         - PGID={{ pgid }}
         - UMASK={{ umask }}
         - TZ={{ time }}
-        - TP_THEME={{ theme }}
-        - TP_COMMUNITY_THEME={{ themecomm }}
     restart: unless-stopped
 
 services:
