@@ -140,7 +140,8 @@ services:
         volumes:
             - {{ files.config_path }}/qbittorrent:/config
             - {{ files.media_path }}:/share
-    
+            - /tmp/incomplete/torrent:/incomplete
+
     sabnzbd:
         <<: [*default-service, *limits-large]
         image: "lscr.io/linuxserver/sabnzbd:latest"
@@ -149,7 +150,8 @@ services:
         volumes:
             - {{ files.config_path }}/sabnzbd:/config
             - {{ files.media_path }}:/share
-    
+            - /tmp/incomplete/usenet:/incomplete
+
     gluetun:
         <<: [*default-service, *limits-small]
         image: "qmcgaw/gluetun:latest"
