@@ -1,7 +1,7 @@
 debug: false
-uuid: "{{ pterodactyl.wings_node_uuid }}"
-token_id: "{{ pterodactyl.wings_token_id }}"
-token: "{{ pterodactyl.wings_token }}"
+uuid: "{{ pelican.wings_node_uuid }}"
+token_id: "{{ pelican.wings_token_id }}"
+token: "{{ pelican.wings_token }}"
 
 api:
   host: 0.0.0.0
@@ -13,11 +13,11 @@ api:
   upload_limit: 100
 
 system:
-  data: /var/lib/pterodactyl
+  data: /var/lib/pelican
   sftp:
     bind_address: 0.0.0.0
     bind_port: {{ ports.wings_sftp }}
     read_only: false
 
-remote: "{{ pterodactyl.app_url }}"
+remote: "{{ pelican.app_url }}"
 allowed_mounts: []

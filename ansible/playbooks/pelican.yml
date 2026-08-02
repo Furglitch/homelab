@@ -1,0 +1,9 @@
+---
+- name: Apply Pelican configuration
+  hosts: pelican
+  become: false
+  roles:
+    - baseline
+    - docker
+    - docker-common
+    - pelican

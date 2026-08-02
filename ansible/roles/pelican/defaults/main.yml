@@ -7,11 +7,11 @@ ports:
   wings_sftp: 2022
   wings_api: 8080
 
-pterodactyl:
+pelican:
   app_url: "http://10.0.10.241"
   app_service_author: "admin@example.com"
   db_name: panel
-  db_user: pterodactyl
+  db_user: pelican
   db_password: !vault |
             $ANSIBLE_VAULT;1.1;AES256
             65353439346261383661353961343030313636636465643461366535326331363838346466633861

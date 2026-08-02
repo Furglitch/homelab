@@ -2,4 +2,4 @@
 - import_playbook: docker.yml
 - import_playbook: nginx.yml
 - import_playbook: wireguard.yml
-- import_playbook: pterodactyl.yml
+- import_playbook: pelican.yml

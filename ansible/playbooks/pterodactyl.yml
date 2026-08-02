@@ -1,9 +1,0 @@
----
-- name: Apply Pterodactyl configuration
-  hosts: pterodactyl
-  become: false
-  roles:
-    - baseline
-    - docker
-    - docker-common
-    - pterodactyl

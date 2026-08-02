@@ -1,5 +1,5 @@
 ---
-- name: Create Pterodactyl Docker directory structure
+- name: Create Pelican Docker directory structure
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -8,25 +8,25 @@
     - "{{ files.docker_path }}"
     - "{{ files.config_path }}"
     - "{{ files.data_path }}"
-    - "{{ files.data_path }}/pterodactyl/database"
-    - "{{ files.data_path }}/pterodactyl/panel/var"
-    - "{{ files.data_path }}/pterodactyl/panel/nginx"
-    - "{{ files.data_path }}/pterodactyl/panel/certs"
-    - "{{ files.data_path }}/pterodactyl/panel/logs"
-    - /etc/pterodactyl
-    - /var/lib/pterodactyl
-    - /var/log/pterodactyl
-    - /tmp/pterodactyl
+    - "{{ files.data_path }}/pelican/database"
+    - "{{ files.data_path }}/pelican/panel/var"
+    - "{{ files.data_path }}/pelican/panel/nginx"
+    - "{{ files.data_path }}/pelican/panel/certs"
+    - "{{ files.data_path }}/pelican/panel/logs"
+    - /etc/pelican
+    - /var/lib/pelican
+    - /var/log/pelican
+    - /tmp/pelican
 
 - name: Create MySQL client config to disable SSL for panel container
   ansible.builtin.copy:
     content: |
       [client]
       ssl=false
-    dest: "{{ files.data_path }}/pterodactyl/panel/mysql-no-ssl.cnf"
+    dest: "{{ files.data_path }}/pelican/panel/mysql-no-ssl.cnf"
     mode: "0644"
 
-- name: Render Pterodactyl Docker Compose file
+- name: Render Pelican Docker Compose file
   ansible.builtin.template:
     src: docker-compose.yml.j2
     dest: "{{ files.docker_path }}/docker-compose.yml"
@@ -45,15 +45,15 @@
 - name: Render Wings config
   ansible.builtin.template:
     src: wings-config.yml.j2
-    dest: /etc/pterodactyl/config.yml
+    dest: /etc/pelican/config.yml
     mode: "0600"
     force: false
   when:
-    - pterodactyl.wings_node_uuid != ""
-    - pterodactyl.wings_token_id != ""
-    - pterodactyl.wings_token != ""
+    - pelican.wings_node_uuid != ""
+    - pelican.wings_token_id != ""
+    - pelican.wings_token != ""
 
-- name: Deploy Pterodactyl stack
+- name: Deploy Pelican stack
   community.docker.docker_compose_v2:
     project_src: "{{ files.docker_path }}"
     files:
