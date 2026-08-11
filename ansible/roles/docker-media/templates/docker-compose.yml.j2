@@ -30,7 +30,6 @@ x-common-config: &default-service
 services:
 
     ## Media Hosts ##
-
     plex:
         <<: [*default-service, *limits-plex]
         image: "lscr.io/linuxserver/plex:latest"
@@ -45,6 +44,50 @@ services:
             - /tmp/plex_cache:/transcode
         devices:
             - /dev/dri:/dev/dri # Required for hardware transcoding
+
+    romm:
+        <<: [*default-service, *limits-medium]
+        image: "rommapp/romm:latest"
+        container_name: romm
+        environment:
+            DB_HOST: romm-db
+            DB_NAME: romm
+            DB_USER: "{{ sql.user }}"
+            DB_PASSWD: "{{ sql.password }}"
+            ROMM_AUTH_SECRET_KEY: "{{ romm.secret }}"
+            SCREENSCRAPER_USER: "{{ romm.screenscraper.user }}"
+            SCREENSCRAPER_PASSWORD: "{{ romm.screenscraper.password }}"
+            RETROACHIEVEMENTS_API_KEY: "{{ romm.retroachievements.secret }}"
+            STEAMGRIDDB_API_KEY: "{{ romm.steamgriddb.secret }}"
+        volumes:
+            - {{ files.docker_config_path }}/romm/config:/romm/config
+            - {{ files.docker_config_path }}/romm/assets:/romm/assets
+            - {{ files.docker_config_path }}/romm/resources:/romm/resources
+            - {{ files.nfs_media_path }}/games:/romm/library
+        ports:
+            - {{ ports.romm }}:8080
+        depends_on:
+            romm-db:
+                condition: service_healthy
+                restart: true
+    
+    romm-db:
+        <<: [*default-service, *limits-small]
+        image: "mariadb:latest"
+        container_name: romm-db
+        environment:
+            MARIADB_ROOT_PASSWORD: "{{ sql.password }}"
+            MARIADB_USER: "{{ sql.user }}"
+            MARIADB_PASSWORD: "{{ sql.password }}"
+            MARIADB_DATABASE: romm
+        volumes:
+            - {{ files.docker_data_path }}/romm-db:/var/lib/mysql
+        healthcheck:
+            test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 30s
 
     ## Plex Managers ##
 

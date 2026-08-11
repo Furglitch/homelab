@@ -4,6 +4,7 @@ ip_local: "10.0.10.221"
 ports:
   plex: 32400
   tautulli: 32410
+  romm: 32801
   radarr: 32501
   sonarr: 32502
   bazarr: 32503

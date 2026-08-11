@@ -11,6 +11,7 @@ ports:
   sabnzbd: 32601
   qbittor_ui: 32701
   qbittor_io: 32702
+  romm: 32801
 
 recyclarr_cron_schedule: "@daily"
 
