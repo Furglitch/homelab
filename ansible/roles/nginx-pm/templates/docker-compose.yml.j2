@@ -14,8 +14,8 @@ services:
             - {{ ports.npm_https }}:443
             - {{ ports.npm_admin }}:81
         volumes:
-            - {{ files.data_path }}/nginx-pm:/data
-            - {{ files.data_path }}/letsencrypt:/etc/letsencrypt
+            - {{ files.docker_data_path }}/nginx-pm:/data
+            - {{ files.docker_data_path }}/letsencrypt:/etc/letsencrypt
         environment:
             - TZ={{ time }}
         healthcheck:

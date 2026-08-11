@@ -6,10 +6,10 @@
     mode: "0755"
   loop:
     - "{{ files.docker_path }}"
-    - "{{ files.config_path }}"
-    - "{{ files.data_path }}"
-    - "{{ files.data_path }}/nginx-pm"
-    - "{{ files.data_path }}/letsencrypt"
+    - "{{ files.docker_config_path }}"
+    - "{{ files.docker_data_path }}"
+    - "{{ files.docker_data_path }}/nginx-pm"
+    - "{{ files.docker_data_path }}/letsencrypt"
 
 - name: Render nginx-pm Docker Compose file
   ansible.builtin.template:

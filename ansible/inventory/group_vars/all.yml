@@ -31,10 +31,10 @@ ip_public: "furglitch.com"
 files:
   docker_path: /docker
   docker_sock: /var/run/docker.sock
-  config_path: /docker/config
-  data_path: /docker/data
-  media_path: /nfs/media
-  cloud_path: /nfs/cloud
+  docker_config_path: /docker/config
+  docker_data_path: /docker/data
+  nfs_media_path: /nfs/media
+  nfs_cloud_path: /nfs/cloud
 
 homarr:
   secret_encryption_key: !vault |

@@ -20,7 +20,7 @@ services:
             - {{ wireguard.listen_port }}:51820/udp
         volumes:
             - /etc/wireguard:/etc/wireguard
-            - {{ files.data_path }}/wg-dashboard:/opt/wireguarddashboard/app/db
+            - {{ files.docker_data_path }}/wg-dashboard:/opt/wireguarddashboard/app/db
         environment:
             - TZ={{ time }}
             - WGD_WELCOME_SESSION=false

@@ -43,9 +43,9 @@
     mode: "0755"
   loop:
     - "{{ files.docker_path }}"
-    - "{{ files.config_path }}"
-    - "{{ files.data_path }}"
-    - "{{ files.data_path }}/wg-dashboard"
+    - "{{ files.docker_config_path }}"
+    - "{{ files.docker_data_path }}"
+    - "{{ files.docker_data_path }}/wg-dashboard"
 
 - name: Render WGDashboard Docker Compose file
   ansible.builtin.template:

@@ -28,6 +28,9 @@ x-common-config: &default-service
     restart: unless-stopped
 
 services:
+
+    ## Media Hosts ##
+
     plex:
         <<: [*default-service, *limits-plex]
         image: "lscr.io/linuxserver/plex:latest"
@@ -37,11 +40,13 @@ services:
             <<: *default-environment
             VERSION: docker
         volumes:
-            - {{ files.config_path }}/plex:/config/Library/Application Support/Plex Media Server
-            - {{ files.media_path }}:/share:ro
+            - {{ files.docker_config_path }}/plex:/config/Library/Application Support/Plex Media Server
+            - {{ files.nfs_media_path }}:/share:ro
             - /tmp/plex_cache:/transcode
         devices:
             - /dev/dri:/dev/dri # Required for hardware transcoding
+
+    ## Plex Managers ##
 
     tautulli:
         <<: [*default-service, *limits-small]
@@ -52,7 +57,7 @@ services:
             <<: *default-environment
             VERSION: docker
         volumes:
-            - {{ files.config_path }}/tautulli:/config
+            - {{ files.docker_config_path }}/tautulli:/config
         ports:
             - {{ ports.tautulli }}:8181
 
@@ -66,7 +71,7 @@ services:
             KOMETA_TIME: 00:00,06:00,12:00,18:00
             KOMETA_CONFIG: /config/config.yml
         volumes:
-            - {{ files.config_path }}/kometa:/config
+            - {{ files.docker_config_path }}/kometa:/config
 
     ## Metadata Agents ##
 
@@ -76,8 +81,8 @@ services:
         container_name: radarr
         depends_on: [prowlarr]
         volumes:
-            - {{ files.config_path }}/radarr:/config
-            - {{ files.media_path }}:/share
+            - {{ files.docker_config_path }}/radarr:/config
+            - {{ files.nfs_media_path }}:/share
         ports:
             - {{ ports.radarr }}:7878
 
@@ -87,8 +92,8 @@ services:
         container_name: sonarr
         depends_on: [prowlarr]
         volumes:
-            - {{ files.config_path }}/sonarr:/config
-            - {{ files.media_path }}:/share
+            - {{ files.docker_config_path }}/sonarr:/config
+            - {{ files.nfs_media_path }}:/share
         ports:
             - {{ ports.sonarr }}:8989
 
@@ -97,7 +102,7 @@ services:
         image: "lscr.io/linuxserver/prowlarr:latest"
         container_name: prowlarr
         volumes:
-            - {{ files.config_path }}/prowlarr:/config
+            - {{ files.docker_config_path }}/prowlarr:/config
         ports:
             - {{ ports.prowlarr }}:9696
 
@@ -111,7 +116,7 @@ services:
             LOG_HTML: "false"
             CAPTCHA_SOLVER: none
         volumes:
-            - {{ files.config_path }}/flaresolverr:/config
+            - {{ files.docker_config_path }}/flaresolverr:/config
         ports:
             - {{ ports.flaresolverr }}:8191
 
@@ -124,7 +129,7 @@ services:
             TZ: "{{ time }}"
             CRON_SCHEDULE: "{{ recyclarr_cron_schedule }}"
         volumes:
-            - {{ files.config_path }}/recyclarr:/config
+            - {{ files.docker_config_path }}/recyclarr:/config
 
     ## Download Clients ##
 
@@ -138,8 +143,8 @@ services:
             WEBUI_PORT: "{{ ports.qbittor_ui }}"
             TORRENTING_PORT: "{{ ports.qbittor_io }}"
         volumes:
-            - {{ files.config_path }}/qbittorrent:/config
-            - {{ files.media_path }}:/share
+            - {{ files.docker_config_path }}/qbittorrent:/config
+            - {{ files.nfs_media_path }}:/share
             - /tmp/incomplete/torrent:/incomplete
 
     sabnzbd:
@@ -148,8 +153,8 @@ services:
         container_name: sabnzbd
         network_mode: "service:gluetun"
         volumes:
-            - {{ files.config_path }}/sabnzbd:/config
-            - {{ files.media_path }}:/share
+            - {{ files.docker_config_path }}/sabnzbd:/config
+            - {{ files.nfs_media_path }}:/share
             - /tmp/incomplete/usenet:/incomplete
 
     gluetun:
@@ -168,7 +173,7 @@ services:
             BLOCK_MALICIOUS: "off"
             DNS_ADDRESS: 1.1.1.1
         volumes:
-            - {{ files.config_path }}/gluetun:/config
+            - {{ files.docker_config_path }}/gluetun:/config
         ports:
             - {{ ports.qbittor_ui }}:{{ ports.qbittor_ui }}
             - {{ ports.qbittor_io }}:{{ ports.qbittor_io }}

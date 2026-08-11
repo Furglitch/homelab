@@ -19,23 +19,23 @@
     mode: "0755"
   loop:
     - "{{ files.docker_path }}"
-    - "{{ files.config_path }}"
-    - "{{ files.data_path }}"
-    - "{{ files.config_path }}/plex"
-    - "{{ files.config_path }}/tautulli"
-    - "{{ files.config_path }}/kometa"
-    - "{{ files.config_path }}/radarr"
-    - "{{ files.config_path }}/sonarr"
-    - "{{ files.config_path }}/prowlarr"
-    - "{{ files.config_path }}/flaresolverr"
-    - "{{ files.config_path }}/recyclarr"
-    - "{{ files.config_path }}/qbittorrent"
-    - "{{ files.config_path }}/sabnzbd"
-    - "{{ files.config_path }}/gluetun"
+    - "{{ files.docker_config_path }}"
+    - "{{ files.docker_data_path }}"
+    - "{{ files.docker_config_path }}/plex"
+    - "{{ files.docker_config_path }}/tautulli"
+    - "{{ files.docker_config_path }}/kometa"
+    - "{{ files.docker_config_path }}/radarr"
+    - "{{ files.docker_config_path }}/sonarr"
+    - "{{ files.docker_config_path }}/prowlarr"
+    - "{{ files.docker_config_path }}/flaresolverr"
+    - "{{ files.docker_config_path }}/recyclarr"
+    - "{{ files.docker_config_path }}/qbittorrent"
+    - "{{ files.docker_config_path }}/sabnzbd"
+    - "{{ files.docker_config_path }}/gluetun"
 
 - name: Ensure media config paths are writable by containers
   ansible.builtin.file:
-    path: "{{ files.config_path }}"
+    path: "{{ files.docker_config_path }}"
     state: directory
     owner: "{{ puid }}"
     group: "{{ pgid }}"
@@ -44,7 +44,7 @@
 
 - name: Ensure media data paths are writable by containers
   ansible.builtin.file:
-    path: "{{ files.data_path }}"
+    path: "{{ files.docker_data_path }}"
     state: directory
     owner: "{{ puid }}"
     group: "{{ pgid }}"
@@ -70,19 +70,19 @@
 - name: Copy Kometa config files
   ansible.builtin.copy:
     src: kometa/
-    dest: "{{ files.config_path }}/kometa/"
+    dest: "{{ files.docker_config_path }}/kometa/"
     mode: "0644"
 
 - name: Render Kometa config template
   ansible.builtin.template:
     src: kometa.yml.j2
-    dest: "{{ files.config_path }}/kometa/config.yml"
+    dest: "{{ files.docker_config_path }}/kometa/config.yml"
     mode: "0644"
 
 - name: Render Recyclarr config template
   ansible.builtin.template:
     src: recyclarr.yml.j2
-    dest: "{{ files.config_path }}/recyclarr/recyclarr.yml"
+    dest: "{{ files.docker_config_path }}/recyclarr/recyclarr.yml"
     mode: "0644"
 
 - name: Deploy media stack

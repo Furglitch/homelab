@@ -6,22 +6,22 @@
     mode: "0755"
   loop:
     - "{{ files.docker_path }}"
-    - "{{ files.config_path }}"
-    - "{{ files.data_path }}"
-    - "{{ files.config_path }}/homarr"
-    - "{{ files.config_path }}/vaultwarden"
-    - "{{ files.config_path }}/nextcloud"
-    - "{{ files.config_path }}/sillytavern"
-    - "{{ files.config_path }}/sillytavern/config"
-    - "{{ files.config_path }}/sillytavern/data"
-    - "{{ files.config_path }}/sillytavern/plugins"
-    - "{{ files.config_path }}/sillytavern/extensions"
-    - "{{ files.data_path }}/vaultwarden"
-    - "{{ files.data_path }}/nextcloud"
+    - "{{ files.docker_config_path }}"
+    - "{{ files.docker_data_path }}"
+    - "{{ files.docker_config_path }}/homarr"
+    - "{{ files.docker_config_path }}/vaultwarden"
+    - "{{ files.docker_config_path }}/nextcloud"
+    - "{{ files.docker_config_path }}/sillytavern"
+    - "{{ files.docker_config_path }}/sillytavern/config"
+    - "{{ files.docker_config_path }}/sillytavern/data"
+    - "{{ files.docker_config_path }}/sillytavern/plugins"
+    - "{{ files.docker_config_path }}/sillytavern/extensions"
+    - "{{ files.docker_data_path }}/vaultwarden"
+    - "{{ files.docker_data_path }}/nextcloud"
 
 - name: Ensure web config paths are writable by containers
   ansible.builtin.file:
-    path: "{{ files.config_path }}"
+    path: "{{ files.docker_config_path }}"
     state: directory
     owner: "{{ puid }}"
     group: "{{ pgid }}"
@@ -30,7 +30,7 @@
 
 - name: Ensure web data paths are writable by containers
   ansible.builtin.file:
-    path: "{{ files.data_path }}"
+    path: "{{ files.docker_data_path }}"
     state: directory
     owner: "{{ puid }}"
     group: "{{ pgid }}"
@@ -46,7 +46,7 @@
 
 - name: Ensure Homarr appdata ownership
   ansible.builtin.file:
-    path: "{{ files.config_path }}/homarr"
+    path: "{{ files.docker_config_path }}/homarr"
     state: directory
     owner: "{{ puid | string }}"
     group: "{{ pgid | string }}"

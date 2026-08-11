@@ -6,13 +6,13 @@
     mode: "0755"
   loop:
     - "{{ files.docker_path }}"
-    - "{{ files.config_path }}"
-    - "{{ files.data_path }}"
-    - "{{ files.data_path }}/pelican/database"
-    - "{{ files.data_path }}/pelican/panel/var"
-    - "{{ files.data_path }}/pelican/panel/nginx"
-    - "{{ files.data_path }}/pelican/panel/certs"
-    - "{{ files.data_path }}/pelican/panel/logs"
+    - "{{ files.docker_config_path }}"
+    - "{{ files.docker_data_path }}"
+    - "{{ files.docker_data_path }}/pelican/database"
+    - "{{ files.docker_data_path }}/pelican/panel/var"
+    - "{{ files.docker_data_path }}/pelican/panel/nginx"
+    - "{{ files.docker_data_path }}/pelican/panel/certs"
+    - "{{ files.docker_data_path }}/pelican/panel/logs"
     - /etc/pelican
     - /var/lib/pelican
     - /var/log/pelican
@@ -23,7 +23,7 @@
     content: |
       [client]
       ssl=false
-    dest: "{{ files.data_path }}/pelican/panel/mysql-no-ssl.cnf"
+    dest: "{{ files.docker_data_path }}/pelican/panel/mysql-no-ssl.cnf"
     mode: "0644"
 
 - name: Render Pelican Docker Compose file

@@ -19,7 +19,7 @@ services:
             - REDIS_IS_EXTERNAL=false
         volumes:
             - {{ files.docker_sock }}:/var/run/docker.sock
-            - {{ files.config_path }}/homarr:/appdata
+            - {{ files.docker_config_path }}/homarr:/appdata
         ports:
             - {{ ports.homarr }}:7575
         restart: always
@@ -29,8 +29,8 @@ services:
         image: "vaultwarden/server:latest"
         container_name: vaultwarden
         volumes:
-            - {{ files.config_path }}/vaultwarden:/config
-            - {{ files.data_path }}/vaultwarden:/data
+            - {{ files.docker_config_path }}/vaultwarden:/config
+            - {{ files.docker_data_path }}/vaultwarden:/data
         ports:
             - {{ ports.vaultwarden }}:80
         restart: always
@@ -45,9 +45,9 @@ services:
         ports:
             - {{ ports.nextcloud }}:443
         volumes:
-            - {{ files.config_path }}/nextcloud:/config
-            - {{ files.data_path }}/nextcloud:/data
-            - {{ files.cloud_path }}:/share
+            - {{ files.docker_config_path }}/nextcloud:/config
+            - {{ files.docker_data_path }}/nextcloud:/data
+            - {{ files.nfs_cloud_path }}:/share
         restart: always
 
     sillytavern:
@@ -61,10 +61,10 @@ services:
         ports:
             - {{ ports.sillytavern }}:{{ ports.sillytavern }}
         volumes:
-            - {{ files.config_path }}/sillytavern/config:/home/node/app/config
-            - {{ files.config_path }}/sillytavern/data:/home/node/app/data
-            - {{ files.config_path }}/sillytavern/plugins:/home/node/app/plugins
-            - {{ files.config_path }}/sillytavern/extensions:/home/node/app/extensions
+            - {{ files.docker_config_path }}/sillytavern/config:/home/node/app/config
+            - {{ files.docker_config_path }}/sillytavern/data:/home/node/app/data
+            - {{ files.docker_config_path }}/sillytavern/plugins:/home/node/app/plugins
+            - {{ files.docker_config_path }}/sillytavern/extensions:/home/node/app/extensions
         restart: always
 
     protonmail-bridge:
@@ -75,4 +75,4 @@ services:
             - {{ ports.proton_imap }}:143
             - {{ ports.proton_smtp }}:25
         volumes:
-            - {{ files.config_path }}/protonmail:/root
+            - {{ files.docker_config_path }}/protonmail:/root

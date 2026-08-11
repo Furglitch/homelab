@@ -6,7 +6,7 @@ services:
         restart: unless-stopped
         command: --default-authentication-plugin=mysql_native_password
         volumes:
-            - {{ files.data_path }}/pelican/database:/var/lib/mysql
+            - {{ files.docker_data_path }}/pelican/database:/var/lib/mysql
         environment:
             MYSQL_DATABASE: "{{ pelican.db_name }}"
             MYSQL_USER: "{{ pelican.db_user }}"
@@ -29,11 +29,11 @@ services:
             - "{{ ports.panel_http }}:80"
             - "{{ ports.panel_https }}:443"
         volumes:
-            - {{ files.data_path }}/pelican/panel/var:/app/var
-            - {{ files.data_path }}/pelican/panel/nginx:/etc/nginx/http.d/
-            - {{ files.data_path }}/pelican/panel/certs:/etc/letsencrypt/
-            - {{ files.data_path }}/pelican/panel/logs:/app/storage/logs
-            - {{ files.data_path }}/pelican/panel/mysql-no-ssl.cnf:/root/.my.cnf:ro
+            - {{ files.docker_data_path }}/pelican/panel/var:/app/var
+            - {{ files.docker_data_path }}/pelican/panel/nginx:/etc/nginx/http.d/
+            - {{ files.docker_data_path }}/pelican/panel/certs:/etc/letsencrypt/
+            - {{ files.docker_data_path }}/pelican/panel/logs:/app/storage/logs
+            - {{ files.docker_data_path }}/pelican/panel/mysql-no-ssl.cnf:/root/.my.cnf:ro
         environment:
             APP_URL: "{{ pelican.app_url }}"
             APP_TIMEZONE: "{{ time }}"
