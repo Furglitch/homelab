@@ -164,7 +164,7 @@ services:
 
     qbittorrent:
         <<: [*default-service, *limits-large]
-        image: "lscr.io/linuxserver/qbittorrent:latest"
+        image: "lscr.io/linuxserver/qbittorrent:libtorrentv1"
         container_name: qbittorrent
         network_mode: "service:gluetun"
         environment:
