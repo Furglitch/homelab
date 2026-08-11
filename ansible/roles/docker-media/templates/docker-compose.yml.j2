@@ -58,6 +58,7 @@ services:
             DB_USER: "{{ sql.user }}"
             DB_PASSWD: "{{ sql.password }}"
             ROMM_AUTH_SECRET_KEY: "{{ romm.secret }}"
+            SCAN_WORKERS: 6
             IGDB_CLIENT_ID: "{{ romm.igdb.id }}"
             IGDB_CLIENT_SECRET: "{{ romm.igdb.secret }}"
             SCREENSCRAPER_USER: "{{ romm.screenscraper.user }}"
