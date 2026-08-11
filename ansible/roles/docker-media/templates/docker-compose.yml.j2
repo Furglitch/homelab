@@ -50,6 +50,9 @@ services:
         image: "rommapp/romm:latest"
         container_name: romm
         environment:
+            ROMM_BASE_URL: "https://romm.{{ ip_second }}"
+            ROMM_SESSION_SECURE_COOKIE: true
+            ROMM_CORS_ALLOWED_ORIGINS: "https://romm.{{ ip_second }}"
             DB_HOST: romm-db
             DB_NAME: romm
             DB_USER: "{{ sql.user }}"
