@@ -149,20 +149,6 @@ services:
         ports:
             - {{ ports.prowlarr }}:9696
 
-    flaresolverr:
-        <<: [*default-service, *limits-medium]
-        image: "flaresolverr/flaresolverr:latest"
-        container_name: flaresolverr
-        environment:
-            TZ: "{{ time }}"
-            LOG_LEVEL: info
-            LOG_HTML: "false"
-            CAPTCHA_SOLVER: none
-        volumes:
-            - {{ files.docker_config_path }}/flaresolverr:/config
-        ports:
-            - {{ ports.flaresolverr }}:8191
-
     recyclarr:
         <<: [*default-service, *limits-small]
         image: "ghcr.io/recyclarr/recyclarr:8"
