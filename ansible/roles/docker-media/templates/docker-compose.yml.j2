@@ -58,6 +58,8 @@ services:
             DB_USER: "{{ sql.user }}"
             DB_PASSWD: "{{ sql.password }}"
             ROMM_AUTH_SECRET_KEY: "{{ romm.secret }}"
+            IGDB_CLIENT_ID: "{{ romm.igdb.id }}"
+            IGDB_CLIENT_SECRET: "{{ romm.igdb.secret }}"
             SCREENSCRAPER_USER: "{{ romm.screenscraper.user }}"
             SCREENSCRAPER_PASSWORD: "{{ romm.screenscraper.password }}"
             RETROACHIEVEMENTS_API_KEY: "{{ romm.retroachievements.secret }}"
