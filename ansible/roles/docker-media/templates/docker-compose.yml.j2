@@ -180,7 +180,7 @@ services:
         volumes:
             - {{ files.docker_config_path }}/qbittorrent:/config
             - {{ files.nfs_media_path }}:/share
-            - /tmp/incomplete/torrent:/incomplete
+            - /var/lib/incomplete/torrent:/incomplete
 
     sabnzbd:
         <<: [*default-service, *limits-large]
@@ -190,7 +190,7 @@ services:
         volumes:
             - {{ files.docker_config_path }}/sabnzbd:/config
             - {{ files.nfs_media_path }}:/share
-            - /tmp/incomplete/usenet:/incomplete
+            - /var/lib/incomplete/usenet:/incomplete
 
     gluetun:
         <<: [*default-service, *limits-small]
