@@ -205,7 +205,7 @@ tmdb:
   cache_expiration: 60
 
 
-trakt: # https://metamanager.wiki/en/latest/config/trakt/#online-authorization
+trakt: # https://metamanager.wiki/en/latest/config/trakt/#authenticating-trakt
   client_id: {{ tokens.trakt.client_id }}
   client_secret: {{ tokens.trakt.client_secret }}
   authorization:
@@ -215,4 +215,3 @@ trakt: # https://metamanager.wiki/en/latest/config/trakt/#online-authorization
     refresh_token: {{ tokens.trakt.refresh_token }}
     scope: public
     created_at: {{ tokens.trakt.created_at }}
-  pin: {{ tokens.trakt.pin }}
