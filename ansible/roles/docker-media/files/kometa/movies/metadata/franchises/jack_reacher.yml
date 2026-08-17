@@ -1,0 +1,18 @@
+external_templates:
+  - file: config/templates/movie-meta.yml
+
+metadata:
+
+  "Jack Reacher (2012)":
+    template:
+      name: match
+      title: "Jack Reacher"
+      year: 2012
+      poster_id:
+
+  "Jack Reacher: Never Go Back (2016)":
+    template:
+      name: match
+      title: "Jack Reacher: Never Go Back"
+      year: 2016
+      poster_id:

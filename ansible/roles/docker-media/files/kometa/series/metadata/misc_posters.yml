@@ -21,6 +21,13 @@ metadata:
       s1_poster_id: 541082
       s2_poster_id: 541083
 
+  "Avenue 5 (2020)":
+    template:
+      name: match
+      title: "Avenue 5"
+      year: 2020
+      poster_id:
+
   "Beastars (2019)":
     template:
       name: match
@@ -30,6 +37,13 @@ metadata:
       s1_poster_id: 400119
       s2_poster_id: 400120
       s3_poster_id: 548584
+
+  "The Bear (2022)":
+    template:
+      name: match
+      title: "The Bear"
+      year: 2022
+      poster_id:
 
   "The Blacklist (2013)":
     template:
@@ -48,6 +62,27 @@ metadata:
       s8_poster_id: 328209
       s9_poster_id: 328210
       s10_poster_id: 328211
+
+  "Chernobyl (2019)":
+    template:
+      name: match
+      title: "Chernobyl"
+      year: 2019
+      poster_id:
+
+  "Dexter (2006)":
+    template:
+      name: match
+      title: "Dexter"
+      year: 2006
+      poster_id:
+
+  "Dracula (2020)":
+    template:
+      name: match
+      title: "Dracula"
+      year: 2020
+      poster_id:
 
   "The Edge of Sleep (2024)":
     template:
@@ -102,6 +137,13 @@ metadata:
       s7_poster_id: 40174
       s8_poster_id: 40175
 
+  "House of Cards (2013)":
+    template:
+      name: match
+      title: "House of Cards"
+      year: 2013
+      poster_id:
+
   "The Last of Us (2023)":
     template:
       name: match
@@ -121,6 +163,13 @@ metadata:
       s2_poster_id: 313888
       s3_poster_id: 537885
 
+  "Long Distance (2025)":
+    template:
+      name: match
+      title: "Long Distance"
+      year: 2025
+      poster_id:
+
   "The Mighty Nein (2025)":
     template:
       name: match
@@ -128,6 +177,13 @@ metadata:
       year: 2025
       poster_id: 663276
       s1_poster_id: 663277
+
+  "Mr. Robot (2015)":
+    template:
+      name: match
+      title: "Mr. Robot"
+      year: 2015
+      poster_id:
 
   "The Orville (2017)":
     template:
@@ -147,6 +203,27 @@ metadata:
       poster_id: 526094
       s1_poster_id: 526095
 
+  "The Pitt (2025)":
+    template:
+      name: match
+      title: "The Pitt"
+      year: 2025
+      poster_id:
+
+  "Pluribus (2025)":
+    template:
+      name: match
+      title: "Pluribus"
+      year: 2025
+      poster_id:
+
+  "Reacher (2022)":
+    template:
+      name: match
+      title: "Reacher"
+      year: 2022
+      poster_id:
+
   "The Rookie (2018)":
     template:
       name: match
@@ -162,6 +239,13 @@ metadata:
       s6_poster_id: 560574
       s7_poster_id: 560575
 
+  "Rick and Morty (2013)":
+    template:
+      name: match
+      title: "Rick and Morty"
+      year: 2013
+      poster_id:
+
   "Secret Level (2024)":
     template:
       name: match
@@ -169,6 +253,20 @@ metadata:
       year: 2024
       poster_id: 551126
       s1_poster_id: 551127
+
+  "Severance (2022)":
+    template:
+      name: match
+      title: "Severance"
+      year: 2022
+      poster_id:
+
+  "Silo (2023)":
+    template:
+      name: match
+      title: "Silo"
+      year: 2023
+      poster_id:
 
   "Space Force (2020)":
     template:
@@ -188,6 +286,13 @@ metadata:
       s1_poster_id: 264311
       s2_poster_id: 517433
       s3_poster_id: 679478
+
+  "Ted Lasso (2020)":
+    template:
+      name: match
+      title: "Ted Lasso"
+      year: 2020
+      poster_id:
 
   "Tulsa King (2022)":
     template:

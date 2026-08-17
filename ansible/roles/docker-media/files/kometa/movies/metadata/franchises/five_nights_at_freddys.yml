@@ -1,0 +1,20 @@
+external_templates:
+  - file: config/templates/movie-meta.yml
+
+metadata:
+
+  # https://theposterdb.com/set/377098
+
+  "Five Nights at Freddy's (2023)":
+    template:
+      name: match
+      title: "Five Nights at Freddy's"
+      year: 2023
+      poster_id: 674000
+
+  "Five Nights at Freddy's 2 (2025)":
+    template:
+      name: match
+      title: "Five Nights at Freddy's 2"
+      year: 2025
+      poster_id: 673999

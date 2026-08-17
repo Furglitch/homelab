@@ -7,5 +7,5 @@ collections:
     template:
       name: trakt-list
       list_author: furglitch
-      list_name: misc-shows
+      list_name: misc-plex-sync
     minimum_items: 999

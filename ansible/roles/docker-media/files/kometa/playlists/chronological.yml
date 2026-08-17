@@ -3,6 +3,8 @@ external_templates:
 
 playlists:
 
+  # Chronological Playlists
+
   "Blade Runner":
     template:
       name: trakt-list
@@ -52,7 +54,7 @@ playlists:
 
   "Kingsman":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: kingsman-collection
       url_poster: "https://pbs.twimg.com/profile_images/1463221870644248578/xZXxHVZO_400x400.jpg"
 
@@ -85,51 +87,6 @@ playlists:
       url_poster: "https://pbs.twimg.com/profile_images/1030142018284081152/3b0yX1Lf_400x400.jpg"
       ignore:
         - 421104    # [Series] Skull Island (2023)
-
-  "My Little Pony":
-    template:
-      name: trakt-list
-      list_author: furglitch
-      list_name: my-little-pony-chronological
-      url_poster: "https://i.ibb.co/HxJw7S2/Untitled.png"
-      ignore:
-        - 359878    # [Short] My Little Pony (1984)
-        - 25400     # [Movie] My Little Pony: The Movie (1986)
-        - 25396     # [Short] My Little Pony: A Very Minty Christmas (2005)
-        - 256439    # [Short] My Little Pony: The Runaway Rainbow (2006)
-        - 19789     # [Short] My Little Pony: The Princess Promenade (2006)
-        - 290996    # [Short] My Little Pony: A Very Pony Place (2007)
-        - 57505     # [Short] My Little Pony: Twinkle Wish Adventure (2009)
-        - 564638    # [Short] My Little Pony: Best Gift Ever (2018)
-        - 612087    # [Movie] My Little Pony: Rainbow Roadtrip (2019)
-        - 597316    # [Movie] My Little Pony: A New Generation (2021)
-        - 72001     # [Series] My Little Pony 'n Friends (1986)
-        - 76790     # [Series] My Little Pony Tales (1992)
-        - 372750    # [Series] My Little Pony: Pony Life (2020)
-        - 416741    # [Series] My Little Pony: Make Your Mark (2022)
-        - 416742    # [Series] My Little Pony: Tell Your Tale (2022)      
-
-  "Pokemon":
-    template:
-      name: trakt-list
-      list_author: seriouspain
-      list_name: pokemon
-      url_poster: "https://www.webwise.ie/wp-content/uploads/2020/11/Pokemon-Go.jpg"
-      ignore:
-        - 33376  # [Short] Pikachu's Vacation (1998)
-        - 36756  # [Short] Pikachu's Rescue Adventure (1999)
-        - 268998 # [Short] Pokémon: Pikachu's Winter Vacation 2 (1999)
-        - 36753  # [Short] Pikachu and Pichu (2000)
-        - 293245 # [Short] Pikachu's PikaBoo (2001)
-        - 295613 # [Movie] Pokémon Chronicles: The Legend of Thunder! (2001)
-        - 211814 # [Short] Camp Pikachu (2002)
-        - 216651 # [Short] Pikachu's Island Adventure (2006)
-        - 272087 # [Short] Meloetta's Moonlight Serenade (2012)
-        - 249424 # [Short] Pokémon: Mewtwo - Prologue to Awakening (2013)
-        - 377909 # [Short] Pokémon: Eevee & Friends (2013) 
-        - 332485 # [Short] Pikachu, What's This Key? (2014)
-        - 389621 # [Short] Pikachu and the Pokémon Music Squad (2015)
-        - 72975  # [Series] Pokémon Chronicles (1998)
 
   "Star Trek":
     template:
@@ -193,3 +150,50 @@ playlists:
       list_author: koekoeracha
       list_name: dc-extended-universe-dceu
       url_poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIpjTHrNDcRAcrYaQwLwTGUbIZLQIONRFndw&s"
+
+  # Watch Order
+
+  "My Little Pony":
+    template:
+      name: trakt-list
+      list_author: furglitch
+      list_name: my-little-pony-chronological
+      url_poster: "https://i.ibb.co/HxJw7S2/Untitled.png"
+      ignore:
+        - 359878    # [Short] My Little Pony (1984)
+        - 25400     # [Movie] My Little Pony: The Movie (1986)
+        - 25396     # [Short] My Little Pony: A Very Minty Christmas (2005)
+        - 256439    # [Short] My Little Pony: The Runaway Rainbow (2006)
+        - 19789     # [Short] My Little Pony: The Princess Promenade (2006)
+        - 290996    # [Short] My Little Pony: A Very Pony Place (2007)
+        - 57505     # [Short] My Little Pony: Twinkle Wish Adventure (2009)
+        - 564638    # [Short] My Little Pony: Best Gift Ever (2018)
+        - 612087    # [Movie] My Little Pony: Rainbow Roadtrip (2019)
+        - 597316    # [Movie] My Little Pony: A New Generation (2021)
+        - 72001     # [Series] My Little Pony 'n Friends (1986)
+        - 76790     # [Series] My Little Pony Tales (1992)
+        - 372750    # [Series] My Little Pony: Pony Life (2020)
+        - 416741    # [Series] My Little Pony: Make Your Mark (2022)
+        - 416742    # [Series] My Little Pony: Tell Your Tale (2022)
+
+  "Pokemon":
+    template:
+      name: trakt-list
+      list_author: seriouspain
+      list_name: pokemon
+      url_poster: "https://www.webwise.ie/wp-content/uploads/2020/11/Pokemon-Go.jpg"
+      ignore:
+        - 33376  # [Short] Pikachu's Vacation (1998)
+        - 36756  # [Short] Pikachu's Rescue Adventure (1999)
+        - 268998 # [Short] Pokémon: Pikachu's Winter Vacation 2 (1999)
+        - 36753  # [Short] Pikachu and Pichu (2000)
+        - 293245 # [Short] Pikachu's PikaBoo (2001)
+        - 295613 # [Movie] Pokémon Chronicles: The Legend of Thunder! (2001)
+        - 211814 # [Short] Camp Pikachu (2002)
+        - 216651 # [Short] Pikachu's Island Adventure (2006)
+        - 272087 # [Short] Meloetta's Moonlight Serenade (2012)
+        - 249424 # [Short] Pokémon: Mewtwo - Prologue to Awakening (2013)
+        - 377909 # [Short] Pokémon: Eevee & Friends (2013) 
+        - 332485 # [Short] Pikachu, What's This Key? (2014)
+        - 389621 # [Short] Pikachu and the Pokémon Music Squad (2015)
+        - 72975  # [Series] Pokémon Chronicles (1998)

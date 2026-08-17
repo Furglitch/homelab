@@ -16,6 +16,13 @@ metadata:
       year: 2025
       poster_id: 579582
 
+  "American Made (2017)":
+    template:
+      name: match
+      title: "American Made"
+      year: 2017
+      poster_id:
+
   "Archive (2020)":
     template:
       name: match
@@ -51,12 +58,33 @@ metadata:
       year: 2022
       poster_id: 228589
 
+  "The Beekeeper (2024)":
+    template:
+      name: match
+      title: "The Beekeeper"
+      year: 2024
+      poster_id:
+
+  "The Beekeeper 2 (2025)":
+    template:
+      name: match
+      title: "The Beekeeper 2"
+      year: 2025
+      poster_id:
+
   "Bullet Train (2022)":
     template:
       name: match
       title: "Bullet Train"
       year: 2022
       poster_id: 269443
+
+  "Code 3 (2025)":
+    template:
+      name: match
+      title: "Code 3"
+      year: 2025
+      poster_id:
 
   "Dungeons & Dragons: Honor Among Thieves (2023)":
     template:
@@ -86,6 +114,13 @@ metadata:
       year: 2021
       poster_id: 104472
 
+  "The Gentlemen (2019)":
+    template:
+      name: match
+      title: "The Gentlemen"
+      year: 2019
+      poster_id:
+
   "The Greatest Beer Run Ever (2022)":
     template:
       name: match
@@ -99,6 +134,13 @@ metadata:
       title: "Gran Turismo"
       year: 2023
       poster_id: 411893
+
+  "Hacksaw Ridge (2016)":
+    template:
+      name: match
+      title: "Hacksaw Ridge"
+      year: 2016
+      poster_id:
 
   "Guns Akimbo (2019)":
     template:
@@ -134,6 +176,20 @@ metadata:
       title: "Iron Lung"
       year: 2026
       poster_id: 670325
+
+  "Jack Reacher (2012)":
+    template:
+      name: match
+      title: "Jack Reacher"
+      year: 2012
+      poster_id:
+
+  "Jack Reacher: Never Go Back (2016)":
+    template:
+      name: match
+      title: "Jack Reacher: Never Go Back"
+      year: 2016
+      poster_id:
 
   "Joker (2019)":
     template:
@@ -219,6 +275,13 @@ metadata:
       year: 2016
       poster_id: 84213
 
+  "Now You See Me: Now You Don't (2025)":
+    template:
+      name: match
+      title: "Now You See Me: Now You Don't"
+      year: 2025
+      poster_id:
+
   "Once Upon a Time... in Hollywood (2019)":
     template:
       name: match
@@ -232,6 +295,27 @@ metadata:
       title: "Oppenheimer"
       year: 2023
       poster_id: 252160
+
+  "The Odyssey (2026)":
+    template:
+      name: match
+      title: "The Odyssey"
+      year: 2026
+      poster_id:
+
+  "Pixels (2015)":
+    template:
+      name: match
+      title: "Pixels"
+      year: 2015
+      poster_id:
+
+  "Project Hail Mary (2026)":
+    template:
+      name: match
+      title: "Project Hail Mary"
+      year: 2026
+      poster_id:
 
   "Ready Player One (2018)":
     template:
@@ -330,6 +414,20 @@ metadata:
       title: "Tetris"
       year: 2023
       poster_id: 343386
+
+  "Top Gun (1986)":
+    template:
+      name: match
+      title: "Top Gun"
+      year: 1986
+      poster_id:
+
+  "Top Gun: Maverick (2022)":
+    template:
+      name: match
+      title: "Top Gun: Maverick"
+      year: 2022
+      poster_id:
 
   "Uncut Gems (2019)":
     template:

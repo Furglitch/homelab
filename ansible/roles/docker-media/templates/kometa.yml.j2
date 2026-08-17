@@ -1,106 +1,123 @@
 libraries:
-  Movies:
-    collection_files:
-    - file: /config/movies/collections/franchises.yml
-    - file: /config/movies/collections/studios.yml
-    - file: /config/movies/collections/misc.yml
-    metadata_files:
-    - file: /config/movies/metadata/misc_posters.yml
-    - file: /config/movies/metadata/franchises/avatar.yml
-    - file: /config/movies/metadata/franchises/beetlejuice.yml
-    - file: /config/movies/metadata/franchises/blade_runner.yml
-    - file: /config/movies/metadata/franchises/breaking_bad.yml
-    - file: /config/movies/metadata/franchises/code_8.yml
-    - file: /config/movies/metadata/franchises/dark_knight.yml
-    - file: /config/movies/metadata/franchises/deadpool.yml
-    - file: /config/movies/metadata/franchises/dragonheart.yml
-    - file: /config/movies/metadata/franchises/dune.yml
-    - file: /config/movies/metadata/franchises/eastrail_177.yml
-    - file: /config/movies/metadata/franchises/equalizer.yml
-    - file: /config/movies/metadata/franchises/fast_and_furious.yml
-    - file: /config/movies/metadata/franchises/has_fallen.yml
-    - file: /config/movies/metadata/franchises/how_to_train_your_dragon.yml
-    - file: /config/movies/metadata/franchises/hunger_games.yml
-    - file: /config/movies/metadata/franchises/indiana_jones.yml
-    - file: /config/movies/metadata/franchises/james_bond.yml
-    - file: /config/movies/metadata/franchises/john_wick.yml
-    - file: /config/movies/metadata/franchises/jurassic_park.yml
-    - file: /config/movies/metadata/franchises/kingsman.yml
-    - file: /config/movies/metadata/franchises/lego.yml
-    - file: /config/movies/metadata/franchises/matrix.yml
-    - file: /config/movies/metadata/franchises/maze_runner.yml
-    - file: /config/movies/metadata/franchises/men_in_black.yml
-    - file: /config/movies/metadata/franchises/middle_earth.yml
-    - file: /config/movies/metadata/franchises/mission_impossible.yml
-    - file: /config/movies/metadata/franchises/monsterverse.yml
-    - file: /config/movies/metadata/franchises/my_little_pony.yml
-    - file: /config/movies/metadata/franchises/now_you_see_me.yml
-    - file: /config/movies/metadata/franchises/pacific_rim.yml
-    - file: /config/movies/metadata/franchises/pirates_of_the_caribbean.yml
-    - file: /config/movies/metadata/franchises/planet_of_the_apes.yml
-    - file: /config/movies/metadata/franchises/pokemon.yml
-    - file: /config/movies/metadata/franchises/shrek.yml
-    - file: /config/movies/metadata/franchises/sonic.yml
-    - file: /config/movies/metadata/franchises/sony_spiderman.yml
-    - file: /config/movies/metadata/franchises/star_trek.yml
-    - file: /config/movies/metadata/franchises/star_wars.yml
-    - file: /config/movies/metadata/franchises/top_gun.yml
-    - file: /config/movies/metadata/franchises/transformers.yml
-    - file: /config/movies/metadata/franchises/tron.yml
-    - file: /config/movies/metadata/franchises/witcher.yml
-    - file: /config/movies/metadata/franchises/wizarding_world.yml
-    - file: /config/movies/metadata/franchises/x-men.yml
-    - file: /config/movies/metadata/studios/dceu.yml
-    - file: /config/movies/metadata/studios/dcu.yml
-    - file: /config/movies/metadata/studios/marvel.yml
-    - file: /config/movies/metadata/studios/studio_ghibli.yml
-  TV Shows:
-    collection_files:
-    - file: /config/series/collections/franchises.yml
-    - file: /config/series/collections/studios.yml
-    - file: /config/series/collections/misc.yml
-    metadata_files:
-    - file: /config/series/metadata/misc_posters.yml
-    - file: /config/series/metadata/franchises/blade_runner.yml
-    - file: /config/series/metadata/franchises/breaking_bad.yml
-    - file: /config/series/metadata/franchises/john_wick.yml
-    - file: /config/series/metadata/franchises/middle_earth.yml
-    - file: /config/series/metadata/franchises/monsterverse.yml
-    - file: /config/series/metadata/franchises/my_little_pony.yml
-    - file: /config/series/metadata/franchises/pokemon.yml
-    - file: /config/series/metadata/franchises/sonic.yml
-    - file: /config/series/metadata/franchises/star_trek.yml
-    - file: /config/series/metadata/franchises/star_wars.yml
-    - file: /config/series/metadata/franchises/stargate.yml
-    - file: /config/series/metadata/franchises/supernatural.yml
-    - file: /config/series/metadata/franchises/the_boys.yml
-    - file: /config/series/metadata/franchises/the_witcher.yml
-    - file: /config/series/metadata/franchises/yellowstone.yml
-    - file: /config/series/metadata/studios/dceu.yml
-    - file: /config/series/metadata/studios/dcu.yml
-    - file: /config/series/metadata/studios/dropout.yml
-    - file: /config/series/metadata/studios/marvel.yml
 
-playlist_files:
-- file: /config/playlists/chronological.yml
-  template_variables:
-    libraries: Movies, TV Shows
-    radarr_add_missing: false
-    sonarr_add_missing: false
+  Movies:
+    template_variables:
+      language: en
+    collection_files:
+      # - default: imdb
+      #   template_variables:
+      #     style: white
+      #     use_lowest: false
+      # - default: myanimelist
+      #   template_variables:
+      #     use_season: false
+      #     limit_popular: 50
+      - file: /config/movies/collections/franchises.yml
+      - file: /config/movies/collections/studios.yml
+      - file: /config/movies/collections/misc.yml
+    metadata_files:
+      - file: /config/movies/metadata/misc_posters.yml
+      - file: /config/movies/metadata/franchises/avatar.yml
+      - file: /config/movies/metadata/franchises/beetlejuice.yml
+      - file: /config/movies/metadata/franchises/blade_runner.yml
+      - file: /config/movies/metadata/franchises/breaking_bad.yml
+      - file: /config/movies/metadata/franchises/code_8.yml
+      - file: /config/movies/metadata/franchises/dark_knight.yml
+      - file: /config/movies/metadata/franchises/deadpool.yml
+      - file: /config/movies/metadata/franchises/dragonheart.yml
+      - file: /config/movies/metadata/franchises/dune.yml
+      - file: /config/movies/metadata/franchises/eastrail_177.yml
+      - file: /config/movies/metadata/franchises/equalizer.yml
+      - file: /config/movies/metadata/franchises/fast_and_furious.yml
+      - file: /config/movies/metadata/franchises/five_nights_at_freddys.yml
+      - file: /config/movies/metadata/franchises/has_fallen.yml
+      - file: /config/movies/metadata/franchises/how_to_train_your_dragon.yml
+      - file: /config/movies/metadata/franchises/hunger_games.yml
+      - file: /config/movies/metadata/franchises/indiana_jones.yml
+      - file: /config/movies/metadata/franchises/jack_reacher.yml
+      - file: /config/movies/metadata/franchises/james_bond.yml
+      - file: /config/movies/metadata/franchises/john_wick.yml
+      - file: /config/movies/metadata/franchises/jurassic_park.yml
+      - file: /config/movies/metadata/franchises/kingsman.yml
+      - file: /config/movies/metadata/franchises/lego.yml
+      - file: /config/movies/metadata/franchises/matrix.yml
+      - file: /config/movies/metadata/franchises/maze_runner.yml
+      - file: /config/movies/metadata/franchises/men_in_black.yml
+      - file: /config/movies/metadata/franchises/middle_earth.yml
+      - file: /config/movies/metadata/franchises/mission_impossible.yml
+      - file: /config/movies/metadata/franchises/monsterverse.yml
+      - file: /config/movies/metadata/franchises/my_little_pony.yml
+      - file: /config/movies/metadata/franchises/now_you_see_me.yml
+      - file: /config/movies/metadata/franchises/pacific_rim.yml
+      - file: /config/movies/metadata/franchises/pirates_of_the_caribbean.yml
+      - file: /config/movies/metadata/franchises/planet_of_the_apes.yml
+      - file: /config/movies/metadata/franchises/pokemon.yml
+      - file: /config/movies/metadata/franchises/shrek.yml
+      - file: /config/movies/metadata/franchises/sonic.yml
+      - file: /config/movies/metadata/franchises/sony_spiderman.yml
+      - file: /config/movies/metadata/franchises/star_trek.yml
+      - file: /config/movies/metadata/franchises/star_wars.yml
+      - file: /config/movies/metadata/franchises/top_gun.yml
+      - file: /config/movies/metadata/franchises/transformers.yml
+      - file: /config/movies/metadata/franchises/tron.yml
+      - file: /config/movies/metadata/franchises/witcher.yml
+      - file: /config/movies/metadata/franchises/wizarding_world.yml
+      - file: /config/movies/metadata/franchises/x-men.yml
+      - file: /config/movies/metadata/studios/dceu.yml
+      - file: /config/movies/metadata/studios/dcu.yml
+      - file: /config/movies/metadata/studios/marvel.yml
+      - file: /config/movies/metadata/studios/studio_ghibli.yml
+
+  TV Shows:
+    template_variables:
+      language: en
+    collection_files:
+      # - default: imdb
+      #   template_variables:
+      #     style: white
+      #     use_lowest: false
+      # - default: myanimelist
+      #   template_variables:
+      #     use_season: false
+      #     limit_popular: 50
+      - file: /config/series/collections/franchises.yml
+      - file: /config/series/collections/studios.yml
+      - file: /config/series/collections/misc.yml
+    metadata_files:
+      - file: /config/series/metadata/misc_posters.yml
+      - file: /config/series/metadata/franchises/blade_runner.yml
+      - file: /config/series/metadata/franchises/breaking_bad.yml
+      - file: /config/series/metadata/franchises/john_wick.yml
+      - file: /config/series/metadata/franchises/middle_earth.yml
+      - file: /config/series/metadata/franchises/monsterverse.yml
+      - file: /config/series/metadata/franchises/my_little_pony.yml
+      - file: /config/series/metadata/franchises/pokemon.yml
+      - file: /config/series/metadata/franchises/sonic.yml
+      - file: /config/series/metadata/franchises/star_trek.yml
+      - file: /config/series/metadata/franchises/star_wars.yml
+      - file: /config/series/metadata/franchises/stargate.yml
+      - file: /config/series/metadata/franchises/supernatural.yml
+      - file: /config/series/metadata/franchises/the_boys.yml
+      - file: /config/series/metadata/franchises/the_witcher.yml
+      - file: /config/series/metadata/franchises/yellowstone.yml
+      - file: /config/series/metadata/studios/dceu.yml
+      - file: /config/series/metadata/studios/dcu.yml
+      - file: /config/series/metadata/studios/dropout.yml
+      - file: /config/series/metadata/studios/marvel.yml
 
 settings:
   run_order:
-  - operations
-  - collections
-  - metadata
-  - overlays
+    - operations
+    - collections
+    - metadata
+    - overlays
   cache: true
-  cache_expiration: 30
+  cache_expiration: 14
 
   # Asset Management
   asset_directory:
-  - /config/assets
-  - /config
+    - /config/assets
+    - /config
   asset_folders: true
   download_url_assets: true
   create_asset_folders: true
@@ -108,7 +125,7 @@ settings:
   dimensional_asset_rename: false
 
   # Collection and Playlist Management
-  minimum_items: 1
+  minimum_items: 2
   default_collection_order: release
   delete_below_minimum: true
   delete_not_scheduled: false
@@ -136,7 +153,7 @@ settings:
   save_report: false
 
   # Misc
-  tvdb_language: default
+  tvdb_language: eng
   verify_ssl: true
   custom_repo:
   asset_depth: 0
@@ -145,7 +162,6 @@ settings:
   overlay_artwork_filetype: jpg
   overlay_artwork_quality:
   show_unfiltered: false
-
 
 plex:
   url: http://{{ ip_local }}:{{ ports.plex }}

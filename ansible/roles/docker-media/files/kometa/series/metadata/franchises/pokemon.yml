@@ -71,3 +71,10 @@ metadata:
   #     s23_poster_id: 32710 # Journeys
   #     s24_poster_id: 179533 # Master Journeys
   #     s25_poster_id: 364368 # Ultimate Journeys
+
+  "Pokemon Origins (2013)":
+    template:
+      name: match
+      title: "Pokemon Origins"
+      year: 2013
+      poster_id:

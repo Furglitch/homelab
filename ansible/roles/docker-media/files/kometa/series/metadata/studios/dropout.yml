@@ -4,7 +4,6 @@ external_templates:
 metadata:
 
   # https://theposterdb.com/set/336033
-
   "Dimension 20 (2018)":
     template:
       name: match
@@ -12,7 +11,7 @@ metadata:
       year: 2018
       poster_id: 603069
       s0_poster_id: 603070
-      s1_poster_id: 603071
+      s1_poster_id: 603090
       s2_poster_id: 603072
       s3_poster_id: 603073
       s4_poster_id: 603074
@@ -38,7 +37,10 @@ metadata:
       s24_poster_id: 603096
       s25_poster_id: 603097
       s26_poster_id: 617741
+      s27_poster_id: 682293
+      s28_poster_id: 704120
 
+  # https://theposterdb.com/set/331245
   "Game Changer (2019)":
     template:
       name: match
@@ -53,3 +55,16 @@ metadata:
       s5_poster_id: 595441
       s6_poster_id: 595442
       s7_poster_id: 595443
+      s8_poster_id: 716350
+
+  "Make Some Noise (2022)":
+    template:
+      name: match
+      title: "Make Some Noise"
+      year: 2022
+      poster_id: 546403
+      special_poster_id: 653017
+      s1_poster_id: 546404
+      s2_poster_id: 546405
+      s3_poster_id: 546406
+      s4_poster_id: 653016

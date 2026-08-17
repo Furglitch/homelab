@@ -5,13 +5,13 @@ collections:
 
   "Avatar":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: avatar-collection
       poster_id: 672053
 
   "Beetlejuice":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: beetlejuice-collection
       poster_id: 534111
 
@@ -31,7 +31,7 @@ collections:
 
   "Code 8":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: code-8-collection
       ignore:
         - 389165  # [Short/Pilot] Code 8 (2016)
@@ -39,25 +39,25 @@ collections:
 
   "The Dark Knight":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: the-dark-knight-collection
       poster_id: 22275
 
   "Deadpool":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: deadpool-collection
       poster_id: 16115
 
   "DragonHeart":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: dragonheart-collection
       poster_id: 23589
   
   "Dune":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: dune-collection
       poster_id: 393189
 
@@ -70,7 +70,7 @@ collections:
 
   "The Equalizer":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: the-equalizer-collection
       poster_id: 37023
 
@@ -86,13 +86,13 @@ collections:
 
   "Five Nights at Freddy's":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: five-nights-at-freddy-s-collection-27000779
       poster_id: 673998
 
   "Has Fallen":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: has-fallen-collection
       poster_id: 76958
 
@@ -117,7 +117,7 @@ collections:
 
   "Indiana Jones":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: indiana-jones-collection
       poster_id: 53303
 
@@ -137,13 +137,13 @@ collections:
 
   "Jurassic Park":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: jurassic-park-collection
       poster_id: 158968
 
   "Kingsman":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: kingsman-collection
       poster_id: 211641
 
@@ -158,13 +158,13 @@ collections:
 
   "The Matrix":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: the-matrix-collection
       poster_id: 195195
 
   "The Maze Runner":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: the-maze-runner-collection
       poster_id: 1026
 
@@ -186,7 +186,7 @@ collections:
 
   "Mission Impossible":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: mission-impossible-collection
       poster_id: 65202
 
@@ -224,19 +224,19 @@ collections:
 
   "Pacific Rim":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: pacific-rim-collection
       poster_id: 63694
   
   "Pirates of the Caribbean":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: pirates-of-the-caribbean
       poster_id: 49956
 
   "Planet of the Apes":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: planet-of-the-apes-reboot-collection
       poster_id: 97354
   
@@ -306,7 +306,7 @@ collections:
 
   "Top Gun":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: top-gun-collection
       poster_id: 251518
 
@@ -319,7 +319,7 @@ collections:
 
   "Tron":
     template:
-      name: trakt-list-official
+      name: trakt-list
       list_name: tron-collection
       poster_id: 648839
 

@@ -1,37 +1,48 @@
 templates:
+
   trakt-list:
+    ignore_ids: <<ignore>>
+    collection_order: release
+    trakt_list: "https://trakt.tv/<<list_path>>"
+    url_poster: "<<poster>>"
+    conditionals:
+      list_path:
+        default: "lists/official/<<list_name>>"
+        conditions:
+          - list_author.exists: true
+            value: "users/<<list_author>>/lists/<<list_name>>"
+      poster:
+        conditions:
+          - poster_id.exists: true
+            value: "https://theposterdb.com/api/assets/<<poster_id>>"
     optional:
       - ignore
-      - poster_id
-    trakt_list: "https://trakt.tv/users/<<list_author>>/lists/<<list_name>>?display=show,season,episode"
-    collection_order: release
-    ignore_ids: <<ignore>>
-    minimum_items: 2
-    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
-  trakt-list-official:
-    optional:
-      - ignore
-      - poster_id
-    trakt_list: "https://trakt.tv/lists/official/<<list_name>>?display=show,season,episode"
-    collection_order: release
-    ignore_ids: <<ignore>>
-    minimum_items: 2
-    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
+      - list_author
+
   letterboxd-list:
-    optional:
-      - ignore
-      - poster_id
+    ignore_ids: <<ignore>>
+    collection_order: release
     letterboxd_list: "https://letterboxd.com/<<list_author>>/list/<<list_name>>/"
-    collection_order: release
-    ignore_ids: <<ignore>>
-    minimum_items: 2
-    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
-  mdblist-list:
+    url_poster: "<<poster>>"
+    conditionals:
+      poster:
+        conditions:
+          - poster_id.exists: true
+            value: "https://theposterdb.com/api/assets/<<poster_id>>"
     optional:
       - ignore
       - poster_id
-    mdblist_list: "https://mdblist.com/lists/<<list_author>>/<<list_name>>/"
-    collection_order: release
+
+  mdblist-list:
     ignore_ids: <<ignore>>
-    minimum_items: 2
-    url_poster: "https://theposterdb.com/api/assets/<<poster_id>>"
+    collection_order: release
+    mdblist_list: "https://mdblist.com/lists/<<list_author>>/<<list_name>>/"
+    url_poster: "<<poster>>"
+    conditionals:
+      poster:
+        conditions:
+          - poster_id.exists: true
+            value: "https://theposterdb.com/api/assets/<<poster_id>>"
+    optional:
+      - ignore
+      - poster_id
