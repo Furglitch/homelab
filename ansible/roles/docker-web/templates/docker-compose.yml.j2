@@ -75,4 +75,8 @@ services:
             - {{ ports.proton_imap }}:143
             - {{ ports.proton_smtp }}:25
         volumes:
-            - {{ files.docker_config_path }}/protonmail:/root
+            - protonmail:/root
+
+volumes:
+    protonmail:
+        name: protonmail
