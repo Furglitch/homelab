@@ -10,14 +10,12 @@
     - "{{ files.docker_data_path }}"
     - "{{ files.docker_config_path }}/homarr"
     - "{{ files.docker_config_path }}/vaultwarden"
-    - "{{ files.docker_config_path }}/nextcloud"
     - "{{ files.docker_config_path }}/sillytavern"
     - "{{ files.docker_config_path }}/sillytavern/config"
     - "{{ files.docker_config_path }}/sillytavern/data"
     - "{{ files.docker_config_path }}/sillytavern/plugins"
     - "{{ files.docker_config_path }}/sillytavern/extensions"
     - "{{ files.docker_data_path }}/vaultwarden"
-    - "{{ files.docker_data_path }}/nextcloud"
 
 - name: Ensure web config paths are writable by containers
   ansible.builtin.file:

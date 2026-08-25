@@ -35,21 +35,6 @@ services:
       - {{ ports.vaultwarden }}:80
     restart: always
 
-  nextcloud:
-    <<: *default-service
-    image: "lscr.io/linuxserver/nextcloud:latest"
-    container_name: nextcloud
-    environment:
-      - VIRTUAL_HOST=https://{{ ip_public }}
-      - LETSENCRYPT_HOST=https://{{ ip_public }}
-    ports:
-      - {{ ports.nextcloud }}:443
-    volumes:
-      - {{ files.docker_config_path }}/nextcloud:/config
-      - {{ files.docker_data_path }}/nextcloud:/data
-      - {{ files.nfs_cloud_path }}:/share
-    restart: always
-
   sillytavern:
     <<: *default-service
     image: "ghcr.io/sillytavern/sillytavern:latest"
