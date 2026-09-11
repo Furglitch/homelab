@@ -1,12 +1,12 @@
-resource "proxmox_lxc" "pelican" {
+resource "proxmox_lxc" "calagopus" {
   depends_on      = [proxmox_virtual_environment_download_file.template_debian_13]
   ssh_public_keys = file(var.ssh_key_public)
 
-  hostname    = "pelican"
+  hostname    = "calagopus"
   vmid        = 241
   target_node = var.pve_host_node
   ostemplate  = "${var.image_template_prefix}${var.image_lxc_debian_13_file}"
-  tags        = "lxc;pelican;docker;game"
+  tags        = "lxc;calagopus;docker;game"
   password    = var.user_password
 
   start        = var.vm_boot_start

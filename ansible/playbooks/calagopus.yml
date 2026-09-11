@@ -1,9 +1,9 @@
 ---
-- name: Apply Pelican configuration
-  hosts: pelican
+- name: Apply Calagopus configuration
+  hosts: calagopus
   become: false
   roles:
     - baseline
     - docker
     - docker-common
-    - pelican
+    - calagopus

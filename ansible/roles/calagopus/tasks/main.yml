@@ -1,0 +1,50 @@
+---
+- name: Create Calagopus Docker directory structure
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ files.docker_path }}"
+    - "{{ files.docker_config_path }}"
+    - "{{ files.docker_data_path }}"
+    - "{{ files.docker_data_path }}/calagopus/db"
+    - "{{ files.docker_data_path }}/calagopus/panel/data"
+    - "{{ files.docker_data_path }}/calagopus/panel/logs"
+    - "{{ files.docker_data_path }}/calagopus/wings/data"
+    - "{{ files.docker_data_path }}/calagopus/wings/logs"
+    - "{{ files.docker_data_path }}/calagopus/wings/containers"
+    - "{{ files.docker_data_path }}/calagopus/wings/etc"
+    - "{{ files.docker_config_path }}/calagopus/wings"
+    - /tmp/calagopus-wings
+
+- name: Render Calagopus Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ files.docker_path }}/docker-compose.yml"
+    mode: "0644"
+    force: true
+
+- name: Remove stale default compose filenames
+  ansible.builtin.file:
+    path: "{{ files.docker_path }}/{{ item }}"
+    state: absent
+  loop:
+    - compose.yml
+    - compose.yaml
+    - docker-compose.yaml
+
+- name: Render Wings config
+  ansible.builtin.template:
+    src: wings-config.yml.j2
+    dest: "{{ files.docker_config_path }}/calagopus/wings/wings-config.yml"
+    mode: "0600"
+    force: false
+
+- name: Deploy Calagopus stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ files.docker_path }}"
+    files:
+      - docker-compose.yml
+    state: present
+    pull: always

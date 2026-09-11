@@ -10,9 +10,7 @@
 | 222 | Docker Web Server   | docker-web        |
 | 231 | NGINX Proxy Manager | nginx             |
 | 232 | WireGuard VPN       | wireguard         |
-| 240 | Pelican Panel   | pelican       |
-| 241 | Pelican Wings   | pelican-wings |
-| 250 | Proxmox Backup      | proxmox-backup    |
+| 241 | Calagopus           | calagopus         |
 
 ## Repo Structure
 
