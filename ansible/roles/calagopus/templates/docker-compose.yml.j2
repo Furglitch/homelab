@@ -10,7 +10,7 @@ x-common-config: &default-service
 services:
     calagopus:
         <<: [*default-service]
-        image: ghcr.io/calagopus/panel:aio
+        image: ghcr.io/calagopus/panel:heavy-aio
         container_name: calagopus-panel
         depends_on:
             - db
@@ -27,7 +27,11 @@ services:
             - {{ files.docker_data_path }}/calagopus/wings/logs:/var/log/calagopus-wings
             - {{ files.docker_data_path }}/calagopus/wings/containers:/var/lib/docker/containers
             - {{ files.docker_data_path }}/calagopus/wings/etc:/etc/calagopus-wings
-            - "/tmp/calagopus-wings/:/tmp/calagopus-wings/"
+            - /tmp/calagopus-wings:/tmp/calagopus-wings
+            - {{ files.docker_data_path }}/calagopus/heavy/binaries:/app/binaries
+            - {{ files.docker_data_path }}/calagopus/heavy/translations:/app/translations
+            - {{ files.docker_data_path }}/calagopus/heavy/extensions:/app/extensions
+            - {{ files.docker_data_path }}/calagopus/heavy/extension-migrations:/app/repo/database/extension-migrations
         environment: 
             <<: *default-environment
             REDIS_URL: redis://cache
