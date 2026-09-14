@@ -34,8 +34,6 @@
     - "{{ files.docker_config_path }}/gluetun"
     - "{{ files.docker_config_path }}/romm"
     - "{{ files.docker_config_path }}/romm/config"
-    - "{{ files.docker_config_path }}/romm/assets"
-    - "{{ files.docker_config_path }}/romm/resources"
     - "{{ files.docker_data_path }}/romm-db"
 
 - name: Ensure media config paths are writable by containers
