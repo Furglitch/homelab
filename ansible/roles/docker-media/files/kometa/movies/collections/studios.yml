@@ -13,8 +13,8 @@ collections:
   "Marvel Cinematic Universe (MCU)":
     template:
       name: trakt-list
-      list_author: viperdu-vark
-      list_name: modified-chronological-mcu
+      list_author: donxy
+      list_name: marvel-cinematic-universe
       ignore:
         - 758025   # [Short] Peter's To-Do List (2019)
       poster_id: 145336

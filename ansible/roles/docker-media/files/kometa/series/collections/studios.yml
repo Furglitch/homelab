@@ -13,11 +13,10 @@ collections:
   "Marvel Cinematic Universe (MCU)":
     template:
       name: trakt-list
-      list_author: viperdu-vark
-      list_name: modified-chronological-mcu
+      list_author: donxy
+      list_name: marvel-cinematic-universe
       ignore:
         - 299405    # [Series] WHIH Newsfront (2015)
-        - 412427    # [Series] Your Friendly Neighborhood Spider-Man (2025)
         - 364038    # [Series] Helstrom (2020)
         - 361608    # [Series] Stark Expo Shorts (2010)
         - 372497    # [Series] The Daily Bugle (2019)

@@ -61,8 +61,8 @@ playlists:
   "Marvel Cinematic Universe":
     template:
       name: trakt-list
-      list_author: viperdu-vark
-      list_name: modified-chronological-mcu
+      list_author: donxy
+      list_name: marvel-cinematic-universe
       url_poster: "https://prologue.com/wp-content/uploads/2022/02/Marvel.jpg"
       ignore:
         - 299405    # [Series] WHIH Newsfront (2015)
