@@ -1,5 +1,5 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 
@@ -17,7 +17,7 @@ metadata:
       s3_poster_id: 156056
       s4_poster_id: 156057
       s5_poster_id: 284095
-  
+
   "1883 (2021)":
     template:
       name: match
@@ -26,7 +26,7 @@ metadata:
       poster_id: 287902
       special_poster_id: 287903
       s1_poster_id: 287904
-  
+
   "1923 (2022)":
     template:
       name: match
@@ -36,3 +36,21 @@ metadata:
       special_poster_id: 293982
       s1_poster_id: 293983
       s2_poster_id: 574657
+
+  "Dutton Ranch (2026)":
+    template:
+      name: match
+      title: "Dutton Ranch"
+      year: 2026
+      poster_id: 713222
+      s1_poster_id: 713223
+
+  "Marshals (2026)":
+    template:
+      name: match
+      title: "Marshals"
+      year: 2026
+      poster_id: 694185
+      special_poster_id: 694186
+      s1_poster_id: 694187
+      s2_poster_id: 750440

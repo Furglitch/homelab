@@ -1,5 +1,5 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 
@@ -150,4 +150,4 @@ metadata:
       s2_poster_id: 337582
       s3_poster_id: 428253
 
-  
+

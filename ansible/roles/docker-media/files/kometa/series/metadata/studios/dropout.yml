@@ -1,5 +1,5 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 
@@ -10,7 +10,7 @@ metadata:
       title: "Dimension 20"
       year: 2018
       poster_id: 603069
-      s0_poster_id: 603070
+      special_poster_id: 603070
       s1_poster_id: 603090
       s2_poster_id: 603072
       s3_poster_id: 603073
@@ -39,6 +39,7 @@ metadata:
       s26_poster_id: 617741
       s27_poster_id: 682293
       s28_poster_id: 704120
+      s29_poster_id: 748129
 
   # https://theposterdb.com/set/331245
   "Game Changer (2019)":
@@ -57,6 +58,7 @@ metadata:
       s7_poster_id: 595443
       s8_poster_id: 716350
 
+  # https://theposterdb.com/set/303195
   "Make Some Noise (2022)":
     template:
       name: match
@@ -68,3 +70,4 @@ metadata:
       s2_poster_id: 546405
       s3_poster_id: 546406
       s4_poster_id: 653016
+      s5_poster_id: 752999

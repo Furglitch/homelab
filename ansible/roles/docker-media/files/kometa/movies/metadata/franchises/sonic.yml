@@ -1,10 +1,10 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
   # https://theposterdb.com/set/267711
-  
+
   "Sonic the Hedgehog (2020)":
     template:
       name: match

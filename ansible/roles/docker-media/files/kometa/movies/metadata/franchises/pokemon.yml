@@ -1,10 +1,10 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
   # https://theposterdb.com/set/56230
-  
+
   "Pokémon: The First Movie (1998)":
     template:
       name: match

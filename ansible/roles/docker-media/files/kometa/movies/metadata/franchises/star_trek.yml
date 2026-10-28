@@ -1,10 +1,10 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
   # https://theposterdb.com/set/12327
-  
+
   "Star Trek: The Motion Picture (1979)":
     template:
       name: match

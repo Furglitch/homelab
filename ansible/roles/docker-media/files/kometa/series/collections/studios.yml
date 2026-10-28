@@ -5,15 +5,15 @@ collections:
 
   "James Gunn's DC Universe (DCU)":
     template:
-      name: trakt-list
-      list_author: fistytristy
-      list_name: dc-universe-james-gunn-s-dcu
+      name: flicklist-list
+      list_author: furglitch
+      list_name: dc-universe-chronological
       poster_id: 113155
 
   "Marvel Cinematic Universe (MCU)":
     template:
-      name: trakt-list
-      list_author: donxy
+      name: flicklist-list
+      list_author: journeyover
       list_name: marvel-cinematic-universe
       ignore:
         - 299405    # [Series] WHIH Newsfront (2015)
@@ -24,7 +24,7 @@ collections:
 
   "Zach Snyder's DC Extended Universe (DCEU)":
     template:
-      name: trakt-list
-      list_author: koekoeracha
-      list_name: dc-extended-universe-dceu
+      name: flicklist-list
+      list_author: journeyover
+      list_name: dc-extended-universe
       poster_id: 48242

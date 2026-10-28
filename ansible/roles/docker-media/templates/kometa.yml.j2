@@ -4,14 +4,6 @@ libraries:
     template_variables:
       language: en
     collection_files:
-      # - default: imdb
-      #   template_variables:
-      #     style: white
-      #     use_lowest: false
-      # - default: myanimelist
-      #   template_variables:
-      #     use_season: false
-      #     limit_popular: 50
       - file: /config/movies/collections/franchises.yml
       - file: /config/movies/collections/studios.yml
       - file: /config/movies/collections/misc.yml
@@ -72,14 +64,6 @@ libraries:
     template_variables:
       language: en
     collection_files:
-      # - default: imdb
-      #   template_variables:
-      #     style: white
-      #     use_lowest: false
-      # - default: myanimelist
-      #   template_variables:
-      #     use_season: false
-      #     limit_popular: 50
       - file: /config/series/collections/franchises.yml
       - file: /config/series/collections/studios.yml
       - file: /config/series/collections/misc.yml
@@ -104,6 +88,9 @@ libraries:
       - file: /config/series/metadata/studios/dcu.yml
       - file: /config/series/metadata/studios/dropout.yml
       - file: /config/series/metadata/studios/marvel.yml
+
+playlist_files:
+  - file: /config/playlists/chronological.yml
 
 settings:
   run_order:
@@ -181,7 +168,7 @@ radarr:
   plex_path: /share/movies
   add_missing: true
   monitor: true
-  quality_profile: TRaSH_WEB-1080p
+  quality_profile: VIAL_WEB-1080p
   availability: released
   add_existing: false
   upgrade_existing: true
@@ -199,7 +186,7 @@ sonarr:
   plex_path: /share/series
   add_missing: true
   monitor: all
-  quality_profile: TRaSH_WEB-720p
+  quality_profile: VIAL_WEB-720p
   availability: released
   language_profile: English
   series_type: standard
@@ -220,14 +207,5 @@ tmdb:
   region: US
   cache_expiration: 60
 
-
-trakt: # https://metamanager.wiki/en/latest/config/trakt/#authenticating-trakt
-  client_id: {{ tokens.trakt.client_id }}
-  client_secret: {{ tokens.trakt.client_secret }}
-  authorization:
-    access_token: {{ tokens.trakt.access_token }}
-    token_type: Bearer
-    expires_in: {{ tokens.trakt.expires_in }}
-    refresh_token: {{ tokens.trakt.refresh_token }}
-    scope: public
-    created_at: {{ tokens.trakt.created_at }}
+flicklist:
+  api_key: {{ tokens.flicklist.api_key }}

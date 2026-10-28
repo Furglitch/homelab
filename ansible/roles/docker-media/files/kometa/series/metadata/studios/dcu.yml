@@ -1,36 +1,35 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 
-  # https://theposterdb.com/set/50563
+  # https://theposterdb.com/set/421243
 
   "Peacemaker (2022)":
     template:
       name: match
       title: "Peacemaker"
       year: 2022
-      poster_id: 214053
-      s1_poster_id: 205429
-      s2_poster_id: 629454
-        # https://theposterdb.com/set/124062
+      poster_id: 746675
+      special_poster_id: 746676
+      s1_poster_id: 746677
+      s2_poster_id: 746678
 
   "Creature Commandos (2024)":
     template:
       name: match
       title: "Creature Commandos"
       year: 2024
-      poster_id: 511640
-      s1_poster_id: 541610
+      poster_id: 746685
+      special_poster_id: 746686
+      s1_poster_id: 746687
+      s2_poster_id: 746688
 
-  # "Lanterns (2026)":
-  #   template:
-  #     name: match
-  #     title: "Lanterns"
-  #     year: 2026
-  #   template:
-  #     name: theposterdb
-  #     poster_id: XXX
-  #   template:
-  #     name: seasons-theposterdb
-  #     s1_poster_id: XXX
+  "Lanterns (2026)":
+    template:
+      name: match
+      title: "Lanterns"
+      year: 2026
+      poster_id: 746680
+      special_poster_id: 746681
+      s1_poster_id: 746682

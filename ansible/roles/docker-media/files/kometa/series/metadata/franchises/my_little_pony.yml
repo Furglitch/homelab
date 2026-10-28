@@ -1,5 +1,5 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 

@@ -1,10 +1,10 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
   # https://theposterdb.com/set/53472
-  
+
   "Pirates of the Caribbean: The Curse of the Black Pearl (2003)":
     template:
       name: match

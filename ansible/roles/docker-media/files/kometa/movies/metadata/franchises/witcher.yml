@@ -1,10 +1,10 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
   # https://theposterdb.com/set/216940
-  
+
   "The Witcher: Nightmare of the Wolf (2021)":
     template:
       name: match

@@ -1,5 +1,5 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 
@@ -14,15 +14,10 @@ metadata:
       special_poster_id: 194524
       s1_poster_id: 194525
 
-  #"Blade Runner 2099 (20XX)":
-  #  template:
-  #    name: match
-  #    title: "Blade Runner 2099"
-  #    year: 20XX
-  #  template:
-  #    name: theposterdb
-  #    poster_id: XXX
-  #  template:
-  #    name: seasons-theposterdb
-  #    special_poster_id: XXX
-  #    s1_poster_id: XXX
+  "Blade Runner: 2099 (2026)":
+    template:
+      name: match
+      title: "Blade Runner 2099"
+      year: 2026
+      poster_id: 755088
+

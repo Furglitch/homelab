@@ -1,30 +1,23 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
+
+  # https://theposterdb.com/set/421243
 
   "Superman (2025)":
     template:
       name: match
       title: "Superman"
       year: 2025
-      poster_id: 615527
+      poster_id: 746684
 
-  "Blue Beetle (2023)":
+  "Supergirl (2026)":
     template:
       name: match
-      title: "Blue Beetle"
-      year: 2023
-      poster_id: 385583
-
-  # "Supergirl (2026)":
-  #   template:
-  #     name: match
-  #     title: "Supergirl"
-  #     year: 2026
-  #   template:
-  #     name: theposterdb
-  #     poster_id: XXX
+      title: "Supergirl"
+      year: 2026
+      poster_id: 746683
 
   # "Clayface (2026)":
   #   template:

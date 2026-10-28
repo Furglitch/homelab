@@ -1,16 +1,16 @@
 templates:
 
-  trakt-list:
+  flicklist-list:
     ignore_ids: <<ignore>>
     collection_order: release
-    trakt_list: "https://trakt.tv/<<list_path>>"
+    flicklist_list: "https://flicklist.tv/<<list_path>>"
     url_poster: "<<poster>>"
     conditionals:
       list_path:
-        default: "lists/official/<<list_name>>"
+        default: "lists/<<list_name>>"
         conditions:
           - list_author.exists: true
-            value: "users/<<list_author>>/lists/<<list_name>>"
+            value: "u/<<list_author>>/lists/<<list_name>>"
       poster:
         conditions:
           - poster_id.exists: true

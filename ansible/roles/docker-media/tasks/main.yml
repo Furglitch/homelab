@@ -17,6 +17,7 @@
     path: "{{ item }}"
     state: directory
     mode: "0755"
+  tags: [kometa]
   loop:
     - "{{ files.docker_path }}"
     - "{{ files.docker_config_path }}"
@@ -44,6 +45,7 @@
     group: "{{ pgid }}"
     mode: "0775"
     recurse: true
+  tags: [kometa]
 
 - name: Ensure media data paths are writable by containers
   ansible.builtin.file:
@@ -80,12 +82,14 @@
     src: kometa/
     dest: "{{ files.docker_config_path }}/kometa/"
     mode: "0644"
+  tags: [kometa]
 
 - name: Render Kometa config template
   ansible.builtin.template:
     src: kometa.yml.j2
     dest: "{{ files.docker_config_path }}/kometa/config.yml"
     mode: "0644"
+  tags: [kometa]
 
 - name: Render Recyclarr config template
   ansible.builtin.template:

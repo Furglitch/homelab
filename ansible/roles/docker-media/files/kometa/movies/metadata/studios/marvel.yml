@@ -1,5 +1,5 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
@@ -109,7 +109,7 @@ metadata:
       title: "Guardians of the Galaxy Vol. 2"
       year: 2017
       poster_id: 202022
-  
+
   "Spider-Man: Homecoming (2017)":
     template:
       name: match
@@ -271,6 +271,27 @@ metadata:
       year: 2025
       poster_id: 629456
 
+  "Spider-Man: Brand New Day (2026)":
+    template:
+      name: match
+      title: "Spider-Man: Brand New Day"
+      year: 2026
+      poster_id: 710842
+
+  "The Punisher: One Last Kill (2026)":
+    template:
+      name: match
+      title: "The Punisher: One Last Kill"
+      year: 2026
+      poster_id: 710843
+
+  "Avengers: Doomsday (2026)":
+    template:
+      name: match
+      title: "Avengers: Doomsday"
+      year: 2026
+      poster_id: 730784
+
 
   # One-Shots - https://theposterdb.com/set/121334
 
@@ -309,4 +330,4 @@ metadata:
       year: 2014
       poster_id: 201311
 
-  
+

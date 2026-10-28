@@ -1,20 +1,27 @@
 external_templates:
-  - file: config/templates/movie-meta.yml
+  - file: config/templates/metadata-movie.yml
 
 metadata:
 
-  # https://theposterdb.com/set/203877
+  # https://theposterdb.com/set/382045
 
   "Dune (2021)":
     template:
       name: match
       title: "Dune"
       year: 2021
-      poster_id: 356989
+      poster_id: 683523
 
   "Dune: Part Two (2024)":
     template:
       name: match
       title: "Dune: Part Two"
       year: 2024
-      poster_id: 356990
+      poster_id: 683522
+
+  "Dune: Part Three (2026)":
+    template:
+      name: match
+      title: "Dune: Part Three"
+      year: 2026
+      poster_id: 683521

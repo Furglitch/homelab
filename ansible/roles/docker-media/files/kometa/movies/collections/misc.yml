@@ -5,7 +5,7 @@ collections:
 
   "Non-Collection":
     template:
-      name: trakt-list
+      name: flicklist-list
       list_author: furglitch
       list_name: misc-plex-sync
     minimum_items: 999

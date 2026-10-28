@@ -1,9 +1,10 @@
 external_templates:
-  - file: config/templates/tv-meta.yml
+  - file: config/templates/metadata-series.yml
 
 metadata:
 
   # Mainline - https://theposterdb.com/set/119998
+
   "WandaVision (2021)":
     template:
       name: match
@@ -120,6 +121,14 @@ metadata:
       poster_id: 607633
       s1_poster_id: 607634
 
+  "Marvel Zombies (2025)":
+    template:
+      name: match
+      title: "Marvel Zombies"
+      year: 2025
+      poster_id: 675944
+      s1_poster_id: 675946
+
   "Eyes of Wakanda (2025)":
     template:
       name: match
@@ -127,7 +136,22 @@ metadata:
       year: 2025
       poster_id: 635650
       s1_poster_id: 635651
-
+  
+  "Wonder Man (2026)":
+    template:
+      name: match
+      title: "Wonder Man"
+      year: 2026
+      poster_id: 715105
+      s1_poster_id: 715106
+  
+  "VisionQuest (2026)":
+    template:
+      name: match
+      title: "VisionQuest"
+      year: 2026
+      poster_id: 755961 #
+      s1_poster_id: 755963 #
 
   # Marvel Television - https://theposterdb.com/set/120000
 
