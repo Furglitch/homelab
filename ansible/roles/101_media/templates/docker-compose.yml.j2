@@ -1,0 +1,150 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment: &default-environment
+        PUID: "{{ puid }}"
+        PGID: "{{ pgid }}"
+        UMASK: "{{ umask }}"
+        TZ: "{{ timezone }}"
+    restart: unless-stopped
+
+services:
+
+    plex:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/plex:latest
+        container_name: plex
+        network_mode: host
+        environment: 
+            VERSION: docker
+        volumes: 
+            - {{ files.docker.config }}/plex:/config/Library/Application Support/Plex Media Server
+            - {{ files.nfs.media }}:/share:ro
+            - /tmp/plex/transcode:/transcode
+        ports:
+            - {{ ports.plex }}:32400
+        devices: 
+            - /dev/dri:/dev/dri # hardware transcoding
+
+    seerr:
+        <<: [*default-service]
+        image: ghcr.io/seerr-team/seerr:latest
+        container_name: seerr
+        depends_on: [plex]
+        environment: 
+            LOG_LEVEL: debug
+            PORT: {{ ports.seerr }}
+        volumes: 
+            - {{ files.docker.config }}/seerr:/app/config
+        ports: 
+            - {{ ports.seerr }}:{{ ports.seerr }}
+        healthcheck:
+            test: wget --no-verbose --tries=1 --spider http://localhost:{{ ports.seerr }}/api/v1/settings/public || exit 1
+            start_period: 20s
+            timeout: 3s
+            interval: 15s
+            retries: 3
+        security_opt:
+            - no-new-privileges
+        cap_drop:
+            - ALL
+
+    kometa:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/kometa:latest
+        container_name: kometa
+        depends_on: [plex, sonarr, radarr]
+        environment: 
+            - KOMETA_CONFIG: /config/config.yml
+            - KOMETA_TIME: 00:00,06:00,12:00,18:00
+        volumes: 
+            - {{ files.docker.config }}/kometa:/config
+
+    tautulli:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/tautulli:latest
+        container_name: tautulli
+        depends_on: [plex]
+        volumes: 
+            - {{ files.docker.config }}/tautulli:/config
+        ports: 
+            - {{ ports.tautulli }}:8181
+
+    navidrome:
+        <<: [*default-service]
+        image: navidrome/navidrome:latest
+        container_name: navidrome
+        environment: 
+        volumes: 
+            - {{ files.docker.data }}/navidrome:/data
+            - {{ files.nfs.media }}/music:/share/music:ro
+        ports: 
+            - {{ ports.navidrome }}:4533
+
+    prowlarr:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/prowlarr:latest
+        container_name: prowlarr
+        volumes: 
+            - {{ files.docker.config }}/prowlarr:/config
+        ports: 
+            - {{ ports.prowlarr }}:9696
+
+    radarr:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/radarr:latest
+        container_name: radarr
+        depends_on: [prowlarr]
+        volumes: 
+            - {{ files.docker.config }}/radarr:/config
+            - {{ files.nfs.media }}/movies:/share/movies
+            - {{ files.nfs.media }}/downloads:/share/downloads
+        ports: 
+            - {{ ports.radarr }}:7878
+
+    sonarr:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/sonarr:latest
+        container_name: sonarr
+        depends_on: [prowlarr]
+        volumes: 
+            - {{ files.docker.config }}/sonarr:/config
+            - {{ files.nfs.media }}/series:/share/series
+            - {{ files.nfs.media }}/downloads:/share/downloads
+        ports: 
+            - {{ ports.sonarr }}:8989
+
+    lidarr:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/lidarr:latest
+        container_name: lidarr
+        depends_on: [prowlarr]
+        volumes: 
+            - {{ files.docker.config }}/lidarr:/config
+            - {{ files.nfs.media }}/music:/share/music
+            - {{ files.nfs.media }}/downloads:/share/downloads
+        ports: 
+            - {{ ports.lidarr }}:8686
+
+    bazarr:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/bazarr:latest
+        container_name: bazarr
+        depends_on: [prowlarr]
+        volumes: 
+            - {{ files.docker.config }}/bazarr:/config
+            - {{ files.nfs.media }}/movies:/share/movies
+            - {{ files.nfs.media }}/series:/share/series
+        ports: 
+            - {{ ports.bazarr }}:6767
+
+    recyclarr:
+        <<: [*default-service]
+        image: ghcr.io/recyclarr/recyclarr:8
+        container_name: recyclarr
+        depends_on: [sonarr, radarr]
+        environment:
+            CRON_SCHEDULE: "@weekly"
+        volumes: 
+            - {{ files.docker.config }}/recyclarr:/config

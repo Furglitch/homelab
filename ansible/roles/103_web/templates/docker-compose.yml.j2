@@ -1,0 +1,55 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment: &default-environment
+        PUID: "{{ puid }}"
+        PGID: "{{ pgid }}"
+        UMASK: "{{ umask }}"
+        TZ: "{{ timezone }}"
+    restart: unless-stopped
+
+services:
+
+    nginx-pm:
+        <<: [*default-service]
+        image: jc21/nginx-proxy-manager:latest
+        container_name: nginx-pm
+        volumes:
+            - nginxpm-data:/data
+            - nginxpm-le:/etc/letsencrypt
+        ports:
+            - {{ ports.npm.admin }}:81
+            - {{ ports.npm.http }}:80
+            - {{ ports.npm.https }}:443
+        healthcheck:
+            test: ["CMD", "/usr/bin/check-health"]
+            interval: 10s
+            timeout: 3s
+
+    vaultwarden:
+        <<: [*default-service]
+        image: vaultwarden/server:latest
+        container_name: vaultwarden
+        volumes:
+            - vaultwarden-config:/config
+            - vaultwarden-data:/data
+        ports:
+            - {{ ports.vaultwarden }}:80
+
+    protonmail-bridge:
+        <<: [*default-service]
+        image: ghcr.io/dancwilliams/protonmail-bridge-docker:latest
+        container_name: protonmail
+        ports:
+            - {{ ports.proton.imap }}:143
+            - {{ ports.proton.smtp }}:25
+        volumes:
+            - protonmail:/root
+
+volumes:
+    nginxpm-data:
+    nginxpm-le:
+    vaultwarden-config:
+    vaultwarden-data:
+    protonmail:

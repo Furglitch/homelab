@@ -1,5 +1,52 @@
 ---
-- import_playbook: docker.yml
-- import_playbook: nginx.yml
-- import_playbook: wireguard.yml
-- import_playbook: calagopus.yml
+# Full-site orchestration.
+# Applies baseline to every host, Docker to the LXC group, and the
+# per-host service role to each LXC. VMs (truenas, home-assistant)
+# currently only receive baseline.
+#
+# Usage:
+#   ansible-playbook playbooks/site.yml
+#   ansible-playbook playbooks/site.yml --limit media
+#   ansible-playbook playbooks/site.yml --tags baseline
+
+- name: Baseline configuration for all hosts
+  hosts: all
+  gather_facts: true
+  roles:
+    - baseline
+
+- name: Docker engine for LXC hosts
+  hosts: lxcs
+  gather_facts: true
+  roles:
+    - docker
+
+- name: Media stack (Plex, *arr, Kometa, etc.)
+  hosts: media
+  gather_facts: true
+  roles:
+    - 101_media
+
+- name: Games stack (Calagopus, RomM)
+  hosts: games
+  gather_facts: true
+  roles:
+    - 102_games
+
+- name: Web stack (nginx, Vaultwarden, Proton bridge)
+  hosts: web
+  gather_facts: true
+  roles:
+    - 103_web
+
+- name: Download stack (SABnzbd, qBittorrent, Gluetun)
+  hosts: download
+  gather_facts: true
+  roles:
+    - 105_download
+
+- name: Monitor stack (Glance, WUD, Dozzle, Apprise)
+  hosts: monitor
+  gather_facts: true
+  roles:
+    - 120_monitor

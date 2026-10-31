@@ -1,0 +1,13 @@
+---
+# Games LXC (10.0.XXX.XXX): Calagopus, RomM.
+#
+# Usage:
+#   ansible-playbook playbooks/games.yml
+
+- name: Configure games host
+  hosts: games
+  gather_facts: true
+  roles:
+    - baseline
+    - docker
+    - 102_games

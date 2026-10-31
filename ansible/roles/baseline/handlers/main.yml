@@ -3,5 +3,4 @@
   ansible.builtin.service:
     name: sshd
     state: restarted
-  # Do not fail if sshd is not managed by systemd (some LXC images use OpenRC or no init)
-  failed_when: false
+  failed_when: false # Do not fail if sshd is not managed by systemd (some LXC images use OpenRC or no init)

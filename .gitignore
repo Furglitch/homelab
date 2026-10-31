@@ -1,1 +1,9 @@
-.old/
+# Ansible
+
+
+# Terraform
+.terraform/
+*.tfvars
+*.lock*
+*.backup
+*.tfstate*

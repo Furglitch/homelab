@@ -1,0 +1,63 @@
+- name: Create config directory structure
+  ansible.builtin.file:
+    path: "{{ files.docker.config }}/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ files.docker.config.calagopus.values() | list }}"
+
+- name: Ensure config paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.docker.config }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Create data directory structure
+  ansible.builtin.file:
+    path: "{{ files.docker.data }}/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ files.docker.data.calagopus.values() | list }}"
+
+- name: Ensure data paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.docker.data }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Remove stale default compose filenames
+  ansible.builtin.file:
+    path: "{{ files.docker }}/{{ item }}"
+    state: absent
+  loop:
+    - compose.yml
+    - compose.yaml
+    - docker-compose.yaml
+
+- name: Render Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ files.docker }}/docker-compose.yml"
+    mode: "0644"
+    force: true
+
+- name: Copy Calagopus config files
+  ansible.builtin.copy:
+    src: calagopus/
+    dest: "{{ files.docker.config }}/calagopus/"
+    mode: "0644"
+
+- name: Deploy stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ files.docker }}"
+    files:
+      - docker-compose.yml
+    state: present
+    pull: always

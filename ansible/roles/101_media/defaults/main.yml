@@ -1,0 +1,44 @@
+---
+ip: "10.0.XXX.XXX"
+
+ports:
+  plex: 32400
+  seerr: 32401
+  kometa: 32402
+  tautulli: 32403
+  navidrome: 32500
+  prowlarr: 32600
+  radarr: 32601
+  sonarr: 32602
+  lidarr: 32603
+  bazarr: 32604
+
+files:
+  docker:
+      media:
+        - plex
+        - seerr
+        - kometa
+        - tautulli
+        - navidrome
+        - prowlarr
+        - radarr
+        - sonarr
+        - lidarr
+        - bazarr
+        - recyclarr
+
+tokens:
+  plex:
+  seerr:
+  kometa: 
+  tautulli: 
+  navidrome: 
+  prowlarr: 
+  radarr: 
+  sonarr: 
+  lidarr: 
+  bazarr: 
+  recyclarr: 
+  tmdb:
+  flicklist:

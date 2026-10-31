@@ -1,0 +1,79 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment: &default-environment
+        PUID: "{{ puid }}"
+        PGID: "{{ pgid }}"
+        UMASK: "{{ umask }}"
+        TZ: "{{ timezone }}"
+    restart: unless-stopped
+
+services:
+
+    qbittorrent:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/qbittorrent:latest
+        container_name: qbittorent
+        network_mode: "service:gluetun"
+        labels:
+            - "deunhealth.restart.on.unhealthy=false"
+        environment:
+            WEBUI_PORT: {{ ports.qbittorrent.ui }}
+            TORRENTING_PORT: {{ ports.qbittorrent.io }}
+        volumes:
+            - {{ files.docker.config }}/qbittorrent:/config
+            - {{ files.nfs.media }}/downloads/torrent:/downloads
+            - qbittorrent_incomplete:/incomplete
+        # ports:
+        #     - {{ ports.qbittorrent.ui }}:{{ ports.qbittorrent.ui }}
+        #     - {{ ports.qbittorrent.io }}:{{ ports.qbittorrent.io }}
+
+    sabnzbd:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/sabnzbd:latest
+        container_name: sabnzbd
+        network_mode: "service:gluetun"
+        labels:
+            - "deunhealth.restart.on.unhealthy=false"
+        volumes:
+            - {{ files.docker.config }}/sabnzbd:/config
+            - {{ files.nfs.media }}/downloads/usenet:/downloads
+            - sabnzbd_incomplete:/incomplete
+        # ports:
+        #     - {{ ports.sabnzbd }}:8080
+
+    gluetun:
+        <<: [*default-service]
+        image: lscr.io/linuxserver/sabnzbd:latest
+        container_name: sabnzbd
+        network_mode: "service:gluetun"
+        labels:
+            - "deunhealth.restart.on.unhealthy=false"
+        environment:
+            VPN_TYPE: "wireguard"
+            VPN_SERVICE_PROVIDER: {{ tokens.gluetun.provider }}
+            WIREGUARD_PRIVATE_KEY: {{ tokens.gluetun.key }}
+            SERVER_COUNTRIES: {{ tokens.gluetun.countries }}
+            BLOCK_MALICIOUS: {{ tokens.gluetun.block_malicious }}
+            DNS_ADDRESS: 1.1.XXX.XXX
+        volumes:
+            - {{ files.docker.config }}/gluetun:/config
+        ports:
+            - {{ ports.qbittorrent.ui }}:{{ ports.qbittorrent.ui }}
+            - {{ ports.qbittorrent.io }}:{{ ports.qbittorrent.io }}
+            - {{ ports.sabnzbd }}:8080
+        restart: always
+
+    deunhealth:
+        <<: *default-service
+        image: qmcgaw/deunhealth:latest
+        container_name: deunhealth
+        build: .
+        environment:
+            - HEALTH_SERVER_ADDRESS=127.0.XXX.XXX:9999
+            - LOG_LEVEL=debug
+
+volumes:
+    qbittorrent_incomplete:
+    sabnzbd_incomplete:

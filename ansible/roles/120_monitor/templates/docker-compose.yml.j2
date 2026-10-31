@@ -1,0 +1,75 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment: &default-environment
+        PUID: "{{ puid }}"
+        PGID: "{{ pgid }}"
+        UMASK: "{{ umask }}"
+        TZ: "{{ timezone }}"
+    restart: unless-stopped
+
+services:
+
+    glance:
+        <<: [*default-service]
+        image: glanceapp/glance:latest
+        container_name: glance
+        volumes: 
+            - {{ files.docker.config }}/glance:/app/config
+        ports:
+            - {{ ports.glance }}:8080
+    
+    whatsupdocker:
+        <<: [*default-service]
+        image: getwud/wud:latest
+        container_name: whatsupdocker
+        environment:
+            - WUD_AUTH_ADMIN_USER=admin
+            - WUD_AUTH_ADMIN_PASSWORD={{ tokens.wud.password }}
+        volumes: 
+            - {{ files.docker.sock }}:{{ files.docker.sock }}
+        ports:
+            - {{ ports.whatsupdocker }}:3000
+
+    dozzle:
+        <<: [*default-service]
+        image: amir20/dozzle:latest
+        container_name: dozzle
+        environment:
+            DOZZLE_REMOTE_AGENT: 127.0.XXX.XXX:5555
+        volumes: 
+            - dozzle-data:/data
+            - {{ files.docker.sock }}:{{ files.docker.sock }}
+        ports:
+            - {{ ports.dozzle }}:8080
+
+    homelable:
+        <<: [*default-service]
+        image: ghcr.io/pouzor/homelable-frontend-standalone:latest
+        container_name: homelable
+        ports:
+            - {{ ports.homelable }}:80
+
+    apprise:
+        <<: [*default-service]
+        image: caronc/apprise:latest
+        container_name: apprise
+        environment:
+            APPRISE_STATEFUL_MODE: simple
+            APPRISE_WORKER_COUNT: 1
+            APPRISE_DEFAULT_FORMAT: "markdown"
+            APPRISE_AUTH_REQUIRES: "yes"
+            APPRISE_USER: admin
+        volumes:
+            - {{ files.docker.config }}/apprise:/config
+            - {{ files.docker.config }}/apprise/attach:/attach
+        healthcheck:
+            test: [ "CMD", "curl -fsS http://127.0.XXX.XXX:8000/status >/dev/null || exit 1" ]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 30s
+
+volumes:
+    dozzle-data:

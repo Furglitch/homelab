@@ -1,0 +1,24 @@
+---
+- name: Remove stale default compose filenames
+  ansible.builtin.file:
+    path: "{{ files.docker }}/{{ item }}"
+    state: absent
+  loop:
+    - compose.yml
+    - compose.yaml
+    - docker-compose.yaml
+
+- name: Render Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ files.docker }}/docker-compose.yml"
+    mode: "0644"
+    force: true
+
+- name: Deploy stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ files.docker }}"
+    files:
+      - docker-compose.yml
+    state: present
+    pull: always

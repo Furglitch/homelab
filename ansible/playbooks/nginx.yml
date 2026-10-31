@@ -1,8 +1,0 @@
----
-- name: Apply nginx-pm configuration
-  hosts: nginx
-  become: false
-  roles:
-    - baseline
-    - docker
-    - nginx-pm

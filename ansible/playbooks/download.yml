@@ -1,0 +1,13 @@
+---
+# Download LXC (10.0.XXX.XXX): SABnzbd, qBittorrent, Gluetun VPN, Deunhealth.
+#
+# Usage:
+#   ansible-playbook playbooks/download.yml
+
+- name: Configure download host
+  hosts: download
+  gather_facts: true
+  roles:
+    - baseline
+    - docker
+    - 105_download

@@ -1,0 +1,13 @@
+---
+# Monitor LXC (10.0.XXX.XXX): Glance, What's Up Docker, Dozzle, Apprise.
+#
+# Usage:
+#   ansible-playbook playbooks/monitor.yml
+
+- name: Configure monitor host
+  hosts: monitor
+  gather_facts: true
+  roles:
+    - baseline
+    - docker
+    - 120_monitor

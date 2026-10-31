@@ -1,0 +1,12 @@
+---
+ip: "10.0.XXX.XXX"
+
+ports:
+  nginx:
+    admin: 81
+    http:  80
+    https: 443
+  vaultwarden: 8080
+  proton:
+    imap: 1143
+    smtp: 1025

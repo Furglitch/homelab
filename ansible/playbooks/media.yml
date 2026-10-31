@@ -1,0 +1,13 @@
+---
+# Media LXC (10.0.XXX.XXX): Plex, Seerr, Kometa, Tautulli, Navidrome, Prowlarr, Radarr, Sonarr, Lidarr, Bazarr, Recyclarr.
+#
+# Usage:
+#   ansible-playbook playbooks/media.yml
+
+- name: Configure media host
+  hosts: media
+  gather_facts: true
+  roles:
+    - baseline
+    - docker
+    - 101_media

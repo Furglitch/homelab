@@ -1,0 +1,42 @@
+pages:
+  - name: Dashboard
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: sunday
+          - type: weather
+            units: imperial
+            hour-format: 24h
+            location: Oknoname 11 Dam, Oklahoma, United States
+            hide-location: true
+      - size: full
+        widgets:
+          - type: docker-containers # 101_media
+            title: Media Containers
+            category: glance
+            sock-path: http://10.0.XXX.XXX:2375
+          - type: docker-containers # 102_games
+            title: Gaming Containers
+            category: glance
+            sock-path: http://10.0.XXX.XXX:2375
+          - type: docker-containers # 103_web
+            title: Web Containers
+            category: glance
+            sock-path: http://10.0.XXX.XXX:2375
+          - type: docker-containers # 105_download
+            title: Download Containers
+            category: glance
+            sock-path: http://10.0.XXX.XXX:2375
+          - type: docker-containers # 120_monitor
+            title: Monitoring Containers
+            category: glance
+            hide-by-default: true
+            sock-path: /var/run/docker.sock
+          - $include: media-server-history.yml
+          - $include: seerr-requests.yml
+      - size: small
+        widgets:
+          - $include: stats-plex.yml
+          - $include: stats-radarr.yml
+          - $include: stats-sonarr.yml

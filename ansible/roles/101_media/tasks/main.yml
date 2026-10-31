@@ -1,0 +1,92 @@
+---
+- name: Verify /dev/net/tun exists (configure via Terraform if missing)
+  ansible.builtin.stat:
+    path: /dev/net/tun
+  register: tun_device
+
+- name: Assert TUN device
+  ansible.builtin.assert:
+    that:
+      - tun_device.stat.exists
+      - tun_device.stat.isdev | default(false)
+      - tun_device.stat.chr | default(false)
+    fail_msg: >
+      /dev/net/tun does not exist on docker-media. 
+      Run: terraform taint null_resource.docker_media_tun && terraform apply -var-file=credentials.tfvars
+      Then re-run this playbook.
+
+- name: Create config directory structure
+  ansible.builtin.file:
+    path: "{{ files.docker.config }}/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ files.docker.media.values() | list }}"
+
+- name: Ensure config paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.docker.config }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Create data directory structure
+  ansible.builtin.file:
+    path: "{{ files.docker.data }}/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ files.docker.media.values() | list }}"
+
+- name: Ensure data paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.docker.data }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Remove stale default compose filenames
+  ansible.builtin.file:
+    path: "{{ files.docker }}/{{ item }}"
+    state: absent
+  loop:
+    - compose.yml
+    - compose.yaml
+    - docker-compose.yaml
+
+- name: Render Docker Compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: "{{ files.docker }}/docker-compose.yml"
+    mode: "0644"
+    force: true
+
+- name: Copy Kometa config files
+  ansible.builtin.copy:
+    src: kometa/
+    dest: "{{ files.docker.config }}/kometa/"
+    mode: "0644"
+
+- name: Render Kometa config template
+  ansible.builtin.template:
+    src: kometa.yml.j2
+    dest: "{{ files.docker.config }}/kometa/config.yml"
+    mode: "0644"
+
+- name: Render Recyclarr config template
+  ansible.builtin.template:
+    src: recyclarr.yml.j2
+    dest: "{{ files.docker.config }}/recyclarr/recyclarr.yml"
+    mode: "0644"
+
+- name: Deploy stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ files.docker }}"
+    files:
+      - docker-compose.yml
+    state: present
+    pull: always

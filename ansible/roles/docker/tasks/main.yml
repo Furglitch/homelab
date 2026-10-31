@@ -1,8 +1,5 @@
 ---
-# Docker Engine — Debian 13 (Trixie) LXC
-# Requires nesting + keyctl + fuse enabled on the LXC (already set in Terraform).
-
-- name: Remove conflicting legacy Docker packages
+- name: Remove legacy Docker packages
   ansible.builtin.apt:
     name:
       - docker.io
@@ -13,19 +10,19 @@
       - runc
     state: absent
 
-- name: Create Docker apt keyring directory
+- name: Create apt keyring directory
   ansible.builtin.file:
     path: /etc/apt/keyrings
     state: directory
     mode: "0755"
 
 - name: Download Docker GPG key
-  ansible.builtin.get_url:
+  ansible.builtin.file:
     url: https://download.docker.com/linux/debian/gpg
     dest: /etc/apt/keyrings/docker.asc
     mode: "0644"
 
-- name: Add Docker apt repository
+- name: Add Docker apt repo
   ansible.builtin.apt_repository:
     repo: >-
       deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc]
@@ -50,14 +47,17 @@
     name: docker
     enabled: true
     state: started
-  # LXC nesting required; fail clearly if service cannot start.
 
-- name: Create media mount-point directories
+- name: Create Docker directories
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
     mode: "0755"
-  loop: "{{ docker_host_media_mount_dirs }}"
-  when:
-    - docker_host_create_media_mount_dirs | bool
-    - inventory_hostname in groups['docker_media']
+  loop: "{{ files.docker.values() | reject('equalto', files.docker.sock) | list }}"
+
+- name: Create NFS mountpoint directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop: "{{ files.nfs.values() | list }}"

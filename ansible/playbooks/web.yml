@@ -1,0 +1,13 @@
+---
+# Web LXC (10.0.XXX.XXX): nginx, Vaultwarden, Proton bridge.
+#
+# Usage:
+#   ansible-playbook playbooks/web.yml
+
+- name: Configure web host
+  hosts: web
+  gather_facts: true
+  roles:
+    - baseline
+    - docker
+    - 103_web

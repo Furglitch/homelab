@@ -1,0 +1,118 @@
+---
+x-common-config: &default-service
+    labels:
+        - "deunhealth.restart.on.unhealthy=true"
+    environment: &default-environment
+        PUID: "{{ puid }}"
+        PGID: "{{ pgid }}"
+        UMASK: "{{ umask }}"
+        TZ: "{{ timezone }}"
+    restart: unless-stopped
+
+services:
+
+    calagopus-panel:
+        <<: [*default-service]
+        image: ghcr.io/calagopus/panel:heavy-aio
+        container_name: calagopus-panel
+        depends_on:
+            calagopus-db:
+                condition: service_healthy
+                restart: true
+            calagopus-cache:
+        environment:
+            REDIS_URL: redis://cache
+            DATABASE_URL: postgresql://{{ tokens.db.user }}:{{ tokens.db.pass }}@db/panel
+            AIO_BASE_WINGS_CONFIGURATION: /config.yml
+            APP_LOG_DIRECTORY: /var/log/calagopus
+            APP_ENABLE_WINGS_PROXY: "true"
+            APP_ENCRYPTION_KEY: "{{ tokens.calagopus.encryption }}"
+        volumes:
+            - {{ files.docker.sock }}:{{ files.docker.sock }}
+            # -- Panel -- #
+            - {{ files.docker.data }}/calagopus/panel/data:/var/lib/calagopus
+            - {{ files.docker.data }}/calagopus/panel/logs:/var/log/calagopus
+            # -- Wings -- #
+            - {{ files.docker.data }}/calagopus/wings/data:/var/lib/calagopus-wings
+            - {{ files.docker.data }}/calagopus/wings/logs:/var/log/calagopus-wings
+            - {{ files.docker.data }}/calagopus/wings/containers:/var/lib/docker/containers
+            - {{ files.docker.data }}/calagopus/wings/etc:/etc/calagopus-wings
+            - {{ files.docker.config }}/calagopus/wings/config.yml:/config.yml
+            - /tmp/calagopus-wings:/tmp/calagopus-wings
+            # -- Heavy -- #
+            - {{ files.docker.data }}/calagopus/heavy/binaries:/app/binaries
+            - {{ files.docker.data }}/calagopus/heavy/translations:/app/translations
+            - {{ files.docker.data }}/calagopus/heavy/extensions:/app/extensions
+            - {{ files.docker.data }}/calagopus/heavy/extension-migrations:/app/repo/database/extension-migrations
+        ports:
+            - {{ ports.calagopus.http }}:8000
+            - {{ ports.calagopus.sftp }}:2022
+
+    calagopus-db:
+        <<: [*default-service]
+        image: ghcr.io/calagopus/pgautoupgrade:18-alpine
+        container_name: calagopus-db
+        environment: 
+            POSTGRES_DB: calagopus-db
+            POSTGRES_USER: {{ tokens.db.user }}
+            POSTGRES_PASSWORD: {{ tokens.db.pass }}
+            PGDATA: /data
+        volumes: 
+            - {{ files.docker.data }}/calagopus/db:/data
+        healthcheck:
+            test: ["CMD", "/usr/local/bin/pgautoupgrade-healthcheck.sh"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 30s
+
+    calagopus-cache:
+        <<: [*default-service]
+        image: ghcr.io/calagopus/valkey:latest
+        container_name: calagopus-cache
+        command: --protected-mode no --save 60 1
+        volumes:
+            - calagopus-cache-vol:/data
+
+    romm:
+        <<: [*default-service]
+        image: rommapp/romm:latest
+        container_name: romm
+        depends_on:
+            romm-db:
+                condition: service_healthy
+                restart: true
+        environment: 
+            ROMM_BASE_URL: "https://romm.{{ domain.gaming }}"
+            ROMM_SESSION_SECURE_COOKIE: true
+            ROMM_CORS_ALLOWED_ORIGINS: "https://romm.{{ domain.gaming }}"
+        volumes: 
+            - {{ files.docker.config }}/romm/config:/romm/config
+            - {{ files.nfs.media }}/games:/romm/library
+            - calagopus-assets-vol:/romm/assets
+            - calagopus-resources-vol:/romm/resources
+        ports:
+            - {{ ports.romm }}:8080
+
+    romm-db:
+        <<: [*default-service]
+        image: mariadb:latest
+        container_name: romm-db
+        environment: 
+            MARIADB_DATABASE: romm
+            MARIADB_USER: {{ tokens.db.user }}
+            MARIADB_PASSWORD: {{ tokens.db.pass }}
+            MARIADB_ROOT_PASSWORD: {{ tokens.db.pass }}
+        volumes: 
+            - {{ files.docker.data }}/romm/db:/var/lib/mysql
+        healthcheck:
+            test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 30s
+
+volumes:
+    calagopus-assets-vol:
+    calagopus-resources-vol:
+    calagopus-cache-vol:
