@@ -35,10 +35,12 @@ services:
         <<: [*default-service]
         image: getwud/wud:latest
         container_name: whatsupdocker
+        user: "0:0"
         environment:
             - WUD_AUTH_ADMIN_USER=admin
-            - WUD_AUTH_ADMIN_PASSWORD={{ tokens.wud.password }}
+            - WUD_AUTH_ADMIN_PASSWORD={{ tokens.wud.pass }}
         volumes: 
+            - wud-data:/store
             - {{ files.docker.sock }}:{{ files.docker.sock }}
         ports:
             - {{ ports.whatsupdocker }}:3000
@@ -47,8 +49,9 @@ services:
         <<: [*default-service]
         image: amir20/dozzle:latest
         container_name: dozzle
-        environment:
-            DOZZLE_REMOTE_AGENT: 127.0.0.1:5555
+        user: "0:0"
+        # environment:
+        #     DOZZLE_REMOTE_AGENT:
         volumes: 
             - dozzle-data:/data
             - {{ files.docker.sock }}:{{ files.docker.sock }}
@@ -57,30 +60,64 @@ services:
 
     homelable:
         <<: [*default-service]
-        image: ghcr.io/pouzor/homelable-frontend-standalone:latest
+        image: ghcr.io/pouzor/homelable-frontend:latest
         container_name: homelable
+        user: "0:0"
+        depends_on: [backend]
         ports:
             - {{ ports.homelable }}:80
+        networks:
+            - homelable
+
+    backend:
+        <<: [*default-service]
+        image: ghcr.io/pouzor/homelable-backend:latest
+        container_name: homelable-backend
+        user: "0:0"
+        environment:
+            AUTH_MODE: 'local'
+            AUTH_USERNAME: {{ tokens.homelable.user }}
+            AUTH_PASSWORD_HASH: {{ tokens.homelable.pass }}
+            SQLITE_PATH: /app/data/homelab.db
+            SECRET_KEY: {{ credentials.db.pass }}
+            # CORS_ORIGINS: '["http://localhost:{{ ports.homelable }}","http://{{ local_ip }}:{{ ports.homelable }}"]'
+        volumes:
+            - homelable-backend:/app/data
+        networks:
+            - homelable
+        cap_add:
+            - NET_RAW
+        # healthcheck:
+        #     test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+        #     interval: 10s
+        #     timeout: 5s
+        #     retries: 6
+        #     start_period: 15s
 
     apprise:
         <<: [*default-service]
         image: caronc/apprise:latest
         container_name: apprise
+        user: "0:0"
         environment:
             APPRISE_STATEFUL_MODE: simple
             APPRISE_WORKER_COUNT: 1
             APPRISE_DEFAULT_FORMAT: "markdown"
             APPRISE_AUTH_REQUIRES: "yes"
             APPRISE_USER: admin
+            APPRISE_PASSWORD: {{ tokens.apprise.pass }}
+            APPRISE_WEB_AUTH_SECRET: {{ tokens.apprise.secret }}
         volumes:
             - {{ files.docker.config }}/apprise:/config
             - {{ files.docker.config }}/apprise/attach:/attach
-        healthcheck:
-            test: [ "CMD", "curl -fsS http://127.0.0.1:8000/status >/dev/null || exit 1" ]
-            interval: 10s
-            timeout: 5s
-            retries: 5
-            start_period: 30s
+        ports:
+            - {{ ports.apprise }}:8000
 
 volumes:
+    wud-data:
     dozzle-data:
+    homelable-backend:
+
+networks:
+  homelable:
+    driver: bridge
