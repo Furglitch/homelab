@@ -1,0 +1,30 @@
+external_templates:
+  - file: config/templates/collections.yml
+
+collections:
+
+  "James Gunn's DC Universe (DCU)":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: dc-universe-chronological
+      poster_id: 113155
+
+  "Marvel Cinematic Universe (MCU)":
+    template:
+      name: flicklist-list
+      list_author: journeyover
+      list_name: marvel-cinematic-universe
+      ignore:
+        - 299405    # [Series] WHIH Newsfront (2015)
+        - 364038    # [Series] Helstrom (2020)
+        - 361608    # [Series] Stark Expo Shorts (2010)
+        - 372497    # [Series] The Daily Bugle (2019)
+      poster_id: 145336
+
+  "Zach Snyder's DC Extended Universe (DCEU)":
+    template:
+      name: flicklist-list
+      list_author: journeyover
+      list_name: dc-extended-universe
+      poster_id: 48242

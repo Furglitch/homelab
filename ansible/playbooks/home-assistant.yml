@@ -1,0 +1,12 @@
+---
+# Home Assistant VM (10.0.XXX.XXX).
+#
+# Usage:
+#   ansible-playbook playbooks/home-assistant.yml
+
+- name: Configure Home Assistant host
+  hosts: home-assistant
+  gather_facts: true
+  roles:
+    # - baseline
+    # - 112_home-assistant   # enable once tasks/main.yml exists

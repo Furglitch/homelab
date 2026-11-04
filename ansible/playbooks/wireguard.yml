@@ -1,8 +1,0 @@
----
-- name: Apply wireguard configuration
-  hosts: wireguard
-  become: false
-  roles:
-    - baseline
-    - docker
-    - wireguard

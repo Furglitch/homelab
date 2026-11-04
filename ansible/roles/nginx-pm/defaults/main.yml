@@ -1,7 +1,0 @@
----
-ip_local: "10.0.10.231"
-
-ports:
-  npm_http: 80
-  npm_https: 443
-  npm_admin: 81

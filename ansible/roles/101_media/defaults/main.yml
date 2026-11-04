@@ -1,0 +1,42 @@
+---
+ip: "10.0.1.101"
+
+ports:
+  plex: 32400
+  seerr: 32402
+  kometa: 32403
+  tautulli: 32404
+  navidrome: 32500
+  prowlarr: 32600
+  radarr: 32601
+  sonarr: 32602
+  lidarr: 32603
+  bazarr: 32604
+
+paths:
+  - plex
+  - seerr
+  - kometa
+  - tautulli
+  - navidrome
+  - prowlarr
+  - radarr
+  - sonarr
+  - lidarr
+  - bazarr
+  - recyclarr
+
+tokens:
+  plex: "tYMztzL_rzxZ7ftGra2n"
+  seerr: ""
+  kometa: ""
+  tautulli: ""
+  navidrome: ""
+  prowlarr: ""
+  radarr: ""
+  sonarr: ""
+  lidarr: ""
+  bazarr: ""
+  recyclarr: ""
+  tmdb: ""
+  flicklist: ""

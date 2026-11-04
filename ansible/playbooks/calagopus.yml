@@ -1,9 +1,0 @@
----
-- name: Apply Calagopus configuration
-  hosts: calagopus
-  become: false
-  roles:
-    - baseline
-    - docker
-    - docker-common
-    - calagopus

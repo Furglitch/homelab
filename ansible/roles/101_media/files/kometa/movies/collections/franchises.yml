@@ -1,0 +1,354 @@
+external_templates:
+  - file: config/templates/collections.yml
+
+collections:
+
+  "Avatar":
+    template:
+      name: flicklist-list
+      list_author: kraftynic
+      list_name: avatar
+      poster_id: 672053
+
+  "Beetlejuice":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: beetlejuice
+      ignore:
+        - 4288 # Beetlejuice TV Series
+      poster_id: 534111
+
+  "Blade Runner":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: blade-runner-chronological
+      poster_id: 33975
+
+  "Breaking Bad":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: breaking-bad-chronological
+      poster_id: 503550
+
+  "Code 8":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: code-8-chronological
+      ignore:
+        - 389165  # [Short/Pilot] Code 8 (2016)
+      poster_id: 595681
+
+  "The Dark Knight":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: the-dark-knight
+      poster_id: 22275
+
+  "DragonHeart":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: dragonheart
+      poster_id: 23589
+
+  "Dune":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: dune-chronological
+      poster_id: 683520
+
+  "Eastrail 177":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: eastrail-177
+      poster_id: 10346
+
+  "The Equalizer":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: the-equalizer
+      poster_id: 37023
+
+  "Fast and Furious":
+    template:
+      name: flicklist-list
+      list_author: devsky88
+      list_name: fast-and-furious
+      ignore:
+        - 77959  # [Short] Turbo Charged Prelude (2003)
+        - 253835 # [Short] Los Bandoleros (2009)
+      poster_id: 395688
+
+  "Five Nights at Freddy's":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: five-nights-at-freddys
+      poster_id: 673998
+
+  "Has Fallen":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: has-fallen
+      poster_id: 76958
+
+  "How to Train Your Dragon":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: how-to-train-your-dragon
+      ignore:
+        - 47626  # [Short] Legend of the BoneKnapper Dragon (2019)
+        - 79379  # [Short] Book of Dragons (2011)
+        - 91417  # [Short] Dragons: Gift of the Night Fury (2011)
+        - 298115 # [Short] Dragons: Dawn of the Dragon Racers (2014)
+      poster_id: 28
+
+  "The Hunger Games":
+    template:
+      name: flicklist-list
+      list_author: kraftynic
+      list_name: hunger-games-chronological
+      poster_id: 31012
+
+  "Indiana Jones":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: indiana-jones
+      poster_id: 53303
+
+  "James Bond":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: james-bond
+      poster_id: 115662
+
+  "John Wick":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: john-wick-chronological
+      poster_id: 20710
+
+  "Jurassic Park":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: jurassic-chronological
+      poster_id: 158968
+
+  "Kingsman":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: kingsman-chronological
+      poster_id: 211641
+
+  "The Matrix":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: the-matrix
+      poster_id: 195195
+
+  "The Maze Runner":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: the-maze-runner
+      poster_id: 1026
+
+  "Men in Black":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: men-in-black
+      ignore:
+        - 479455  # [Movie] Men in Black: International
+      poster_id: 1035
+
+  "Middle Earth":
+    template:
+      name: flicklist-list
+      list_author: jamesbird
+      list_name: middle-earth-collection
+      poster_id: 61357
+
+  "Mission Impossible":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: mission-impossible
+      poster_id: 65202
+
+  "MonsterVerse":
+    template:
+      name: flicklist-list
+      list_author: journeyover
+      list_name: the-monsterverse
+      poster_id: 116534
+
+  "My Little Pony":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: my-little-pony-chronological
+      ignore:
+        - 359878  # [Short] My Little Pony (1984)
+        - 25400   # [Movie] My Little Pony: The Movie (1986)
+        - 25396   # [Short] My Little Pony: A Very Minty Christmas (2005)
+        - 256439  # [Short] My Little Pony: The Runaway Rainbow (2006)
+        - 19789   # [Short] My Little Pony: The Princess Promenade (2006)
+        - 290996  # [Short] My Little Pony: A Very Pony Place (2007)
+        - 57505   # [Short] My Little Pony: Twinkle Wish Adventure (2009)
+        - 564638  # [Short] My Little Pony: Best Gift Ever (2018)
+        - 612087  # [Movie] My Little Pony: Rainbow Roadtrip (2019)
+        - 597316  # [Movie] My Little Pony: A New Generation (2021)
+      poster_id: 524767
+
+  "Now You See Me":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: now-you-see-me
+      poster_id: 673554
+
+  "Pacific Rim":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: pacific-rim
+      poster_id: 63694
+
+  "Pirates of the Caribbean":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: pirates-of-the-caribbean
+      poster_id: 49956
+
+  "Planet of the Apes":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: planet-of-the-apes-reboot
+      poster_id: 97354
+
+  # "Pokemon":
+  #   template:
+  #     name: flicklist-list
+  #     list_author: seriouspain
+  #     list_name: pokemon
+  #     ignore:
+  #       - 33376  # [Short] Pikachu's Vacation (1998)
+  #       - 36756  # [Short] Pikachu's Rescue Adventure (1999)
+  #       - 268998 # [Short] Pokémon: Pikachu's Winter Vacation 2 (1999)
+  #       - 36753  # [Short] Pikachu and Pichu (2000)
+  #       - 293245 # [Short] Pikachu's PikaBoo (2001)
+  #       - 295613 # [Movie] Pokémon Chronicles: The Legend of Thunder! (2001)
+  #       - 211814 # [Short] Camp Pikachu (2002)
+  #       - 216651 # [Short] Pikachu's Island Adventure (2006)
+  #       - 272087 # [Short] Meloetta's Moonlight Serenade (2012)
+  #       - 249424 # [Short] Pokémon: Mewtwo - Prologue to Awakening (2013)
+  #       - 377909 # [Short] Pokémon: Eevee & Friends (2013)
+  #       - 332485 # [Short] Pikachu, What's This Key? (2014)
+  #       - 389621 # [Short] Pikachu and the Pokémon Music Squad (2015)
+  #     poster_id: 438334
+
+  "Shrek":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: shrek
+      ignore:
+        - 634064 # [Unofficial] Shrek Retold (2018)
+      poster_id: 27739
+
+  "Sonic the Hedgehog":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: sonic-the-hedgehog
+      ignore:
+        - 979296  # [Short] Sonic Drone Home (2020)
+      poster_id: 467191
+
+  "Spider-Verse":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: sonys-spider-verse
+      ignore:
+        - 526896  # [Movie] Morbius (2022)
+        - 634492  # [Movie] Madame Web (2024)
+        - 539972  # [Movie] Kraven the Hunter (2024)
+      poster_id: 311233
+
+  "Star Trek":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: star-trek-chronological
+      poster_id: 62523
+
+  "Star Wars":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: star-wars-chronological
+      poster_id: 27586
+
+  "Top Gun":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: top-gun
+      poster_id: 251518
+
+  "Transformers":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: transformers-chronological
+      poster_id: 13251
+
+  "Tron":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: tron
+      poster_id: 648839
+
+  "The Witcher":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: the-witcher-chronological
+      poster_id: 379612
+
+  "Wizarding World":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: wizarding-world-chronological
+      poster_id: 20343
+
+  "X-Men":
+    template:
+      name: flicklist-list
+      list_author: furglitch
+      list_name: x-men-chronological
+      ignore:
+        - 340102  # [Movie] The New Mutants (2020)
+      poster_id: 10

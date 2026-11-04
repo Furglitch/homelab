@@ -1,0 +1,4 @@
+[filter "redact-ip"]
+	clean = sed -E \"s/\\b([0-9]{1,3}\\.[0-9]{1,3})\\.[0-9]{1,3}\\.[0-9]{1,3}\\b/\\1.XXX.XXX/g\"
+	smudge = cat
+	required = true

@@ -1,0 +1,48 @@
+templates:
+
+  flicklist-list:
+    ignore_ids: <<ignore>>
+    collection_order: release
+    flicklist_list: "https://flicklist.tv/<<list_path>>"
+    url_poster: "<<poster>>"
+    conditionals:
+      list_path:
+        default: "lists/<<list_name>>"
+        conditions:
+          - list_author.exists: true
+            value: "u/<<list_author>>/lists/<<list_name>>"
+      poster:
+        conditions:
+          - poster_id.exists: true
+            value: "https://theposterdb.com/api/assets/<<poster_id>>"
+    optional:
+      - ignore
+      - list_author
+
+  letterboxd-list:
+    ignore_ids: <<ignore>>
+    collection_order: release
+    letterboxd_list: "https://letterboxd.com/<<list_author>>/list/<<list_name>>/"
+    url_poster: "<<poster>>"
+    conditionals:
+      poster:
+        conditions:
+          - poster_id.exists: true
+            value: "https://theposterdb.com/api/assets/<<poster_id>>"
+    optional:
+      - ignore
+      - poster_id
+
+  mdblist-list:
+    ignore_ids: <<ignore>>
+    collection_order: release
+    mdblist_list: "https://mdblist.com/lists/<<list_author>>/<<list_name>>/"
+    url_poster: "<<poster>>"
+    conditionals:
+      poster:
+        conditions:
+          - poster_id.exists: true
+            value: "https://theposterdb.com/api/assets/<<poster_id>>"
+    optional:
+      - ignore
+      - poster_id

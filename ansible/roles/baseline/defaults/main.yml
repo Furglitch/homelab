@@ -1,21 +1,10 @@
 ---
-baseline_packages:
+packages:
   - curl
   - wget
   - ca-certificates
   - gnupg
-  - lsb-release
-  - apt-transport-https
   - unzip
   - htop
-  - net-tools
+  - iproute2
   - dnsutils
-
-baseline_timezone: "America/Chicago"
-baseline_set_timezone: true
-
-# SSH hardening — safe defaults for LXC:
-# Keep root login via key-only; disable password auth.
-baseline_harden_ssh: true
-baseline_ssh_permit_root_login: "prohibit-password"
-baseline_ssh_password_auth: "no"

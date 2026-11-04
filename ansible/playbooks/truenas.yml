@@ -1,0 +1,12 @@
+---
+# TrueNAS VM (10.0.XXX.XXX): Nextcloud, Immich.
+#
+# Usage:
+#   ansible-playbook playbooks/truenas.yml
+
+- name: Configure TrueNAS host
+  hosts: truenas
+  gather_facts: true
+  roles:
+    # - baseline
+    # - 111_truenas   # enable once tasks/main.yml exists

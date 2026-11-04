@@ -1,0 +1,8 @@
+external_templates:
+  - file: config/templates/metadata-series.yml
+
+metadata:
+
+  # https://theposterdb.com/set/50563
+
+
