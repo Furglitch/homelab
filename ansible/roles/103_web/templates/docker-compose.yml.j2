@@ -2,7 +2,7 @@
 x-common-config: &default-service
     labels:
         - "deunhealth.restart.on.unhealthy=true"
-    user: "{{ puid }}:{{ pgid }}"
+    # user: "{{ puid }}:{{ pgid }}"
     environment: &default-environment
         PUID: "{{ puid }}"
         PGID: "{{ pgid }}"
@@ -16,7 +16,6 @@ services:
         <<: [*default-service]
         image: jc21/nginx-proxy-manager:latest
         container_name: nginx-pm
-        user: "0:0"
         volumes:
             - nginxpm-data:/data
             - nginxpm-le:/etc/letsencrypt
@@ -33,7 +32,6 @@ services:
         <<: [*default-service]
         image: vaultwarden/server:latest
         container_name: vaultwarden
-        user: "0:0"
         volumes:
             - vaultwarden-config:/config
             - vaultwarden-data:/data
@@ -42,7 +40,7 @@ services:
 
     protonmail-bridge:
         <<: [*default-service]
-        image: ghcr.io/dancwilliams/protonmail-bridge-docker:latest
+        image: shenxn/protonmail-bridge:latest
         container_name: protonmail
         ports:
             - {{ ports.proton.imap }}:143
