@@ -1,5 +1,5 @@
 ---
-ip: "10.0.1.102"
+local_ip: "10.0.1.102"
 
 ports:
   calagopus:

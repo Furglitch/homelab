@@ -1,6 +1,6 @@
 radarr:
   radarr_main:
-    base_url: http://{{ ip }}:{{ ports.radarr }}
+    base_url: http://{{ local_ip }}:{{ ports.radarr }}
     api_key: {{ tokens.radarr }}
     quality_definition:
       type: movie
@@ -93,7 +93,7 @@ radarr:
 
 sonarr:
   sonarr_main:
-    base_url: http://{{ ip }}:{{ ports.sonarr }}
+    base_url: http://{{ local_ip }}:{{ ports.sonarr }}
     api_key: {{ tokens.sonarr }}
     quality_definition:
       type: series

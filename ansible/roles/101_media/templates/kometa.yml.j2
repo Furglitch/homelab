@@ -164,7 +164,7 @@ settings:
   show_unfiltered: false
 
 plex:
-  url: http://{{ ip }}:{{ ports.plex }}
+  url: http://{{ local_ip }}:{{ ports.plex }}
   token: {{ tokens.plex }}
   timeout: 60
   verify_ssl:
@@ -175,7 +175,7 @@ plex:
 
 
 radarr:
-  url: http://{{ ip }}:{{ ports.radarr }}
+  url: http://{{ local_ip }}:{{ ports.radarr }}
   token: {{ tokens.radarr }}
   root_folder_path: /share/movies
   plex_path: /share/movies
@@ -193,7 +193,7 @@ radarr:
 
 
 sonarr:
-  url: http://{{ ip }}:{{ ports.sonarr }}
+  url: http://{{ local_ip }}:{{ ports.sonarr }}
   token: {{ tokens.sonarr }}
   root_folder_path: /share/series
   plex_path: /share/series
