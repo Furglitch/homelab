@@ -2,6 +2,7 @@
 x-common-config: &default-service
     labels:
         - "deunhealth.restart.on.unhealthy=true"
+    user: "{{ puid }}:{{ pgid }}"
     environment: &default-environment
         PUID: "{{ puid }}"
         PGID: "{{ pgid }}"

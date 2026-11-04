@@ -2,6 +2,7 @@
 x-common-config: &default-service
     labels:
         - "deunhealth.restart.on.unhealthy=true"
+    user: "{{ puid }}:{{ pgid }}"
     environment: &default-environment
         PUID: "{{ puid }}"
         PGID: "{{ pgid }}"
@@ -31,6 +32,7 @@ services:
         <<: [*default-service]
         image: ghcr.io/seerr-team/seerr:latest
         container_name: seerr
+        user: "{{ puid }}:{{ pgid }}"
         depends_on: [plex]
         environment: 
             LOG_LEVEL: debug
