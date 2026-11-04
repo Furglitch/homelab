@@ -16,8 +16,18 @@ services:
         <<: [*default-service]
         image: glanceapp/glance:latest
         container_name: glance
+        environment:
+            PLEX_URL: http://{{ ip.media }}:32400
+            PLEX_TOKEN: {{ credentials.plex }}
+            SEERR_URL: http://{{ ip.media }}:32402
+            SEERR_TOKEN: {{ credentials.seerr }}
+            RADARR_URL: http://{{ ip.media }}:32601
+            RADARR_TOKEN: {{ credentials.radarr }}
+            SONARR_URL: http://{{ ip.media }}:32602
+            SONARR_TOKEN: {{ credentials.sonarr }}
         volumes: 
             - {{ files.docker.config }}/glance:/app/config
+            - {{ files.docker.sock }}:{{ files.docker.sock }}:ro
         ports:
             - {{ ports.glance }}:8080
     

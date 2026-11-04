@@ -15,19 +15,19 @@ pages:
           - type: docker-containers # 101_media
             title: Media Containers
             category: glance
-            sock-path: http://10.0.XXX.XXX:2375
+            sock-path: http://10.0.1.101:2375
           - type: docker-containers # 102_games
             title: Gaming Containers
             category: glance
-            sock-path: http://10.0.XXX.XXX:2375
+            sock-path: http://10.0.1.102:2375
           - type: docker-containers # 103_web
             title: Web Containers
             category: glance
-            sock-path: http://10.0.XXX.XXX:2375
+            sock-path: http://10.0.1.103:2375
           - type: docker-containers # 105_download
             title: Download Containers
             category: glance
-            sock-path: http://10.0.XXX.XXX:2375
+            sock-path: http://10.0.1.105:2375
           - type: docker-containers # 120_monitor
             title: Monitoring Containers
             category: glance

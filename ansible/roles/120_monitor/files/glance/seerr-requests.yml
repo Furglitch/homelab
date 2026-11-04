@@ -4,7 +4,7 @@
   cache: 5m
   options:
     seerr-url: ${SEERR_URL}
-    api-key: ${SEERR_API_KEY}
+    api-key: ${SEERR_TOKEN}
     # link-url: https://seerr.example.com   # where browsers reach Seerr, if not seerr-url
     filter: pending       # pending | all | approved | processing | available | unavailable | failed
     sort: added           # added | modified
@@ -35,7 +35,7 @@
       <div class="text-center">
         <p class="color-negative">Could not load requests (HTTP {{ $list.Response.StatusCode }})</p>
         <p class="size-h6 color-subdue margin-top-3">
-          {{ if eq $list.Response.StatusCode 403 }}Check SEERR_API_KEY.{{ else }}Check SEERR_URL and that Seerr is reachable from Glance.{{ end }}
+          {{ if eq $list.Response.StatusCode 403 }}Check SEERR_TOKEN.{{ else }}Check SEERR_URL and that Seerr is reachable from Glance.{{ end }}
         </p>
       </div>
     {{ else }}

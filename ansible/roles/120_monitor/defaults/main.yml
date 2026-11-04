@@ -1,6 +1,10 @@
 ---
 local_ip: "10.0.1.120"
 
+paths:
+  config:
+    - glance
+
 ports:
   glance:    8080
   whatsupdocker:   8081

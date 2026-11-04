@@ -1,4 +1,27 @@
 ---
+
+- name: Create config directory structure
+  ansible.builtin.file:
+    path: "{{ files.docker.config }}/{{ item }}"
+    state: directory
+    mode: "0755"
+  loop: "{{ paths.config | list }}"
+
+- name: Ensure config paths are writable by containers
+  ansible.builtin.file:
+    path: "{{ files.docker.config }}"
+    state: directory
+    owner: "{{ puid }}"
+    group: "{{ pgid }}"
+    mode: "0775"
+    recurse: true
+
+- name: Copy Glance config files
+  ansible.builtin.copy:
+    src: glance/
+    dest: "{{ files.docker.config }}/glance/"
+    mode: "0644"
+
 - name: Remove stale default compose filenames
   ansible.builtin.file:
     path: "{{ files.docker.root}}/{{ item }}"
