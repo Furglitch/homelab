@@ -2,7 +2,7 @@
 variable "pve_host_ip" {
   description = "IP address of the Proxmox host"
   type        = string
-  default     = "10.0.XXX.XXX"
+  default     = "10.0.1.100"
 }
 variable "pve_host_node" {
   description = "Name of the Proxmox node to manage"
@@ -12,7 +12,7 @@ variable "pve_host_node" {
 variable "pve_api_url" {
   description = "URL of the Proxmox API endpoint"
   type        = string
-  default     = "https://10.0.XXX.XXX:8006/api2/json"
+  default     = "https://10.0.1.100:8006/api2/json"
 }
 variable "pve_api_token_id" {
   description = "Proxmox API token ID for authentication"
@@ -207,7 +207,7 @@ variable "image_homeassistant_version" {
 variable "image_homeassistant_sha256" {
   description = "Expected SHA256 checksum for the Home Assistant VM image"
   type        = string
-  default     = "1616dd368542591f7b144fc4b21fae51c8d1d23b4545a5b3904011d11ed724a3"
+  default     = "756ec485b1b153099ca53e88a5eebd63a801d56b791afe5c6d63ef94a35dc02d"
 }
 
 # VM Options

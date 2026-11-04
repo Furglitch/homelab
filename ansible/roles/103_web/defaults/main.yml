@@ -1,8 +1,8 @@
 ---
-ip: "10.0.XXX.XXX"
+ip: "10.0.1.103"
 
 ports:
-  nginx:
+  npm:
     admin: 81
     http:  80
     https: 443

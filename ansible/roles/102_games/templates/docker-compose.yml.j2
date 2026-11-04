@@ -20,9 +20,10 @@ services:
                 condition: service_healthy
                 restart: true
             calagopus-cache:
+                condition: service_started
         environment:
             REDIS_URL: redis://cache
-            DATABASE_URL: postgresql://{{ tokens.db.user }}:{{ tokens.db.pass }}@db/panel
+            DATABASE_URL: {{ ('postgresql://' ~ (credentials.db.user | trim | urlencode) ~ ':' ~ (credentials.db.pass | trim | urlencode) ~ '@db/panel') | to_json }}
             AIO_BASE_WINGS_CONFIGURATION: /config.yml
             APP_LOG_DIRECTORY: /var/log/calagopus
             APP_ENABLE_WINGS_PROXY: "true"
@@ -54,8 +55,8 @@ services:
         container_name: calagopus-db
         environment: 
             POSTGRES_DB: calagopus-db
-            POSTGRES_USER: {{ tokens.db.user }}
-            POSTGRES_PASSWORD: {{ tokens.db.pass }}
+            POSTGRES_USER: {{ credentials.db.user | trim | to_json }}
+            POSTGRES_PASSWORD: {{ credentials.db.pass | trim | to_json }}
             PGDATA: /data
         volumes: 
             - {{ files.docker.data }}/calagopus/db:/data
@@ -100,9 +101,9 @@ services:
         container_name: romm-db
         environment: 
             MARIADB_DATABASE: romm
-            MARIADB_USER: {{ tokens.db.user }}
-            MARIADB_PASSWORD: {{ tokens.db.pass }}
-            MARIADB_ROOT_PASSWORD: {{ tokens.db.pass }}
+            MARIADB_USER: {{ credentials.db.user | trim | to_json }}
+            MARIADB_PASSWORD: {{ credentials.db.pass | trim | to_json }}
+            MARIADB_ROOT_PASSWORD: {{ credentials.db.pass | trim | to_json }}
         volumes: 
             - {{ files.docker.data }}/romm/db:/var/lib/mysql
         healthcheck:

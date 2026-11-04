@@ -37,7 +37,7 @@ services:
         image: amir20/dozzle:latest
         container_name: dozzle
         environment:
-            DOZZLE_REMOTE_AGENT: 127.0.XXX.XXX:5555
+            DOZZLE_REMOTE_AGENT: 127.0.0.1:5555
         volumes: 
             - dozzle-data:/data
             - {{ files.docker.sock }}:{{ files.docker.sock }}
@@ -65,7 +65,7 @@ services:
             - {{ files.docker.config }}/apprise:/config
             - {{ files.docker.config }}/apprise/attach:/attach
         healthcheck:
-            test: [ "CMD", "curl -fsS http://127.0.XXX.XXX:8000/status >/dev/null || exit 1" ]
+            test: [ "CMD", "curl -fsS http://127.0.0.1:8000/status >/dev/null || exit 1" ]
             interval: 10s
             timeout: 5s
             retries: 5

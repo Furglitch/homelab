@@ -1,5 +1,5 @@
 ---
-ip: "10.0.XXX.XXX"
+ip: "10.0.1.102"
 
 ports:
   calagopus:
@@ -7,24 +7,21 @@ ports:
     sftp: 2022
   romm:   8080
 
-files:
-  docker:
-    config:
-      calagopus:
-        - calagopus
-        - calagopus/wings
-    data:
-      calagopus:
-        - calagopus
-        - calagopus/db
-        - calagopus/panel
-        - calagopus/panel/data
-        - calagopus/panel/logs
-        - calagopus/wings
-        - calagopus/wings/data
-        - calagopus/wings/logs
-        - calagopus/wings/containers
-        - calagopus/wings/etc
+paths:
+  config:
+      - calagopus
+      - calagopus/wings
+  data:
+      - calagopus
+      - calagopus/db
+      - calagopus/panel
+      - calagopus/panel/data
+      - calagopus/panel/logs
+      - calagopus/wings
+      - calagopus/wings/data
+      - calagopus/wings/logs
+      - calagopus/wings/containers
+      - calagopus/wings/etc
 
 tokens:
   calagopus:

@@ -1,5 +1,5 @@
 ---
-ip: "10.0.XXX.XXX"
+ip: "10.0.1.120"
 
 ports:
   glance:    8080

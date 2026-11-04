@@ -102,8 +102,8 @@ ENDSSH
 resource "null_resource" "truenas_share_mounts" {
 	triggers = {
 		proxmox_host = var.pve_host_ip
-		media_share  = "${network_ip_prefix}201:${var.share_mp_media}"
-		cloud_share  = "${network_ip_prefix}201:${var.share_mp_cloud}"
+		media_share  = "${var.network_ip_prefix}111:${var.share_mp_media}"
+		cloud_share  = "${var.network_ip_prefix}111:${var.share_mp_cloud}"
 	}
 
 	provisioner "local-exec" {
@@ -117,13 +117,13 @@ resource "null_resource" "truenas_share_mounts" {
 			apt-get install -y nfs-common
 
 			mkdir -p ${var.share_mp_media}
-		grep -qxF '${network_ip_prefix}201:/mnt/tank/media ${var.share_mp_media} nfs defaults,_netdev,noatime 0 0' /etc/fstab || \
-			echo '${network_ip_prefix}201:/mnt/tank/media ${var.share_mp_media} nfs defaults,_netdev,noatime 0 0' >> /etc/fstab
+		grep -qxF '${var.network_ip_prefix}111:/mnt/tank/media ${var.share_mp_media} nfs defaults,_netdev,noatime 0 0' /etc/fstab || \
+			echo '${var.network_ip_prefix}111:/mnt/tank/media ${var.share_mp_media} nfs defaults,_netdev,noatime 0 0' >> /etc/fstab
 		timeout 30 mount ${var.share_mp_media} || echo "WARNING: Failed to mount media share (TrueNAS may be offline)"
 
 		mkdir -p ${var.share_mp_cloud}
-		grep -qxF '${network_ip_prefix}201:/mnt/tank/cloud ${var.share_mp_cloud} nfs defaults,_netdev,noatime 0 0' /etc/fstab || \
-			echo '${network_ip_prefix}201:/mnt/tank/cloud ${var.share_mp_cloud} nfs defaults,_netdev,noatime 0 0' >> /etc/fstab
+		grep -qxF '${var.network_ip_prefix}111:/mnt/tank/cloud ${var.share_mp_cloud} nfs defaults,_netdev,noatime 0 0' /etc/fstab || \
+			echo '${var.network_ip_prefix}111:/mnt/tank/cloud ${var.share_mp_cloud} nfs defaults,_netdev,noatime 0 0' >> /etc/fstab
 		timeout 30 mount ${var.share_mp_cloud} || echo "WARNING: Failed to mount cloud share (TrueNAS may be offline)"
 
 		echo "fstab entries are in place. Mounts will be available once TrueNAS is reachable."

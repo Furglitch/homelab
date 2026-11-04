@@ -45,3 +45,30 @@ resource "proxmox_lxc" "download" {
     ]
   }
 }
+
+resource "null_resource" "enable_tun" {
+  depends_on = [
+    proxmox_lxc.download,
+  ]
+
+  triggers = {
+    lxc_id         = "105"
+    config_version = "1"
+  }
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      ssh -o StrictHostKeyChecking=no \
+        root@${var.pve_host_ip} bash <<'ENDSSH'
+
+      grep -qxF 'lxc.cgroup2.devices.allow: c 10:200 rwm' /etc/pve/lxc/105.conf || \
+        echo 'lxc.cgroup2.devices.allow: c 10:200 rwm' >> /etc/pve/lxc/105.conf
+
+      grep -qxF 'lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file' /etc/pve/lxc/105.conf || \
+        echo 'lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file' >> /etc/pve/lxc/105.conf
+
+      pct reboot 105 || pct start 105
+ENDSSH
+    EOT
+  }
+}

@@ -10,6 +10,15 @@
       - runc
     state: absent
 
+- name: Ensure dependencies are installed
+  ansible.builtin.apt:
+    name:
+      - gnupg
+      - ca-certificates
+      - curl
+    state: present
+    update_cache: true
+
 - name: Create apt keyring directory
   ansible.builtin.file:
     path: /etc/apt/keyrings
@@ -17,7 +26,7 @@
     mode: "0755"
 
 - name: Download Docker GPG key
-  ansible.builtin.file:
+  ansible.builtin.get_url:
     url: https://download.docker.com/linux/debian/gpg
     dest: /etc/apt/keyrings/docker.asc
     mode: "0644"
@@ -54,10 +63,3 @@
     state: directory
     mode: "0755"
   loop: "{{ files.docker.values() | reject('equalto', files.docker.sock) | list }}"
-
-- name: Create NFS mountpoint directories
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: "0755"
-  loop: "{{ files.nfs.values() | list }}"

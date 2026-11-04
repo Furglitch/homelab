@@ -33,7 +33,7 @@ resource "proxmox_virtual_environment_vm" "home-assistant" {
     datastore_id = var.storage_container
     file_id      = proxmox_virtual_environment_download_file.image_homeassistant.id
     interface    = "scsi0"
-    size         = 16
+    size         = 32
     iothread     = true
     discard      = "on"
   }

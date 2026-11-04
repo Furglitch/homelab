@@ -53,64 +53,29 @@ resource "proxmox_lxc" "media" {
   }
 }
 
-resource "null_resource" "docker_media_tun" {
+resource "null_resource" "enable_dri" {
   depends_on = [
-    null_resource.truenas_share_mounts,
+    proxmox_lxc.media,
   ]
 
   triggers = {
     lxc_id         = "101"
-    config_version = "2"
+    config_version = "1"
   }
 
   provisioner "local-exec" {
     command = <<-EOT
-			echo "[[[PASSWORD ENTRY NEEDED]]]"
+      ssh -o StrictHostKeyChecking=no \
+        root@${var.pve_host_ip} bash <<'ENDSSH'
 
-			ssh -o StrictHostKeyChecking=no \
-				root@${var.pve_host_ip} bash << 'ENDSSH'
+      grep -qxF 'lxc.cgroup2.devices.allow: c 226:* rwm' /etc/pve/lxc/101.conf || \
+        echo 'lxc.cgroup2.devices.allow: c 226:* rwm' >> /etc/pve/lxc/101.conf
 
-			grep -qxF 'root:1000:1' /etc/subuid || \
-				echo 'root:1000:1' >> /etc/subuid
+      grep -qxF 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' /etc/pve/lxc/101.conf || \
+        echo 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' >> /etc/pve/lxc/101.conf
 
-			grep -qxF 'root:1000:1' /etc/subgid || \
-				echo 'root:1000:1' >> /etc/subgid
-
-			grep -qxF 'lxc.cgroup2.devices.allow: c 10:200 rwm' /etc/pve/lxc/101.conf || \
-				echo 'lxc.cgroup2.devices.allow: c 10:200 rwm' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file' /etc/pve/lxc/101.conf || \
-				echo 'lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.cgroup2.devices.allow: c 226:* rwm' /etc/pve/lxc/101.conf || \
-				echo 'lxc.cgroup2.devices.allow: c 226:* rwm' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' /etc/pve/lxc/101.conf || \
-				echo 'lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.mount.entry: ${var.share_mp_media} nfs/media none bind,optional,create=dir' /etc/pve/lxc/101.conf || \
-				echo 'lxc.mount.entry: ${var.share_mp_media} nfs/media none bind,optional,create=dir' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.idmap: u 0 100000 1000' /etc/pve/lxc/101.conf || \
-				echo 'lxc.idmap: u 0 100000 1000' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.idmap: g 0 100000 1000' /etc/pve/lxc/101.conf || \
-				echo 'lxc.idmap: g 0 100000 1000' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.idmap: u 1000 1000 1' /etc/pve/lxc/101.conf || \
-				echo 'lxc.idmap: u 1000 1000 1' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.idmap: g 1000 1000 1' /etc/pve/lxc/101.conf || \
-				echo 'lxc.idmap: g 1000 1000 1' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.idmap: u 1001 101001 64535' /etc/pve/lxc/101.conf || \
-				echo 'lxc.idmap: u 1001 101001 64535' >> /etc/pve/lxc/101.conf
-
-			grep -qxF 'lxc.idmap: g 1001 101001 64535' /etc/pve/lxc/101.conf || \
-				echo 'lxc.idmap: g 1001 101001 64535' >> /etc/pve/lxc/101.conf
-
-			pct reboot 101 || pct start 101
+      pct reboot 101 || pct start 101
 ENDSSH
-		EOT
+    EOT
   }
 }
