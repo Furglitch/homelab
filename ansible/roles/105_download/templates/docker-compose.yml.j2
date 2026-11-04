@@ -18,7 +18,7 @@ services:
         container_name: deunhealth
         build: .
         environment:
-            - HEALTH_SERVER_ADDRESS=127.0.XXX.XXX:9999
+            - HEALTH_SERVER_ADDRESS=127.0.0.1:9999
             - LOG_LEVEL=debug
 
     gluetun:
@@ -59,7 +59,7 @@ services:
         volumes:
             - {{ files.docker.config }}/qbittorrent:/config
             - {{ files.nfs.media }}/downloads/torrent:/downloads
-            - qbittorrent_incomplete:/incomplete
+            - /home/incomplete/torrent:/incomplete
         # ports:
         #     - {{ ports.qbittorrent.ui }}:{{ ports.qbittorrent.ui }}
         #     - {{ ports.qbittorrent.io }}:{{ ports.qbittorrent.io }}
@@ -74,10 +74,6 @@ services:
         volumes:
             - {{ files.docker.config }}/sabnzbd:/config
             - {{ files.nfs.media }}/downloads/usenet:/downloads
-            - sabnzbd_incomplete:/incomplete
+            - /home/incomplete/usenet:/incomplete
         # ports:
         #     - {{ ports.sabnzbd }}:8080
-
-volumes:
-    qbittorrent_incomplete:
-    sabnzbd_incomplete:

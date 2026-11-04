@@ -100,8 +100,8 @@ services:
         depends_on: [prowlarr]
         volumes: 
             - {{ files.docker.config }}/radarr:/config
-            - {{ files.nfs.media }}/movies:/share/movies
-            - {{ files.nfs.media }}/downloads:/share/downloads
+            - {{ files.nfs.media }}/movies:/movies
+            - {{ files.nfs.media }}/downloads:/downloads
         ports: 
             - {{ ports.radarr }}:7878
 
@@ -112,8 +112,8 @@ services:
         depends_on: [prowlarr]
         volumes: 
             - {{ files.docker.config }}/sonarr:/config
-            - {{ files.nfs.media }}/series:/share/series
-            - {{ files.nfs.media }}/downloads:/share/downloads
+            - {{ files.nfs.media }}/series:/series
+            - {{ files.nfs.media }}/downloads:/downloads
         ports: 
             - {{ ports.sonarr }}:8989
 
@@ -124,8 +124,8 @@ services:
         depends_on: [prowlarr]
         volumes: 
             - {{ files.docker.config }}/lidarr:/config
-            - {{ files.nfs.media }}/music:/share/music
-            - {{ files.nfs.media }}/downloads:/share/downloads
+            - {{ files.nfs.media }}/music:/music
+            - {{ files.nfs.media }}/downloads:/downloads
         ports: 
             - {{ ports.lidarr }}:8686
 
@@ -136,8 +136,8 @@ services:
         depends_on: [prowlarr]
         volumes: 
             - {{ files.docker.config }}/bazarr:/config
-            - {{ files.nfs.media }}/movies:/share/movies
-            - {{ files.nfs.media }}/series:/share/series
+            - {{ files.nfs.media }}/movies:/movies
+            - {{ files.nfs.media }}/series:/series
         ports: 
             - {{ ports.bazarr }}:6767
 

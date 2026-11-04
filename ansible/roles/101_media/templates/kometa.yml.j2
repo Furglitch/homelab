@@ -105,6 +105,9 @@ libraries:
       - file: /config/series/metadata/studios/dropout.yml
       - file: /config/series/metadata/studios/marvel.yml
 
+playlist_files:
+  - file: /config/playlists/chronological.yml
+
 settings:
   run_order:
     - operations
@@ -181,7 +184,7 @@ radarr:
   plex_path: /share/movies
   add_missing: true
   monitor: true
-  quality_profile: TRaSH_WEB-1080p
+  quality_profile: VIAL-1080p
   availability: released
   add_existing: false
   upgrade_existing: true
@@ -199,7 +202,7 @@ sonarr:
   plex_path: /share/series
   add_missing: true
   monitor: all
-  quality_profile: TRaSH_WEB-720p
+  quality_profile: VIAL-720p
   availability: released
   language_profile: English
   series_type: standard
