@@ -25,6 +25,7 @@ services:
         <<: [*default-service]
         image: qmcgaw/gluetun:latest
         container_name: gluetun
+        user: "0:0"
         labels:
             - "deunhealth.restart.on.unhealthy=false"
         cap_add: [NET_ADMIN]

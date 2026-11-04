@@ -16,6 +16,7 @@ services:
         <<: [*default-service]
         image: jc21/nginx-proxy-manager:latest
         container_name: nginx-pm
+        user: "0:0"
         volumes:
             - nginxpm-data:/data
             - nginxpm-le:/etc/letsencrypt
@@ -32,6 +33,7 @@ services:
         <<: [*default-service]
         image: vaultwarden/server:latest
         container_name: vaultwarden
+        user: "0:0"
         volumes:
             - vaultwarden-config:/config
             - vaultwarden-data:/data
