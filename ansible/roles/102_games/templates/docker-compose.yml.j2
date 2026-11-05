@@ -2,7 +2,6 @@
 x-common-config: &default-service
     labels:
         - "deunhealth.restart.on.unhealthy=true"
-    user: "{{ puid }}:{{ pgid }}"
     environment: &default-environment
         PUID: "{{ puid }}"
         PGID: "{{ pgid }}"
@@ -23,8 +22,9 @@ services:
             calagopus-cache:
                 condition: service_started
         environment:
-            REDIS_URL: redis://cache
-            DATABASE_URL: {{ ('postgresql://' ~ (credentials.db.user | trim | urlencode) ~ ':' ~ (credentials.db.pass | trim | urlencode) ~ '@db/panel') | to_json }}
+            REDIS_URL: redis://calagopus-cache
+            DATABASE_URL: {{ ('postgresql://' ~ (credentials.db.user | trim | urlencode) ~ ':' ~ (credentials.db.pass | trim | urlencode) ~ '@calagopus-db:5432/calagopus-db') | to_json }}
+            DATABASE_MIGRATE: "true"
             AIO_BASE_WINGS_CONFIGURATION: /config.yml
             APP_LOG_DIRECTORY: /var/log/calagopus
             APP_ENABLE_WINGS_PROXY: "true"
@@ -74,7 +74,7 @@ services:
         container_name: calagopus-cache
         command: --protected-mode no --save 60 1
         volumes:
-            - calagopus-cache-vol:/data
+            - calagopus-cache:/data
 
     romm:
         <<: [*default-service]
@@ -100,8 +100,8 @@ services:
         volumes: 
             - {{ files.docker.config }}/romm/config:/romm/config
             - {{ files.nfs.media }}/games:/romm/library
-            - calagopus-assets-vol:/romm/assets
-            - calagopus-resources-vol:/romm/resources
+            - romm-assets:/romm/assets
+            - romm-resources:/romm/resources
         ports:
             - {{ ports.romm }}:8080
 
@@ -124,6 +124,6 @@ services:
             start_period: 30s
 
 volumes:
-    calagopus-assets-vol:
-    calagopus-resources-vol:
-    calagopus-cache-vol:
+    romm-assets:
+    romm-resources:
+    calagopus-cache:

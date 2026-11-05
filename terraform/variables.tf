@@ -227,7 +227,7 @@ variable "vm_boot_start_onboot" {
 variable "lxc_unprivileged" {
   description = "Whether to create unprivileged LXC containers (recommended for production use)"
   type        = bool
-  default     = true
+  default     = false
 }
 
 
