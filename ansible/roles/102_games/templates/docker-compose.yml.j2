@@ -89,14 +89,13 @@ services:
             DB_NAME: romm
             DB_USER: {{ credentials.db.user | trim | to_json }}
             DB_PASSWD: {{ credentials.db.pass | trim | to_json }}
-            ROMM_BASE_URL: "https://romm.{{ domain.gaming }}"
+            ROMM_BASE_URL: https://romm.{{ domain.gaming }}
             ROMM_SESSION_SECURE_COOKIE: true
-            ROMM_CORS_ALLOWED_ORIGINS: "https://romm.{{ domain.gaming }}"
-            ROMM_AUTH_SECRET_KEY: "{{ tokens.romm.auth }}"
-            SCREENSCRAPER_USER: "{{ tokens.romm.screenscraper.user }}"
-            SCREENSCRAPER_PASSWORD: "{{ tokens.romm.screenscraper.pass }}"
-            RETROACHIEVEMENTS_API_KEY: "{{ tokens.romm.retroachievements }}"
-            STEAMGRIDDB_API_KEY: "{{ tokens.romm.steamgriddb }}"
+            ROMM_CORS_ALLOWED_ORIGINS: https://romm.{{ domain.gaming }}
+            SCREENSCRAPER_USER: {{ tokens.romm.screenscraper.user }}
+            SCREENSCRAPER_PASSWORD: {{ tokens.romm.screenscraper.pass }}
+            RETROACHIEVEMENTS_API_KEY: {{ tokens.romm.retroachievements }}
+            STEAMGRIDDB_API_KEY: {{ tokens.romm.steamgriddb }}
         volumes: 
             - {{ files.docker.config }}/romm/config:/romm/config
             - {{ files.nfs.media }}/games:/romm/library

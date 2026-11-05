@@ -57,7 +57,7 @@ resource "proxmox_virtual_environment_vm" "truenas" {
   #     }
   # }
 
-  boot_order = ["scsi0", "ide2"]
+  boot_order = ["scsi0"] #, "ide2"]
 
   lifecycle {
     ignore_changes = [
