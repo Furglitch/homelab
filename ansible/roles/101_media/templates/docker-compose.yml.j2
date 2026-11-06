@@ -56,6 +56,7 @@ services:
         <<: [*default-service]
         image: lscr.io/linuxserver/kometa:latest
         container_name: kometa
+        user: "0:0"
         depends_on: [plex, sonarr, radarr]
         environment: 
             - "KOMETA_CONFIG=/config/config.yml"
