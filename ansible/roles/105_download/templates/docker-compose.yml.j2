@@ -58,7 +58,7 @@ services:
             TORRENTING_PORT: {{ ports.qbittorrent.io }}
         volumes:
             - {{ files.docker.config }}/qbittorrent:/config
-            - {{ files.nfs.media }}/downloads/torrent:/downloads
+            - {{ files.nfs.media }}/downloads:/downloads
             - /home/incomplete/torrent:/incomplete
         # ports:
         #     - {{ ports.qbittorrent.ui }}:{{ ports.qbittorrent.ui }}
@@ -73,7 +73,7 @@ services:
             - "deunhealth.restart.on.unhealthy=false"
         volumes:
             - {{ files.docker.config }}/sabnzbd:/config
-            - {{ files.nfs.media }}/downloads/usenet:/downloads
+            - {{ files.nfs.media }}/downloads:/downloads
             - /home/incomplete/usenet:/incomplete
         # ports:
         #     - {{ ports.sabnzbd }}:8080
